@@ -25,6 +25,32 @@ heroTransparent: true
 
 <main id="main-content">
 
+  <section id="updates" aria-labelledby="updates-heading" class="updates-section">
+    <div class="section-inner">
+      <div class="updates-header">
+        <div>
+          <div class="section-label on-dark">New &amp; Noteworthy</div>
+          <h2 id="updates-heading" class="section-heading on-dark">Recent Updates</h2>
+          <p class="updates-intro">Recently added events, conferences, publications, and community announcements from across the Agni Yoga world.</p>
+        </div>
+        <a href="/news/" class="updates-all-link on-dark">All updates &amp; events &rarr;</a>
+      </div>
+      <div class="updates-grid">
+        {% for item in collections.news | limit(3) %}
+        <article class="update-card{% if loop.first %} update-card-featured{% endif %}">
+          <span class="update-tag">{{ item.data.tag }}</span>
+          <h3>{{ item.data.title }}</h3>
+          <p>{{ item.data.summary }}</p>
+          <div class="update-meta">
+            {{ item.data.date_label if item.data.date_label }}
+            {% if item.data.link %} &middot; <a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.link_text if item.data.link_text else "Details →" }}</a>{% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
   <section id="about" aria-labelledby="about-heading" class="about-section">
     <div class="section-inner">
       <div class="about-grid">
@@ -44,31 +70,6 @@ heroTransparent: true
           </div>
           {% endfor %}
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="news" aria-labelledby="news-heading" class="news-section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div>
-          <div class="section-label">Around the World</div>
-          <h2 id="news-heading" class="section-heading">News &amp; Events</h2>
-        </div>
-        <a href="/news/" class="section-all-link">All events &rarr;</a>
-      </div>
-      <div class="card-grid card-grid-3">
-        {% for item in collections.news | limit(3) %}
-        <div class="card">
-          <span class="card-tag">{{ item.data.tag }}</span>
-          <h3>{{ item.data.title }}</h3>
-          <p>{{ item.data.summary }}</p>
-          <div class="card-date">
-            {{ item.data.date_label if item.data.date_label }}
-            {% if item.data.link %} &middot; <a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.link_text if item.data.link_text else "Details →" }}</a>{% endif %}
-          </div>
-        </div>
-        {% endfor %}
       </div>
     </div>
   </section>
