@@ -16,10 +16,10 @@
 
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <nav class="{% if heroTransparent %}transparent{% endif %}" aria-label="Main navigation">
+  <nav aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="nav-logo on-dark">AYWC</a>
       <div class="nav-links">
+        <a href="/" class="on-dark{% if navPage == 'home' %} active{% endif %}">Home</a>
         <a href="/about/" class="on-dark{% if navPage == 'about' %} active{% endif %}">About</a>
         <a href="/news/" class="on-dark{% if navPage == 'news' %} active{% endif %}">News &amp; Events</a>
         <a href="/groups/" class="on-dark{% if navPage == 'groups' %} active{% endif %}">Study Groups</a>
@@ -28,17 +28,6 @@
       </div>
     </div>
   </nav>
-
-  {% if heroTransparent %}
-  <script>
-    (function() {
-      var nav = document.querySelector('nav');
-      function update() { nav.classList.toggle('scrolled', window.scrollY > 40); }
-      window.addEventListener('scroll', update, { passive: true });
-      update();
-    })();
-  </script>
-  {% endif %}
 
   {{ content | safe }}
 
