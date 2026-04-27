@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: "Resources"
+navPage: "resources"
+permalink: "/resources/index.html"
+metaDescription: "Freely available texts, study aids, paintings, and multimedia to support your study of the Agni Yoga teachings."
+---
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label on-dark">Open Access</div>
+    <h1 class="page-hero-title">Resources</h1>
+    <p class="page-hero-subtitle">Freely available texts, study aids, and multimedia materials to support your study of the teachings.</p>
+    <div class="page-hero-line"></div>
+  </div>
+</div>
+
+<main id="main-content" style="background:var(--bg);padding:4rem 3rem;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="card-grid card-grid-3" id="texts">
+      {% for resource in collections.resources %}
+      <{% if resource.data.link %}a href="{{ resource.data.link }}"{% if resource.data.external %} target="_blank" rel="noopener"{% endif %}{% else %}div{% endif %} class="card">
+        <div class="accent-line"></div>
+        <h3>{{ resource.data.title }}</h3>
+        <p>{{ resource.data.description }}</p>
+        {% if resource.data.link %}
+        <div style="color:var(--accent);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-top:1.2rem;">{{ resource.data.link_text if resource.data.link_text else "View →" }}</div>
+        {% endif %}
+      </{% if resource.data.link %}a{% else %}div{% endif %}>
+      {% endfor %}
+    </div>
+  </div>
+</main>

@@ -1,0 +1,67 @@
+---
+layout: base.njk
+title: "Join & Connect"
+navPage: "join"
+permalink: "/join/index.html"
+metaDescription: "Get in touch with the Agni Yoga World Community. Register your study group, submit news, contribute resources, or volunteer."
+---
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label on-dark">Open to All</div>
+    <h1 class="page-hero-title">Join &amp; Connect</h1>
+    <p class="page-hero-subtitle">The Agni Yoga World Community is volunteer-run with no formal membership or hierarchy. Whether you are new to the teachings or an experienced student, you are welcome here.</p>
+    <div class="page-hero-line"></div>
+  </div>
+</div>
+
+<main id="main-content" class="form-section">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="form-grid">
+
+      <div>
+        <div class="section-label">Get Involved</div>
+        <h2 class="section-heading" style="margin-bottom:1.5rem;">How to participate</h2>
+        {% for item in ["Connect with an existing local study group", "Register your own group in the directory", "Contribute resources, translations, or articles", "Share news of events in your region", "Volunteer to help maintain this site"] %}
+        <div class="join-item" style="margin-bottom:0.9rem;">
+          <span style="color:var(--accent);margin-top:3px;flex-shrink:0;font-size:0.7rem;">✦</span>
+          <span style="color:var(--text-muted);font-size:0.875rem;font-weight:300;line-height:1.6;">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div>
+        <div class="section-label">Contact Us</div>
+        <h2 class="section-heading" style="margin-bottom:1.5rem;">Send a Message</h2>
+        <form name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true" />
+          </div>
+          <div class="field">
+            <label for="reason">Reason for contact</label>
+            <select id="reason" name="reason">
+              <option value="">Select one&hellip;</option>
+              <option>General enquiry</option>
+              <option>Register a study group</option>
+              <option>Submit news or event</option>
+              <option>Contribute resources</option>
+              <option>Volunteer offer</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your message&hellip;" required aria-required="true"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</main>

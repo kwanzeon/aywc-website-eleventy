@@ -1,5 +1,7 @@
 ---
 title: "Agni Yoga Society"
+region: "Americas"
+format: "In-person & Online"
 location: "New York, USA"
 address: "319 West 107th Street, New York, NY 10025, USA"
 phone: "(212) 864-7752"

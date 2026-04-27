@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: "News & Events"
+navPage: "news"
+permalink: "/news/index.html"
+metaDescription: "Upcoming gatherings, recent announcements, and community updates from around the Agni Yoga world."
+---
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label on-dark">Around the World</div>
+    <h1 class="page-hero-title">News &amp; Events</h1>
+    <p class="page-hero-subtitle">Upcoming gatherings, recent announcements, and community updates from around the world.</p>
+    <div class="page-hero-line"></div>
+  </div>
+</div>
+
+<main id="main-content" style="background:var(--bg);padding:4rem 3rem;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="card-grid card-grid-3">
+      {% for item in collections.news %}
+      <div class="card">
+        <span class="card-tag">{{ item.data.tag }}</span>
+        <h3>{{ item.data.title }}</h3>
+        <p>{{ item.data.summary }}</p>
+        <div class="card-date">
+          {{ item.data.date_label if item.data.date_label }}
+          {% if item.data.link %} &middot; <a href="{{ item.data.link }}" target="_blank" rel="noopener" style="color:var(--accent);">{{ item.data.link_text if item.data.link_text else "Details →" }}</a>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border);text-align:center;">
+      <div class="section-label" style="text-align:center;">Submit an item</div>
+      <p style="color:var(--text-muted);font-size:0.95rem;font-weight:300;line-height:1.7;max-width:520px;margin:0.8rem auto 1.5rem;">Have a conference, publication, or community announcement to share? Send it to us and we will add it to the directory.</p>
+      <a class="btn btn-primary" href="/join/">Submit news or event &rarr;</a>
+    </div>
+  </div>
+</main>

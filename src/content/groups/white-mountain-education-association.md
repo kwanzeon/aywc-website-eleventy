@@ -1,5 +1,7 @@
 ---
 title: White Mountain Education Association
+region: Americas
+format: In-person & Online
 location: Prescott, Arizona, USA
 address: PO Box 11975, Prescott, AZ 86304, USA
 phone: (928) 778-0638

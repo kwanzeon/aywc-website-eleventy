@@ -1,0 +1,69 @@
+---
+layout: base.njk
+title: "About Agni Yoga"
+navPage: "about"
+permalink: "/about/index.html"
+metaDescription: "Learn about Agni Yoga (Living Ethics), the spiritual teaching transmitted through Helena Roerich, and the principles of beauty, service, and striving."
+---
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label on-dark">The Teaching</div>
+    <h1 class="page-hero-title">About Agni Yoga</h1>
+    <p class="page-hero-subtitle">A spiritual teaching transmitted through Helena Roerich — practical guidance for the conscious development of the human spirit.</p>
+    <div class="page-hero-line"></div>
+  </div>
+</div>
+
+<main id="main-content" id="teachings">
+  <section style="background:var(--bg);padding:5rem 3rem;border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;">
+      <div>
+        <div class="section-label">Overview</div>
+        <h2 class="section-heading" style="margin-bottom:1.5rem;">Living Ethics</h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.85;font-weight:300;margin-bottom:1.2rem;">Agni Yoga, also called Living Ethics (Russian: <em>Zhivaya Etika</em>), is a spiritual teaching first transmitted in 1924. Unlike other yogas focused on physical or meditative disciplines, it is lived in daily life — in thought, action, and relationship.</p>
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.85;font-weight:300;margin-bottom:1.2rem;">The teaching calls each student to refine the inner fire of consciousness through service, beauty, and striving toward higher ideals. Central to the teaching is the existence of the Hierarchy of Light and the heart as the link between the human and the cosmic.</p>
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.85;font-weight:300;">The series comprises fourteen books composed between 1924 and 1938 by Helena Roerich, with guidance from the Masters of Wisdom. All volumes are available freely online through the Agni Yoga Society.</p>
+      </div>
+      <div>
+        <div class="section-label">Core Principles</div>
+        <h2 class="section-heading" style="margin-bottom:2rem;">The Path</h2>
+        {% for item in [["Beauty", "Consciously created in daily life — in art, in action, in thought. Beauty is called the armour of the spirit."], ["The Heart", "Awakened through striving and love. The heart is the most sensitive receiver and transmitter in nature."], ["Service", "Rendered as an act of spiritual will, not duty. Service to the common good is the highest path."], ["Striving", "Toward higher ideals, always. The fire of the spirit is inexhaustible."]] %}
+        <div class="about-attr" style="margin-bottom:1.8rem;">
+          <div class="about-attr-title" style="color:var(--accent);">{{ item[0] }}</div>
+          <div class="about-attr-sub" style="color:var(--text-muted);">{{ item[1] }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="roerich" style="background:var(--dark-section);padding:5rem 3rem;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-label on-dark">The Founders</div>
+      <h2 class="section-heading on-dark" style="margin-bottom:3rem;">Helena &amp; Nicholas Roerich</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;">
+        <div>
+          <p class="about-body">Helena Roerich (1879–1955) was the author and recorder of the Agni Yoga series, transmitted in collaboration with the Masters of the Agni Yoga Hierarchy. Her extensive Letters provide additional guidance on the path of Living Ethics.</p>
+          <p class="about-body">Nicholas Roerich (1874–1947) was a Russian artist, explorer, and peace activist whose Himalayan paintings have become iconic symbols of the spiritual path described in the teachings. He founded the Agni Yoga Society in New York in 1920.</p>
+        </div>
+        <div>
+          <p class="about-body">Together they worked to make the teachings available to the West, presenting a synthesis of ancient Eastern wisdom and modern Western thought. Nicholas was also the originator of the Roerich Pact, an international treaty for the protection of cultural property.</p>
+          <p class="about-body">Their lives and the teaching they transmitted remain inseparable — the paintings, the letters, and the books form a unified body of spiritual instruction for those on the path of conscious evolution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg);padding:5rem 3rem;border-top:1px solid var(--border);">
+    <div style="max-width:760px;margin:0 auto;text-align:center;">
+      <div class="section-label" style="text-align:center;">This Community</div>
+      <h2 class="section-heading" style="margin-bottom:1.5rem;">The Agni Yoga World Community</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.85;font-weight:300;margin-bottom:2rem;">The AYWC exists to connect independent study groups, organisations, and individual seekers across the globe — sharing news, events, translations, and insights to support each other on this path. We hold no hierarchy, charge no fees, and require no membership.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn-primary" href="/groups/">Find a Study Group</a>
+        <a class="btn btn-outline" href="/join/">Get Involved</a>
+      </div>
+    </div>
+  </section>
+</main>

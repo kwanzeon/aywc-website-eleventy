@@ -5,46 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% if pageTitle %}{{ pageTitle }}{% elif title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
   <meta name="description" content="{{ metaDescription if metaDescription else site.description }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png" />
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <nav aria-label="Main navigation">
+  <nav class="{% if heroTransparent %}transparent{% endif %}" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/#about">About</a>
-      <a href="/#news">News &amp; Events</a>
-      <a href="/#groups"{% if groupsActive %} class="active"{% endif %}>Study Groups</a>
-      <a href="/#resources">Resources</a>
-      <a href="/#contact">Join / Contact</a>
+      <a href="/" class="nav-logo on-dark">AYWC</a>
+      <div class="nav-links">
+        <a href="/about/" class="on-dark{% if navPage == 'about' %} active{% endif %}">About</a>
+        <a href="/news/" class="on-dark{% if navPage == 'news' %} active{% endif %}">News &amp; Events</a>
+        <a href="/groups/" class="on-dark{% if navPage == 'groups' %} active{% endif %}">Study Groups</a>
+        <a href="/resources/" class="on-dark{% if navPage == 'resources' %} active{% endif %}">Resources</a>
+        <a href="/join/" class="on-dark{% if navPage == 'join' %} active{% endif %}">Join</a>
+      </div>
     </div>
   </nav>
 
-  <a class="banner-link" href="/">
-    <img class="banner" src="/assets/banner.png" alt="Agni Yoga World Community — return to home" />
-  </a>
+  {% if heroTransparent %}
+  <script>
+    (function() {
+      var nav = document.querySelector('nav');
+      function update() { nav.classList.toggle('scrolled', window.scrollY > 40); }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
+  {% endif %}
 
   {{ content | safe }}
 
-  <footer>
-    <div class="footer-links">
-      <a href="/#about">About</a>
-      <a href="/#news">News</a>
-      <a href="/#groups">Groups</a>
-      <a href="/#resources">Resources</a>
-      <a href="/#contact">Contact</a>
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">AYWC</div>
+          <p class="footer-tagline">Connecting students of the Living Ethics teachings worldwide.</p>
+          <div class="footer-operator">White Mountain Education Association</div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-heading">Learn</div>
+          <a href="/about/" class="on-dark">About Agni Yoga</a>
+          <a href="/about/#teachings" class="on-dark">The Teachings</a>
+          <a href="/resources/#roerich" class="on-dark">Nicholas Roerich</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-heading">Community</div>
+          <a href="/groups/" class="on-dark">Study Groups</a>
+          <a href="/news/" class="on-dark">News &amp; Events</a>
+          <a href="/join/" class="on-dark">Join Us</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-heading">Resources</div>
+          <a href="/resources/" class="on-dark">All Resources</a>
+          <a href="/resources/#texts" class="on-dark">Agni Yoga Series</a>
+          <a href="/resources/#gallery" class="on-dark">Roerich Paintings</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">&copy; 2026 White Mountain Education Association. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="/privacy-policy/" class="on-dark">Privacy Policy</a>
+          <a href="/terms-of-use/" class="on-dark">Terms of Use</a>
+          <a href="/about-this-site/" class="on-dark">About This Site</a>
+        </div>
+      </div>
     </div>
-    <div class="footer-secondary">
-      <a href="/privacy-policy/">Privacy Policy</a>
-      <a href="/terms-of-use/">Terms of Use</a>
-      <a href="/about-this-site/">About This Site</a>
-    </div>
-    <p style="margin-top:14px;">{{ site.name }} &mdash; connecting students of the Living Ethics teachings worldwide.</p>
   </footer>
 
   <script>
@@ -58,5 +91,6 @@
       });
     }
   </script>
+
 </body>
 </html>

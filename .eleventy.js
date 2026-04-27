@@ -2,6 +2,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy({ "admin": "admin" });
 
+  eleventyConfig.addFilter("limit", (arr, n) => arr.slice(0, n));
+
   eleventyConfig.addCollection("news", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/content/news/*.md")
       .sort((a, b) => b.date - a.date);
