@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if pageTitle %}{{ pageTitle }}{% elif title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+  <meta name="description" content="{{ metaDescription if metaDescription else site.description }}" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/#about">About</a>
+      <a href="/#news">News &amp; Events</a>
+      <a href="/#groups"{% if groupsActive %} class="active"{% endif %}>Study Groups</a>
+      <a href="/#resources">Resources</a>
+      <a href="/#contact">Join / Contact</a>
+    </div>
+  </nav>
+
+  <a class="banner-link" href="/">
+    <img class="banner" src="/assets/banner.png" alt="Agni Yoga World Community — return to home" />
+  </a>
+
+  {{ content | safe }}
+
+  <footer>
+    <div class="footer-links">
+      <a href="/#about">About</a>
+      <a href="/#news">News</a>
+      <a href="/#groups">Groups</a>
+      <a href="/#resources">Resources</a>
+      <a href="/#contact">Contact</a>
+    </div>
+    <div class="footer-secondary">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms-of-use/">Terms of Use</a>
+      <a href="/about-this-site/">About This Site</a>
+    </div>
+    <p style="margin-top:14px;">{{ site.name }} &mdash; connecting students of the Living Ethics teachings worldwide.</p>
+  </footer>
+
+</body>
+</html>

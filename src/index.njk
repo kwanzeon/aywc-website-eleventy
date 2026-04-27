@@ -1,0 +1,224 @@
+---
+layout: base.njk
+pageTitle: "Agni Yoga World Community"
+---
+
+<main id="main-content">
+
+  <div class="hero-tagline">
+    <div class="hero-ornament" aria-hidden="true">✦ ✦ ✦</div>
+    <p>A global gathering place for students and groups working with the Agni Yoga teachings &mdash; sharing knowledge, community, and the path of living ethics.</p>
+    <div class="hero-ornament" aria-hidden="true">✦ ✦ ✦</div>
+  </div>
+
+  <div class="ornament-divider" aria-hidden="true">
+    <span class="ornament-line"></span>
+    <span class="ornament-symbol">✦ ✦ ✦</span>
+    <span class="ornament-line"></span>
+  </div>
+
+  <section id="about">
+    <h2 class="section-title">About Agni Yoga</h2>
+    <p class="section-intro">Agni Yoga, also known as Living Ethics, is a spiritual teaching transmitted through Helena Roerich in the early twentieth century. It offers practical guidance for the conscious development of the human spirit.</p>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>The Teachings</h3>
+        <p>The Agni Yoga series comprises fourteen books of wisdom and practical guidance, touching on ethics, cosmology, the nature of the human spirit, and the path of conscious evolution. Central to the teachings is the principle of Maitreya &mdash; universal brotherhood and goodwill.</p>
+      </div>
+      <div class="about-card">
+        <h3>Living Ethics</h3>
+        <p>Unlike other yogas focused solely on physical or meditative disciplines, Agni Yoga is lived in daily life &mdash; in thought, action, and relationship. It calls each student to refine the inner fire of consciousness through service, beauty, and striving toward higher ideals.</p>
+      </div>
+      <div class="about-card">
+        <h3>The Roerich Connection</h3>
+        <p>The teachings are inseparable from the lives of Helena and Nicholas Roerich &mdash; artist, explorer, and visionary. Nicholas&rsquo;s paintings of the Himalayas and spiritual light have become iconic symbols of the Agni Yoga path.</p>
+      </div>
+      <div class="about-card">
+        <h3>This Community</h3>
+        <p>The Agni Yoga World Community exists to connect independent study groups, organisations, and individual seekers across the globe. We share news, events, translations, and insights to support each other on this path.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament-divider" aria-hidden="true">
+    <span class="ornament-line"></span>
+    <span class="ornament-symbol">✦ ✦ ✦</span>
+    <span class="ornament-line"></span>
+  </div>
+
+  <div id="news">
+    <section>
+      <h2 class="section-title">News &amp; Events</h2>
+      <p class="section-intro">Upcoming gatherings, recent announcements, and community updates from around the world.</p>
+    </section>
+    <div style="max-width:1100px;margin:0 auto;padding:0 24px 60px;">
+      <div class="news-grid">
+        {% for item in collections.news %}
+        <div class="news-card{% if loop.index == 2 %} news-card--alt1{% elif loop.index == 3 %} news-card--alt2{% endif %}">
+          <div class="news-card-header">
+            <span class="news-tag">{{ item.data.tag }}</span>
+            <h3>{{ item.data.title }}</h3>
+          </div>
+          <div class="news-card-body">
+            <p>{{ item.data.summary }}</p>
+            <p class="news-date">
+              {{ item.data.date_label if item.data.date_label }}
+              {% if item.data.link %}
+                &middot; <a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.link_text if item.data.link_text else "Details →" }}</a>
+              {% endif %}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="teachings-feature">
+    <div class="teachings-inner">
+      <div class="teachings-emblem" aria-hidden="true">✦ ✦ ✦</div>
+      <h2>The Path of Living Fire</h2>
+      <p class="teachings-body">Agni Yoga does not call the student away from the world, but toward its transformation &mdash; through beauty consciously created, through the striving of the awakened heart, through service rendered as an act of spiritual will. It is a yoga of daily life, of thought refined in fire, of love made conscious.</p>
+      <div class="teachings-attributes">
+        <div class="teachings-attr">
+          <div class="teachings-attr-circle">✦</div>
+          <span class="teachings-attr-label">Beauty</span>
+        </div>
+        <div class="teachings-attr">
+          <div class="teachings-attr-circle">♡</div>
+          <span class="teachings-attr-label">The Heart</span>
+        </div>
+        <div class="teachings-attr">
+          <div class="teachings-attr-circle">↑</div>
+          <span class="teachings-attr-label">Striving</span>
+        </div>
+        <div class="teachings-attr">
+          <div class="teachings-attr-circle">✿</div>
+          <span class="teachings-attr-label">Service</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-band">
+    <blockquote id="aywc-quote" aria-live="polite" aria-atomic="true" aria-label="Featured quote from the Agni Yoga teachings">
+      <p class="quote-text"></p>
+      <cite class="quote-cite"></cite>
+    </blockquote>
+  </div>
+
+  <script>
+  (function() {
+    var quotes = [
+      { text: "The heart is the most perfect apparatus, the most sensitive receiver and transmitter that exists in nature.", source: "Agni Yoga, Heart" },
+      { text: "Beauty is the armour of the spirit. Let beauty enter every action, every thought. Through beauty humanity approaches the higher worlds.", source: "Leaves of Morya's Garden, Vol. II" },
+      { text: "The fire of the spirit is inexhaustible. Darkness recedes before the flame of the striving heart. Let each step be a step toward the light.", source: "Agni Yoga, Fiery World" },
+      { text: "Brotherhood is not proclaimed — it is lived. It grows from the soil of mutual respect, shared aspiration, and the recognition of the one spirit in all.", source: "Agni Yoga, Brotherhood" },
+      { text: "Co-operation is the great law of existence. In the community of striving spirits the highest energies are multiplied and the highest attainments become possible.", source: "Agni Yoga, New Era Community" }
+    ];
+    var bq = document.getElementById('aywc-quote');
+    var pText = bq.querySelector('.quote-text');
+    var cite = bq.querySelector('.quote-cite');
+    function setQuote(q) { pText.innerHTML = '“' + q.text + '”'; cite.textContent = '— ' + q.source; }
+    var last = parseInt(localStorage.getItem('aywc_qi') || '-1');
+    var idx = (last + 1) % quotes.length;
+    localStorage.setItem('aywc_qi', idx);
+    setQuote(quotes[idx]);
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reducedMotion) { bq.style.transition = 'opacity 0.7s ease'; }
+    setInterval(function() {
+      if (!reducedMotion) { bq.style.opacity = '0'; }
+      setTimeout(function() {
+        idx = (idx + 1) % quotes.length;
+        setQuote(quotes[idx]);
+        if (!reducedMotion) { bq.style.opacity = '1'; }
+      }, reducedMotion ? 0 : 700);
+    }, 30000);
+  })();
+  </script>
+
+  <section id="groups">
+    <h2 class="section-title">Study Groups</h2>
+    <p class="section-intro">Independent groups from around the world meet regularly to study the teachings. Find a group near you, or register your own.</p>
+    <div class="groups-list">
+      {% for group in collections.groups %}
+      <div class="group-card">
+        <h3>{{ group.data.title }}</h3>
+        <span class="group-location">{{ group.data.location }}</span>
+        <p>{{ group.data.short_description }}</p>
+        <a class="group-link" href="/groups/{{ group.page.fileSlug }}/">View group page &rarr;</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <div id="resources">
+    <div class="resources-inner">
+      <h2 class="section-title">Resources</h2>
+      <p class="section-intro">Freely available texts, study aids, and multimedia materials to support your study of the teachings.</p>
+      <div class="resource-grid">
+        {% for resource in collections.resources %}
+        <div class="resource-card">
+          <div class="resource-icon">{{ resource.data.icon }}</div>
+          <h3>{{ resource.data.title }}</h3>
+          <p>{{ resource.data.description }}</p>
+          {% if resource.data.link %}
+          <a href="{{ resource.data.link }}"{% if resource.data.external %} target="_blank" rel="noopener"{% endif %}>{{ resource.data.link_text if resource.data.link_text else "View →" }}</a>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <section id="contact">
+    <h2 class="section-title">Join &amp; Contact</h2>
+    <p class="section-intro">Whether you are new to the teachings or an experienced student, you are welcome here. Get in touch or register your group.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>About This Community</h3>
+        <p>The Agni Yoga World Community is a volunteer-run initiative with no formal membership or hierarchy. We exist only to connect and support the many independent groups and students already active around the world.</p>
+        <br />
+        <h3>How to get involved</h3>
+        <ul>
+          <li>Connect with an existing local study group</li>
+          <li>Register your own group in the directory</li>
+          <li>Contribute resources, translations, or articles</li>
+          <li>Share news of events in your region</li>
+          <li>Volunteer to help maintain this site</li>
+        </ul>
+      </div>
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <form name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true" />
+          </div>
+          <div class="form-group">
+            <label for="reason">Reason for contact</label>
+            <select id="reason" name="reason">
+              <option value="">Select one&hellip;</option>
+              <option>General enquiry</option>
+              <option>Register a study group</option>
+              <option>Submit news or event</option>
+              <option>Contribute resources</option>
+              <option>Volunteer offer</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your message&hellip;" required aria-required="true"></textarea>
+          </div>
+          <button class="btn-submit" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>

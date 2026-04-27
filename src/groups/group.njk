@@ -1,0 +1,128 @@
+---
+pagination:
+  data: collections.groups
+  size: 1
+  alias: group
+permalink: "groups/{{ group.page.fileSlug }}/index.html"
+layout: base.njk
+groupsActive: true
+eleventyComputed:
+  title: "{{ group.data.title }}"
+---
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Home</a>
+    <span aria-hidden="true">›</span>
+    <a href="/#groups">Study Groups</a>
+    <span aria-hidden="true">›</span>
+    <span aria-current="page">{{ group.data.title }}</span>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <h1>{{ group.data.title }}</h1>
+      {% if group.data.established %}<p class="established">Established {{ group.data.established }}</p>{% endif %}
+      {% if group.data.location %}<p class="location-tag">{{ group.data.location }}</p>{% endif %}
+    </div>
+    <div class="header-contact">
+      {% if group.data.phone %}<div>{{ group.data.phone }}</div>{% endif %}
+      {% if group.data.website %}<div><a href="{{ group.data.website }}" target="_blank" rel="noopener">{{ group.data.website | replace("https://", "") | replace("http://", "") }}</a></div>{% endif %}
+      {% if group.data.tax_status %}<div>{{ group.data.tax_status }}</div>{% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <main class="main-content" id="main-content">
+    {{ group.content | safe }}
+  </main>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">Contact &amp; Visit</div>
+      <div class="sidebar-card-body">
+        <ul>
+          {% if group.data.address %}
+          <li>
+            <strong>Address</strong>
+            {{ group.data.address }}
+          </li>
+          {% endif %}
+          {% if group.data.phone %}
+          <li><strong>Phone</strong>{{ group.data.phone }}</li>
+          {% endif %}
+          {% if group.data.email %}
+          <li>
+            <strong>Email</strong>
+            <a href="mailto:{{ group.data.email }}">{{ group.data.email }}</a>
+          </li>
+          {% endif %}
+          {% if group.data.website %}
+          <li>
+            <strong>Website</strong>
+            <a href="{{ group.data.website }}" target="_blank" rel="noopener">{{ group.data.website | replace("https://", "") | replace("http://", "") }}</a>
+          </li>
+          {% endif %}
+        </ul>
+        {% if group.data.website %}
+        <a class="visit-btn" href="{{ group.data.website }}" target="_blank" rel="noopener">Visit Official Website &rarr;</a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if group.data.visiting_hours %}
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">Visiting Hours</div>
+      <div class="sidebar-card-body">
+        {% for row in group.data.visiting_hours %}
+        <div class="hours-row">
+          <span class="days">{{ row.days }}</span>
+          <span>{{ row.hours }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if group.data.extra_title %}
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">{{ group.data.extra_title }}</div>
+      <div class="sidebar-card-body">
+        {% if group.data.extra_body %}<p>{{ group.data.extra_body }}</p>{% endif %}
+        {% if group.data.extra_link %}
+        <a class="visit-btn" href="{{ group.data.extra_link }}" target="_blank" rel="noopener">{{ group.data.extra_link_text if group.data.extra_link_text else "Visit →" }}</a>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">Organisation Details</div>
+      <div class="sidebar-card-body">
+        <ul>
+          {% if group.data.established %}
+          <li><strong>Founded</strong>{{ group.data.established }}{% if group.data.location %}, {{ group.data.location }}{% endif %}</li>
+          {% endif %}
+          {% if group.data.founder %}
+          <li><strong>Founder</strong>{{ group.data.founder }}</li>
+          {% endif %}
+          {% if group.data.tax_status %}
+          <li><strong>Tax status</strong>{{ group.data.tax_status }}</li>
+          {% endif %}
+          {% if group.data.membership %}
+          <li><strong>Membership</strong>{{ group.data.membership }}</li>
+          {% endif %}
+          {% if group.data.fees %}
+          <li><strong>Fees</strong>{{ group.data.fees }}</li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+  </aside>
+</div>

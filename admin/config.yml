@@ -1,0 +1,67 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "news"
+    label: "News & Events"
+    folder: "src/content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Tag", name: "tag", widget: "select", options: ["Event", "Conference", "Publication", "Announcement"]}
+      - {label: "Summary", name: "summary", widget: "text", hint: "Shown on the home page card"}
+      - {label: "Date Label", name: "date_label", widget: "string", hint: "e.g. September 14–16, 2025 · Helsinki & Online", required: false}
+      - {label: "Link URL", name: "link", widget: "string", required: false}
+      - {label: "Link Text", name: "link_text", widget: "string", required: false, default: "Details →"}
+
+  - name: "groups"
+    label: "Study Groups"
+    folder: "src/content/groups"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Location", name: "location", widget: "string", hint: "City, Country"}
+      - {label: "Address", name: "address", widget: "string", required: false}
+      - {label: "Phone", name: "phone", widget: "string", required: false}
+      - {label: "Email", name: "email", widget: "string", required: false}
+      - {label: "Website", name: "website", widget: "string", required: false}
+      - {label: "Established", name: "established", widget: "string", required: false, hint: "e.g. 1982"}
+      - {label: "Tax Status", name: "tax_status", widget: "string", required: false}
+      - {label: "Founder", name: "founder", widget: "string", required: false}
+      - {label: "Membership", name: "membership", widget: "string", required: false}
+      - {label: "Fees", name: "fees", widget: "string", required: false}
+      - label: "Visiting Hours"
+        name: "visiting_hours"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Days", name: "days", widget: "string"}
+          - {label: "Hours", name: "hours", widget: "string"}
+      - {label: "Extra Sidebar Card Title", name: "extra_title", widget: "string", required: false, hint: "e.g. Bookstore or Free Online Texts"}
+      - {label: "Extra Sidebar Card Body", name: "extra_body", widget: "text", required: false}
+      - {label: "Extra Sidebar Card Link", name: "extra_link", widget: "string", required: false}
+      - {label: "Extra Sidebar Card Link Text", name: "extra_link_text", widget: "string", required: false}
+      - {label: "Short Description", name: "short_description", widget: "text", hint: "2–3 sentences shown on the home page group card"}
+      - {label: "Full Content", name: "body", widget: "markdown"}
+      - {label: "Display Order", name: "order", widget: "number", default: 99, hint: "Lower numbers appear first"}
+
+  - name: "resources"
+    label: "Resources"
+    folder: "src/content/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Icon", name: "icon", widget: "string", hint: "Paste an emoji, e.g. 📖"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Link URL", name: "link", widget: "string", required: false}
+      - {label: "Link Text", name: "link_text", widget: "string", required: false, default: "View →"}
+      - {label: "External Link", name: "external", widget: "boolean", default: false}
+      - {label: "Display Order", name: "order", widget: "number", default: 99}
