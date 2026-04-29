@@ -26,6 +26,7 @@ metaDescription: "Find a study group for the Agni Yoga (Living Ethics) teachings
     </div>
 
     <h2 class="sr-only">Study groups list</h2>
+    <p class="sr-only" aria-live="polite" aria-atomic="true" id="groups-filter-status"></p>
 
     <div class="card-grid card-grid-2" id="groups-list">
       {% for group in collections.groups %}
@@ -108,9 +109,14 @@ metaDescription: "Find a study group for the Agni Yoga (Living Ethics) teachings
       btns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
       this.classList.add('active');
       this.setAttribute('aria-pressed', 'true');
+      var visible = 0;
       cards.forEach(function(card) {
-        card.style.display = (region === 'All' || card.dataset.region === region) ? '' : 'none';
+        var show = region === 'All' || card.dataset.region === region;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
       });
+      var status = document.getElementById('groups-filter-status');
+      if (status) status.textContent = region === 'All' ? 'Showing all study groups.' : 'Showing ' + visible + ' group' + (visible !== 1 ? 's' : '') + ' in ' + region + '.';
     });
   });
 })();

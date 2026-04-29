@@ -26,6 +26,7 @@ metaDescription: "Agni Yoga organizations worldwide — societies, museums, and 
     </div>
 
     <h2 class="sr-only">Organizations list</h2>
+    <p class="sr-only" aria-live="polite" aria-atomic="true" id="orgs-filter-status"></p>
 
     <div class="card-grid card-grid-2" id="orgs-list">
       {% for org in collections.organizations %}
@@ -63,9 +64,14 @@ metaDescription: "Agni Yoga organizations worldwide — societies, museums, and 
       btn.classList.add('active');
       btn.setAttribute('aria-pressed', 'true');
       const region = btn.dataset.region;
+      let visible = 0;
       cards.forEach(card => {
-        card.style.display = (region === 'All' || card.dataset.region === region) ? '' : 'none';
+        const show = region === 'All' || card.dataset.region === region;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
       });
+      const status = document.getElementById('orgs-filter-status');
+      if (status) status.textContent = region === 'All' ? 'Showing all organizations.' : 'Showing ' + visible + ' organization' + (visible !== 1 ? 's' : '') + ' in ' + region + '.';
     });
   });
 </script>
