@@ -32,7 +32,7 @@ The Agni Yoga Society, Inc. was founded in New York in 1920 by **Nicholas Roeric
 
 For over a century the Society has served as the primary publisher of English translations of the Agni Yoga series — fourteen volumes totalling approximately 5,000 pages. The Society operates on the principle that the teachings should be available to everyone: all fourteen books are freely readable and downloadable on the Society's website.
 
-Unlike many organisations connected to spiritual traditions, the Agni Yoga Society deliberately maintains no formal classes, schools, or hierarchical structures. It does not charge for access to the teachings and holds no obligatory membership.
+Unlike many organizations connected to spiritual traditions, the Agni Yoga Society deliberately maintains no formal classes, schools, or hierarchical structures. It does not charge for access to the teachings and holds no obligatory membership.
 
 ## Mission
 

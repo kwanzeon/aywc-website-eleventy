@@ -16,7 +16,7 @@ extra_body: WMEA operates a dedicated bookstore selling books, compilations, and
 extra_link: https://www.wmeabookstore.com
 extra_link_text: Visit Bookstore →
 short_description: Founded 1982. Weekly classes, an annual Living Ethics
-  Conference, and the Agni Yoga Quarterly. In-person and remote programmes
+  Conference, and the Agni Yoga Quarterly. In-person and remote programs
   available.
 order: 1
 ---
