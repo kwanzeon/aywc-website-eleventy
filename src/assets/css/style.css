@@ -291,8 +291,6 @@ nav {
 
 @media (max-width: 600px) {
   .card-grid-3, .card-grid-2 { grid-template-columns: 1fr; }
-  nav { padding: 0 0.5rem; }
-  .nav-links a { font-size: 0.68rem; letter-spacing: 0.08em; min-height: 44px; padding: 0 0.7rem; }
 }
 
 .card {
@@ -337,6 +335,20 @@ nav {
 }
 
 .card-date { color: var(--accent); font-size: 0.78rem; font-weight: 500; margin-top: 1.2rem; }
+
+.card-link {
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.card-link:hover { border-bottom-color: var(--accent); }
 
 .accent-line {
   width: 32px;

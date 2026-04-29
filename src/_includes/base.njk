@@ -21,7 +21,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    (function() {
+      var h = window.location.hash;
+      if (h && (h.indexOf('invite_token=') > -1 || h.indexOf('recovery_token=') > -1 || h.indexOf('confirmation_token=') > -1)) {
+        window.location.replace('/admin/' + h);
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -95,17 +102,6 @@
     }
   </script>
 
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function(user) {
-        if (!user) {
-          window.netlifyIdentity.on("login", function() {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
 
 </body>
 </html>
