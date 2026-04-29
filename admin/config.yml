@@ -52,6 +52,20 @@ collections:
       - {label: "Full Content", name: "body", widget: "markdown"}
       - {label: "Display Order", name: "order", widget: "number", default: 99, hint: "Lower numbers appear first"}
 
+  - name: "organizations"
+    label: "Organizations"
+    folder: "src/content/organizations"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Location", name: "location", widget: "string", hint: "City, Country"}
+      - {label: "Website", name: "website", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Region", name: "region", widget: "select", options: ["Americas", "Europe", "Asia-Pacific", "Other"], required: false}
+      - {label: "Established", name: "established", widget: "string", required: false, hint: "e.g. 1920"}
+      - {label: "Display Order", name: "order", widget: "number", default: 99}
+
   - name: "resources"
     label: "Resources"
     folder: "src/content/resources"

@@ -19,6 +19,11 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
   });
 
+  eleventyConfig.addCollection("organizations", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/content/organizations/*.md")
+      .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+  });
+
   return {
     dir: {
       input: "src",
