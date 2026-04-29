@@ -305,6 +305,9 @@ nav {
 @media (max-width: 600px) {
   main section { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
   .centered-page { padding: 4rem 1.5rem !important; }
+  .hero-intro { padding: 2rem 1.5rem; }
+  .hero-ctas { flex-direction: column; flex-shrink: 1; width: 100%; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
 }
 
 .card {
