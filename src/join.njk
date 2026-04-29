@@ -33,8 +33,9 @@ metaDescription: "Get in touch with the Agni Yoga World Community. Register your
       <div>
         <div class="section-label">Contact Us</div>
         <h2 class="section-heading" style="margin-bottom:1.5rem;">Send a Message</h2>
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
+          <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true" />
@@ -47,7 +48,7 @@ metaDescription: "Get in touch with the Agni Yoga World Community. Register your
             <label for="reason">Reason for contact</label>
             <select id="reason" name="reason">
               <option value="">Select one&hellip;</option>
-              <option>General enquiry</option>
+              <option>General inquiry</option>
               <option>Register a study group</option>
               <option>Submit news or event</option>
               <option>Contribute resources</option>
