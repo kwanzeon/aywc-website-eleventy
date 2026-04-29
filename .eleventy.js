@@ -3,6 +3,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "admin": "admin" });
 
   eleventyConfig.addFilter("limit", (arr, n) => arr.slice(0, n));
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => new Date(dateObj).toISOString().split("T")[0]);
 
   eleventyConfig.addCollection("news", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/content/news/*.md")

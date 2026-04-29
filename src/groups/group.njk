@@ -3,11 +3,13 @@ pagination:
   data: collections.groups
   size: 1
   alias: group
+  addAllPagesToCollections: true
 permalink: "groups/{{ group.page.fileSlug }}/index.html"
 layout: base.njk
 navPage: "groups"
 eleventyComputed:
   title: "{{ group.data.title }}"
+  metaDescription: "{{ group.data.short_description if group.data.short_description else site.description }}"
 ---
 
 <div class="page-hero">

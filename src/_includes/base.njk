@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% if pageTitle %}{{ pageTitle }}{% elif title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
   <meta name="description" content="{{ metaDescription if metaDescription else site.description }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="{{ site.name }}" />
   <meta property="og:title" content="{% if pageTitle %}{{ pageTitle }}{% elif title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}" />
