@@ -187,8 +187,8 @@ nav {
 
 .hero-tagline {
   color: var(--dark-text);
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-  font-weight: 300;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
   line-height: 1.7;
   max-width: 620px;
 }
@@ -337,7 +337,7 @@ nav {
 
 .card h3 {
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.4;
   margin-bottom: 0.8rem;
@@ -346,9 +346,9 @@ nav {
 
 .card p {
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .card-date { color: var(--accent); font-size: 0.78rem; font-weight: 500; margin-top: 1.2rem; }
@@ -397,9 +397,9 @@ nav {
 
 .updates-intro {
   color: var(--dark-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.75;
-  font-weight: 300;
+  font-weight: 400;
   max-width: 600px;
   margin-top: 1rem;
 }
@@ -464,9 +464,9 @@ nav {
 
 .update-card p {
   color: var(--text-muted);
-  font-size: 0.88rem;
+  font-size: 1rem;
   line-height: 1.75;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .update-meta {
@@ -512,9 +512,9 @@ nav {
 
 .about-body {
   color: var(--dark-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.85;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 1.5rem;
 }
 
@@ -533,7 +533,7 @@ nav {
   margin-bottom: 0.3rem;
 }
 
-.about-attr-sub { color: var(--dark-muted); font-size: 0.85rem; font-weight: 300; }
+.about-attr-sub { color: var(--dark-muted); font-size: 0.9rem; font-weight: 400; }
 
 /* ── News section ────────────────────────────────────────────────────────── */
 .news-section { background: var(--bg); padding: 5rem 3rem; border-top: 1px solid var(--border); }
@@ -612,11 +612,11 @@ nav {
   margin-bottom: 1.2rem;
 }
 
-.join-body { color: var(--dark-muted); font-size: 0.95rem; line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+.join-body { color: var(--dark-muted); font-size: 1rem; line-height: 1.85; font-weight: 400; margin-bottom: 2rem; }
 
 .join-item { display: flex; gap: 0.8rem; margin-bottom: 0.9rem; align-items: flex-start; }
 .join-item-bullet { color: var(--accent-on-dark); margin-top: 3px; flex-shrink: 0; font-size: 0.7rem; }
-.join-item-text { color: var(--dark-muted); font-size: 0.875rem; font-weight: 300; line-height: 1.6; }
+.join-item-text { color: var(--dark-muted); font-size: 1rem; font-weight: 400; line-height: 1.6; }
 
 /* ── Contact form ────────────────────────────────────────────────────────── */
 .form-section { background: var(--bg); padding: 5rem 3rem; }
@@ -688,7 +688,7 @@ footer {
 }
 
 .footer-brand { color: var(--dark-text); font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; }
-.footer-tagline { color: var(--dark-muted); font-size: 0.82rem; line-height: 1.7; font-weight: 300; margin-bottom: 1rem; }
+.footer-tagline { color: var(--dark-muted); font-size: 0.875rem; line-height: 1.7; font-weight: 400; margin-bottom: 1rem; }
 .footer-operator { color: var(--dark-muted); font-size: 0.78rem; }
 
 .footer-col-heading { color: var(--dark-text); font-size: 0.78rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; font-family: 'Jost', sans-serif; }
@@ -753,7 +753,7 @@ footer {
   margin-bottom: 1.2rem;
 }
 
-.page-hero-subtitle { color: var(--dark-muted); font-size: 1.05rem; font-weight: 300; line-height: 1.7; max-width: 600px; }
+.page-hero-subtitle { color: var(--dark-muted); font-size: 1.05rem; font-weight: 400; line-height: 1.7; max-width: 600px; }
 .page-hero-line { width: 48px; height: 2px; background: var(--accent-on-dark); margin-top: 2rem; opacity: 0.6; }
 
 /* ── Individual group page ───────────────────────────────────────────────── */
@@ -795,11 +795,11 @@ footer {
   opacity: 0.6;
 }
 
-.group-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.85; font-weight: 300; margin-top: 0.8rem; }
+.group-content p { color: var(--text-muted); font-size: 1rem; line-height: 1.85; font-weight: 400; margin-top: 0.8rem; }
 .group-content strong { color: var(--text); font-weight: 600; }
 
 .group-content ul { list-style: none; margin-top: 1rem; }
-.group-content ul li { color: var(--text-muted); font-size: 0.9rem; font-weight: 300; padding: 0.35rem 0 0.35rem 1.2rem; position: relative; line-height: 1.6; }
+.group-content ul li { color: var(--text-muted); font-size: 1rem; font-weight: 400; padding: 0.35rem 0 0.35rem 1.2rem; position: relative; line-height: 1.6; }
 .group-content ul li::before { content: '—'; color: var(--accent); position: absolute; left: 0; opacity: 0.6; }
 
 .group-sidebar { display: flex; flex-direction: column; gap: 1.5px; background: var(--border); }
@@ -819,7 +819,7 @@ footer {
 .sidebar-row { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
 .sidebar-row:last-child { border-bottom: none; }
 .sidebar-row-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 0.2rem; }
-.sidebar-row-value { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; }
+.sidebar-row-value { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; }
 .sidebar-row-value a { color: var(--accent); }
 .sidebar-row-value a:hover { text-decoration: underline; }
 
@@ -843,16 +843,16 @@ footer {
 .hours-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
 .hours-row:last-child { border-bottom: none; }
 .hours-row .days { color: var(--text); font-weight: 400; }
-.hours-row .time { color: var(--text-muted); font-weight: 300; }
+.hours-row .time { color: var(--text-muted); font-weight: 400; }
 
 /* ── Simple pages (privacy, terms, about-site) ───────────────────────────── */
 .simple-page { max-width: 760px; margin: 0 auto; padding: 4rem 3rem; }
 .simple-page h1 { font-size: 2rem; color: var(--text); margin-bottom: 0.5rem; }
 .simple-page h1::after { content: ''; display: block; width: 40px; height: 1px; background: var(--accent); margin-top: 0.8rem; margin-bottom: 2.5rem; opacity: 0.6; }
 .simple-page h2 { font-size: 1.1rem; color: var(--text); margin-top: 2.5rem; margin-bottom: 0.6rem; font-family: 'Jost', sans-serif; font-weight: 600; letter-spacing: 0.02em; }
-.simple-page p { color: var(--text-muted); margin-top: 0.8rem; font-size: 0.95rem; font-weight: 300; line-height: 1.85; }
+.simple-page p { color: var(--text-muted); margin-top: 0.8rem; font-size: 1rem; font-weight: 400; line-height: 1.85; }
 .simple-page ul { margin-top: 0.8rem; padding-left: 1.5em; }
-.simple-page ul li { color: var(--text-muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 0.4rem; line-height: 1.7; }
+.simple-page ul li { color: var(--text-muted); font-size: 1rem; font-weight: 400; margin-bottom: 0.4rem; line-height: 1.7; }
 .simple-page a { color: var(--accent); }
 .simple-page a:hover { text-decoration: underline; }
 
@@ -894,4 +894,4 @@ footer {
 
 .register-cta-label { color: var(--accent-on-dark); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; margin-bottom: 0.6rem; }
 .register-cta-title { color: var(--dark-text); font-weight: 400; font-size: 1rem; margin-bottom: 0.4rem; font-family: 'Jost', sans-serif; }
-.register-cta-body { color: var(--dark-muted); font-size: 0.85rem; font-weight: 300; }
+.register-cta-body { color: var(--dark-muted); font-size: 0.9rem; font-weight: 400; }
