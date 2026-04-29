@@ -888,6 +888,9 @@ footer {
   flex-wrap: wrap;
   gap: 2rem;
 }
+@media (max-width: 600px) {
+  .register-cta { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; }
+}
 
 .register-cta-label { color: var(--accent-on-dark); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; margin-bottom: 0.6rem; }
 .register-cta-title { color: var(--dark-text); font-weight: 400; font-size: 1rem; margin-bottom: 0.4rem; font-family: 'Jost', sans-serif; }
