@@ -12,9 +12,10 @@ eleventyComputed:
   metaDescription: "{{ group.data.short_description if group.data.short_description else site.description }}"
 ---
 
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+<header>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
       <ol>
         <li><a href="/" class="on-dark">Home</a></li>
         <li aria-hidden="true"><span>/</span></li>
@@ -29,8 +30,9 @@ eleventyComputed:
     <p class="page-hero-subtitle">{% if group.data.location %}{{ group.data.location }}{% endif %}{% if group.data.established %} &mdash; Est. {{ group.data.established }}{% endif %}</p>
     {% endif %}
     <div class="page-hero-line"></div>
+    </div>
   </div>
-</div>
+</header>
 
 <main id="main-content" class="group-page-body">
   <div class="group-page-grid">
