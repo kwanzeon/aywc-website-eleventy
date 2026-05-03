@@ -490,9 +490,8 @@ nav {
 
 /* ── About section (dark) ────────────────────────────────────────────────── */
 .about-section {
-  background: var(--dark-section);
+  background: linear-gradient(135deg, #162840 0%, #203A54 62%, #2B1C28 100%);
   padding: 5rem 3rem;
-  border-top: 2px solid var(--gold);
 }
 
 .about-grid {
