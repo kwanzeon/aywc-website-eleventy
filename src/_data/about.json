@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "label": "The Teaching",
+    "title": "About Agni Yoga",
+    "subtitle": "A spiritual Teaching transmitted through Helena Roerich — practical guidance for the conscious development of the human spirit."
+  },
+  "overview": {
+    "label": "Overview",
+    "heading": "Living Ethics",
+    "body": [
+      "Agni Yoga, also called Living Ethics (Russian: <em>Zhivaya Etika</em>), is a spiritual Teaching first transmitted in 1924. Unlike other yogas focused on physical or meditative disciplines, it is lived in daily life — in thought, action, and relationship.",
+      "The Teaching calls each student to refine the inner fire of consciousness through service, beauty, and striving toward higher ideals. Central to the Teaching is the existence of the Hierarchy of Light and the heart as the link between the human and the cosmic.",
+      "The series comprises fourteen books composed between 1924 and 1938 by Helena Roerich, with guidance from the Masters of Wisdom. All volumes are available freely online through the Agni Yoga Society."
+    ]
+  },
+  "principles": {
+    "label": "Core Principles",
+    "heading": "The Path",
+    "items": [
+      {
+        "title": "Beauty",
+        "description": "Consciously created in daily life — in art, in action, in thought. Beauty is called the armour of the spirit."
+      },
+      {
+        "title": "The Heart",
+        "description": "Awakened through striving and love. The heart is the most sensitive receiver and transmitter in nature."
+      },
+      {
+        "title": "Service",
+        "description": "Rendered as an act of spiritual will, not duty. Service to the common good is the highest path."
+      },
+      {
+        "title": "Striving",
+        "description": "Toward higher ideals, always. The fire of the spirit is inexhaustible."
+      }
+    ]
+  },
+  "roerich": {
+    "label": "The Founders",
+    "heading": "Helena & Nicholas Roerich",
+    "columns": [
+      {
+        "body": [
+          "Helena Roerich (1879–1955) was the author and recorder of the Agni Yoga series, transmitted in collaboration with the Masters of the Agni Yoga Hierarchy. Her extensive Letters provide additional guidance on the path of Living Ethics.",
+          "Nicholas Roerich (1874–1947) was a Russian artist, explorer, and peace activist whose Himalayan paintings have become iconic symbols of the spiritual path described in the teachings. He founded the Agni Yoga Society in New York in 1920."
+        ]
+      },
+      {
+        "body": [
+          "Together they worked to make the teachings available to the West, presenting a synthesis of ancient Eastern wisdom and modern Western thought. Nicholas was also the originator of the Roerich Pact, an international treaty for the protection of cultural property.",
+          "Their lives and the Teaching they transmitted remain inseparable — the paintings, the letters, and the books form a unified body of spiritual instruction for those on the path of conscious evolution."
+        ]
+      }
+    ]
+  },
+  "community": {
+    "label": "This Community",
+    "heading": "The Agni Yoga World Community",
+    "body": "The AYWC exists to connect independent study groups, organizations, and individual seekers across the globe — sharing news, events, translations, and insights to support each other on this path. We hold no hierarchy, charge no fees, and require no membership.",
+    "buttons": [
+      {
+        "label": "Find a Study Group",
+        "url": "/groups/",
+        "style": "primary"
+      },
+      {
+        "label": "Get Involved",
+        "url": "/join/",
+        "style": "outline"
+      }
+    ]
+  }
+}

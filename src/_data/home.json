@@ -1,0 +1,32 @@
+{
+  "agni_yoga_section": {
+    "label": "The Teaching",
+    "heading": "What is Agni Yoga?",
+    "body": [
+      "Agni Yoga, the yoga of Living Ethics, is a spiritual path—not of physical disciplines, meditation, or asceticism, as in the past—but of practice in daily life. It is a yoga of fiery energy, of consciousness, of responsible, directed thought.",
+      "It is a Teaching that offers practical guidance for the conscious development of the human spirit—not as a retreat from the world but through the transformation of a person’s inner and outer being through their increasing beauty, service, and striving. Particular attention is paid to the development of concentrated thinking and complete concentration of thought upon a chosen object. Such concentration and meditation constitute the most important part of spiritual upbringing.",
+      "Agni Yoga teaches that the evolution of the planetary consciousness is a pressing necessity and that, through individual striving, it is an attainable aspiration for humankind. It affirms the existence of the Hierarchy of Light and the center of the Heart as the link with the Hierarchy and with the far-off worlds.",
+      "Helena Roerich, the Mother of Agni Yoga, gave humanity the Teaching of Agni Yoga, which can be understood as the Teaching of Life."
+    ],
+    "cta_label": "Learn about the teachings →",
+    "cta_url": "/about/",
+    "attributes": [
+      {
+        "title": "Beauty",
+        "description": "Consciously created in daily life"
+      },
+      {
+        "title": "The Heart",
+        "description": "Awakened through striving and love"
+      },
+      {
+        "title": "Service",
+        "description": "Rendered as an act of spiritual will"
+      },
+      {
+        "title": "Striving",
+        "description": "Toward higher ideals, always"
+      }
+    ]
+  }
+}

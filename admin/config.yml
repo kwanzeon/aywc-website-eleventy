@@ -8,6 +8,97 @@ media_folder: "src/assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
 collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - label: "What is Agni Yoga? Section"
+        name: "agni_yoga_section"
+        file: "src/_data/home.json"
+        fields:
+          - label: "Agni Yoga Section"
+            name: "agni_yoga_section"
+            widget: "object"
+            fields:
+              - {label: "Small Label", name: "label", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - label: "Body Paragraphs"
+                name: "body"
+                widget: "list"
+                field: {label: "Paragraph", name: "paragraph", widget: "text"}
+              - {label: "Button Label", name: "cta_label", widget: "string"}
+              - {label: "Button URL", name: "cta_url", widget: "string"}
+              - label: "Attribute Cards"
+                name: "attributes"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "string"}
+
+  - name: "about_page"
+    label: "About Page"
+    files:
+      - label: "About Page Sections"
+        name: "about_sections"
+        file: "src/_data/about.json"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Small Label", name: "label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - label: "Overview"
+            name: "overview"
+            widget: "object"
+            fields:
+              - {label: "Small Label", name: "label", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - label: "Body Paragraphs"
+                name: "body"
+                widget: "list"
+                field: {label: "Paragraph", name: "paragraph", widget: "text"}
+          - label: "Core Principles"
+            name: "principles"
+            widget: "object"
+            fields:
+              - {label: "Small Label", name: "label", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - label: "Principles"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+          - label: "Roerich Section"
+            name: "roerich"
+            widget: "object"
+            fields:
+              - {label: "Small Label", name: "label", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - label: "Columns"
+                name: "columns"
+                widget: "list"
+                fields:
+                  - label: "Body Paragraphs"
+                    name: "body"
+                    widget: "list"
+                    field: {label: "Paragraph", name: "paragraph", widget: "text"}
+          - label: "Community Section"
+            name: "community"
+            widget: "object"
+            fields:
+              - {label: "Small Label", name: "label", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Body", name: "body", widget: "text"}
+              - label: "Buttons"
+                name: "buttons"
+                widget: "list"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "Style", name: "style", widget: "select", options: ["primary", "outline"]}
+
   - name: "news"
     label: "News & Events"
     folder: "src/content/news"

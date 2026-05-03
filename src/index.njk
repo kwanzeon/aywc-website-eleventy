@@ -12,7 +12,7 @@ navPage: "home"
   <div class="hero-intro">
     <div class="hero-intro-inner">
       <div>
-        <div class="hero-operator">White Mountain Education Association</div>
+        <div class="hero-operator">Agni Yoga World Community</div>
         <p class="hero-tagline">A global gathering place for students and groups working with the Living Ethics teachings — sharing knowledge, community, and the path of conscious evolution.</p>
       </div>
       <div class="hero-ctas">
@@ -55,20 +55,19 @@ navPage: "home"
     <div class="section-inner">
       <div class="about-grid">
         <div>
-          <div class="section-label on-dark">The Teaching</div>
-          <h2 id="about-heading" class="section-heading on-dark">What is Agni Yoga?</h2>
+          <div class="section-label on-dark">{{ home.agni_yoga_section.label }}</div>
+          <h2 id="about-heading" class="section-heading on-dark">{{ home.agni_yoga_section.heading }}</h2>
           <div class="about-divider"></div>
-          <p class="about-body">Agni Yoga, the yoga of Living Ethics, is a spiritual path—not of physical disciplines, meditation, or asceticism, as in the past—but of practice in daily life. It is a yoga of fiery energy, of consciousness, of responsible, directed thought.</p>
-          <p class="about-body">It is a Teaching that offers practical guidance for the conscious development of the human spirit—not as a retreat from the world but through the transformation of a person’s inner and outer being through their increasing beauty, service, and striving. Particular attention is paid to the development of concentrated thinking and complete concentration of thought upon a chosen object. Such concentration and meditation constitute the most important part of spiritual upbringing.</p>
-          <p class="about-body">Agni Yoga teaches that the evolution of the planetary consciousness is a pressing necessity and that, through individual striving, it is an attainable aspiration for humankind. It affirms the existence of the Hierarchy of Light and the center of the Heart as the link with the Hierarchy and with the far-off worlds.</p>
-          <p class="about-body">Helena Roerich, the Mother of Agni Yoga, gave humanity the Teaching of Agni Yoga, which can be understood as the Teaching of Life.</p>
-          <a class="btn btn-primary" href="/about/">Learn about the teachings &rarr;</a>
+          {% for paragraph in home.agni_yoga_section.body %}
+          <p class="about-body">{{ paragraph }}</p>
+          {% endfor %}
+          <a class="btn btn-primary" href="{{ home.agni_yoga_section.cta_url }}">{{ home.agni_yoga_section.cta_label }}</a>
         </div>
         <div>
-          {% for item in [["Beauty", "Consciously created in daily life"], ["The Heart", "Awakened through striving and love"], ["Service", "Rendered as an act of spiritual will"], ["Striving", "Toward higher ideals, always"]] %}
+          {% for item in home.agni_yoga_section.attributes %}
           <div class="about-attr">
-            <div class="about-attr-title">{{ item[0] }}</div>
-            <div class="about-attr-sub">{{ item[1] }}</div>
+            <div class="about-attr-title">{{ item.title }}</div>
+            <div class="about-attr-sub">{{ item.description }}</div>
           </div>
           {% endfor %}
         </div>
