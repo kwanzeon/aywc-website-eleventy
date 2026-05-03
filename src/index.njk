@@ -16,40 +16,14 @@ navPage: "home"
         <p class="hero-tagline">A global gathering place for students and groups working with the Living Ethics teachings — sharing knowledge, community, and the path of conscious evolution.</p>
       </div>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="/about/">Explore the Path</a>
-        <a class="btn btn-outline-dark" href="/join/">Join the Community</a>
+        <a class="btn btn-primary" href="/about/">Start Learning Agni Yoga</a>
+        <a class="btn btn-outline-dark" href="/groups/">Find a Study Group</a>
       </div>
     </div>
   </div>
 </section>
 
 <main id="main-content">
-
-  <section id="updates" aria-labelledby="updates-heading" class="updates-section">
-    <div class="section-inner">
-      <div class="updates-header">
-        <div>
-          <div class="section-label on-dark">New &amp; Noteworthy</div>
-          <h2 id="updates-heading" class="section-heading on-dark">Recent Updates</h2>
-          <p class="updates-intro">Recently added events, conferences, publications, and community announcements from across the Agni Yoga world.</p>
-        </div>
-        <a href="/news/" class="updates-all-link on-dark">All updates &amp; events &rarr;</a>
-      </div>
-      <div class="updates-grid">
-        {% for item in collections.news | limit(3) %}
-        <article class="update-card{% if loop.first %} update-card-featured{% endif %}">
-          <span class="update-tag">{{ item.data.tag }}</span>
-          <h3>{{ item.data.title }}</h3>
-          <p>{{ item.data.summary }}</p>
-          <div class="update-meta">
-            {{ item.data.date_label if item.data.date_label }}
-            {% if item.data.link %} &middot; <a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.link_text if item.data.link_text else "Details →" }}</a>{% endif %}
-          </div>
-        </article>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
 
   <section id="about" aria-labelledby="about-heading" class="about-section">
     <div class="section-inner">
@@ -71,6 +45,39 @@ navPage: "home"
           </div>
           {% endfor %}
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="start-here" aria-labelledby="start-here-heading" class="start-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <div class="section-label">New to Agni Yoga?</div>
+          <h2 id="start-here-heading" class="section-heading">Start Here</h2>
+        </div>
+      </div>
+      <div class="start-grid">
+        <a class="start-card" href="/about/">
+          <span class="start-step">01</span>
+          <h3>Learn what Agni Yoga is</h3>
+          <p>Begin with a clear introduction to the Living Ethics Teaching and its place in daily life.</p>
+        </a>
+        <a class="start-card" href="/resources/">
+          <span class="start-step">02</span>
+          <h3>Read the foundational teachings</h3>
+          <p>Find books, study guides, translations, and research resources for deeper study.</p>
+        </a>
+        <a class="start-card" href="/resources/">
+          <span class="start-step">03</span>
+          <h3>Explore study resources</h3>
+          <p>Use curated resources to support independent reading, reflection, and group discussion.</p>
+        </a>
+        <a class="start-card" href="/groups/">
+          <span class="start-step">04</span>
+          <h3>Find or join a study group</h3>
+          <p>Connect with existing groups or learn how to add your own group to the directory.</p>
+        </a>
       </div>
     </div>
   </section>
@@ -123,6 +130,32 @@ navPage: "home"
     </div>
   </section>
 
+  <section id="updates" aria-labelledby="updates-heading" class="updates-section">
+    <div class="section-inner">
+      <div class="updates-header">
+        <div>
+          <div class="section-label on-dark">News &amp; Events</div>
+          <h2 id="updates-heading" class="section-heading on-dark">Community Updates</h2>
+          <p class="updates-intro">Events, publications, and announcements from across the Agni Yoga world.</p>
+        </div>
+        <a href="/news/" class="updates-all-link on-dark">View all news &amp; events &rarr;</a>
+      </div>
+      <div class="updates-grid">
+        {% for item in collections.news | limit(3) %}
+        <article class="update-card{% if loop.first %} update-card-featured{% endif %}">
+          <span class="update-tag">{{ item.data.tag }}</span>
+          <h3>{{ item.data.title }}</h3>
+          <p>{{ item.data.summary }}</p>
+          <div class="update-meta">
+            {{ item.data.date_label if item.data.date_label }}
+            {% if item.data.link %} &middot; <a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.link_text if item.data.link_text else "Details →" }}</a>{% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
   <section id="join" aria-labelledby="join-heading" class="join-section">
     <div class="section-inner">
       <div class="join-grid">
@@ -130,7 +163,7 @@ navPage: "home"
           <div class="section-label on-dark">Open to All</div>
           <h2 id="join-heading" class="join-heading">Join &amp; Connect</h2>
           <p class="join-body">The Agni Yoga World Community is volunteer-run with no formal membership or hierarchy. Whether you are new to the teachings or an experienced student, you are welcome here.</p>
-          <a class="btn btn-primary" href="/join/">Get in touch &rarr;</a>
+          <a class="btn btn-primary" href="/join/">Connect with the Community</a>
         </div>
         <div class="join-divider">
           {% for item in ["Connect with an existing local study group", "Register your own group in the directory", "Contribute resources, translations, or articles", "Share news of events in your region", "Volunteer to help maintain this site"] %}

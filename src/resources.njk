@@ -19,6 +19,15 @@ metaDescription: "Freely available texts, study aids, paintings, and multimedia 
 
 <main id="main-content" style="background:var(--bg);padding:4rem 3rem;">
   <div style="max-width:1200px;margin:0 auto;">
+    <section aria-labelledby="resources-start-heading" style="max-width:760px;margin:0 auto 3rem auto;text-align:center;">
+      <div class="section-label" style="text-align:center;">Beginner Pathway</div>
+      <h2 id="resources-start-heading" class="section-heading" style="margin-bottom:1.2rem;">Start with the Teaching, then deepen your study</h2>
+      <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;font-weight:400;margin-bottom:1.5rem;">If you are new to Agni Yoga, first read the overview of the Living Ethics Teaching, then use these resources for independent study or group discussion.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn-primary" href="/about/">Read About the Teachings</a>
+        <a class="btn btn-outline" href="/groups/">Find a Study Group</a>
+      </div>
+    </section>
     <div class="card-grid card-grid-3" id="texts">
       {% for resource in collections.resources %}
       <{% if resource.data.link %}a href="{{ resource.data.link }}"{% if resource.data.external %} target="_blank" rel="noopener"{% endif %}{% else %}div{% endif %} class="card">
