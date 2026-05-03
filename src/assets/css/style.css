@@ -162,7 +162,6 @@ nav {
   width: 100%;
   display: block;
   line-height: 0;
-  border-bottom: 2px solid var(--gold);
 }
 .hero-banner img { width: 100%; display: block; }
 
@@ -493,6 +492,7 @@ nav {
 .about-section {
   background: var(--dark-section);
   padding: 5rem 3rem;
+  border-top: 2px solid var(--gold);
 }
 
 .about-grid {
