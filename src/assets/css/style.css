@@ -231,6 +231,53 @@ nav {
 }
 .btn-outline:hover { color: var(--accent); border-color: var(--accent); }
 
+/* ── Seed Thought ───────────────────────────────────────────────────────── */
+.seed-thought-section {
+  background: var(--bg-alt);
+  border-top: 1px solid rgba(28,20,16,0.08);
+  border-bottom: 1px solid rgba(28,20,16,0.08);
+  padding: 2.2rem 1.5rem;
+}
+
+.seed-thought-card {
+  max-width: 860px;
+  padding-left: 1.35rem;
+  border-left: 3px solid var(--gold);
+}
+
+.seed-thought-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.seed-thought-card h2 {
+  color: var(--text);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.seed-thought-content {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.seed-thought-content p + p { margin-top: 0.75rem; }
+.seed-thought-content a { color: var(--accent); }
+.seed-thought-content a:hover { color: var(--accent-hover); text-decoration: underline; }
+.seed-thought-content hr {
+  width: 7rem;
+  margin: 1.2rem auto;
+  border: 0;
+  border-top: 1px solid rgba(28,20,16,0.16);
+}
+
 /* ── Section layout ──────────────────────────────────────────────────────── */
 .section-inner { max-width: 1200px; margin: 0 auto; }
 
