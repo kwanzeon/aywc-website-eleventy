@@ -50,6 +50,9 @@ navPage: "home"
           <a class="btn btn-primary" href="{{ home.agni_yoga_section.cta_url }}">{{ home.agni_yoga_section.cta_label }}</a>
         </div>
         <div>
+          {% if home.agni_yoga_section.attributes_heading %}
+          <h3 class="about-attr-heading">{{ home.agni_yoga_section.attributes_heading }}</h3>
+          {% endif %}
           {% for item in home.agni_yoga_section.attributes %}
           <div class="about-attr">
             <div class="about-attr-title">{{ item.title }}</div>

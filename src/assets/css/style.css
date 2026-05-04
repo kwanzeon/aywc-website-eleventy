@@ -569,10 +569,19 @@ nav {
   margin-bottom: 1.5rem;
 }
 
+.about-attr-heading {
+  color: var(--dark-text);
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
 .about-attr {
   border-left: 2px solid rgba(232,221,208,0.12);
   padding-left: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.45rem;
 }
 
 .about-attr-title {

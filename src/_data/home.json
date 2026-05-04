@@ -10,22 +10,35 @@
     ],
     "cta_label": "Read About the Teachings",
     "cta_url": "/what-is-agni-yoga/",
+    "attributes_heading": "The Seven Fundamental Pillars of Agni Yoga",
     "attributes": [
       {
         "title": "Beauty",
         "description": "Consciously created in daily life"
       },
       {
-        "title": "The Heart",
-        "description": "Awakened through striving and love"
+        "title": "Joy",
+        "description": "Arising from harmony of consciousness"
       },
       {
-        "title": "Service",
-        "description": "Rendered as an act of spiritual will"
+        "title": "Freedom",
+        "description": "Achieved through self-mastery of the lower nature"
+      },
+      {
+        "title": "Creativity",
+        "description": "Manifested as the expression of the inner fire"
+      },
+      {
+        "title": "Self-Perfectment",
+        "description": "Through conscious refinement of the centers"
       },
       {
         "title": "Striving",
-        "description": "Toward higher ideals, always"
+        "description": "Toward the Higher World, unceasingly"
+      },
+      {
+        "title": "Service",
+        "description": "Rendered in devotion to the Common Good"
       }
     ]
   }
