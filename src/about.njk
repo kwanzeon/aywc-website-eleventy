@@ -28,9 +28,8 @@ metaDescription: "Learn about Agni Yoga (Living Ethics), the spiritual Teaching 
         {% endfor %}
         <a class="btn btn-primary" href="/what-is-agni-yoga/" style="margin-top:2rem;">Read the Deeper Introduction</a>
       </div>
-      <div>
-        <div class="section-label">{{ about.principles.label }}</div>
-        <h2 class="section-heading" style="margin-bottom:2rem;">{{ about.principles.heading }}</h2>
+      <div class="about-principles-block">
+        <h3 class="about-principles-heading">{{ about.principles.heading }}</h3>
         {% for item in about.principles.items %}
         <div class="about-attr" style="margin-bottom:1.8rem;">
           <div class="about-attr-title" style="color:var(--accent);">{{ item.title }}</div>

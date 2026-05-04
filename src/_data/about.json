@@ -15,24 +15,35 @@
     ]
   },
   "principles": {
-    "label": "Core Principles",
-    "heading": "The Path",
+    "heading": "The Seven Fundamental Pillars of Agni Yoga",
     "items": [
       {
         "title": "Beauty",
-        "description": "Consciously created in daily life — in art, in action, in thought. Beauty is called the armour of the spirit."
+        "description": "Consciously created in daily life"
       },
       {
-        "title": "The Heart",
-        "description": "Awakened through striving and love. The heart is the most sensitive receiver and transmitter in nature."
+        "title": "Joy",
+        "description": "Arising from harmony of consciousness"
       },
       {
-        "title": "Service",
-        "description": "Rendered as an act of spiritual will, not duty. Service to the common good is the highest path."
+        "title": "Freedom",
+        "description": "Achieved through self-mastery of the lower nature"
+      },
+      {
+        "title": "Creativity",
+        "description": "Manifested as the expression of the inner fire"
+      },
+      {
+        "title": "Self-Perfectment",
+        "description": "Through conscious refinement of the centers"
       },
       {
         "title": "Striving",
-        "description": "Toward higher ideals, always. The fire of the spirit is inexhaustible."
+        "description": "Toward the Higher World, unceasingly"
+      },
+      {
+        "title": "Service",
+        "description": "Rendered in devotion to the Common Good"
       }
     ]
   },

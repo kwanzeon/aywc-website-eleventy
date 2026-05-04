@@ -551,6 +551,8 @@ nav {
 @media (max-width: 800px) {
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-section { padding: 4rem 1.5rem; }
+  .about-principles-block { padding-top: 0; }
+  .about-principles-heading { max-width: none; }
 }
 
 .about-divider {
@@ -576,6 +578,20 @@ nav {
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 1.5rem;
+}
+
+.about-principles-heading {
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 1.4rem;
+  max-width: 36ch;
+}
+
+.about-principles-block {
+  padding-top: 3rem;
 }
 
 .about-attr {
