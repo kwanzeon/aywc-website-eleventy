@@ -39,6 +39,11 @@
   "roerich": {
     "label": "The Founders",
     "heading": "Helena & Nicholas Roerich",
+    "image": {
+      "src": "/assets/images/roerich-agni-yoga.jpg",
+      "alt": "Nicholas Roerich, Agni Yoga, Diptych, right part, 1928",
+      "caption": "Nicholas Roerich, Agni Yoga, Diptych, right part, 1928."
+    },
     "columns": [
       {
         "body": [

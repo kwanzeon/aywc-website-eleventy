@@ -41,10 +41,14 @@ metaDescription: "Learn about Agni Yoga (Living Ethics), the spiritual Teaching 
     </div>
   </section>
 
-  <section id="roerich" style="background:var(--dark-section);padding:5rem 3rem;">
-    <div style="max-width:1200px;margin:0 auto;">
+  <section id="roerich" class="roerich-section">
+    <div class="roerich-inner">
       <div class="section-label on-dark">{{ about.roerich.label }}</div>
       <h2 class="section-heading on-dark" style="margin-bottom:3rem;">{{ about.roerich.heading }}</h2>
+      <figure class="roerich-feature">
+        <img src="{{ about.roerich.image.src }}" alt="{{ about.roerich.image.alt }}" loading="lazy" decoding="async" />
+        <figcaption>{{ about.roerich.image.caption }}</figcaption>
+      </figure>
       <div class="two-col-grid" style="gap:4rem;">
         {% for column in about.roerich.columns %}
         <div>
