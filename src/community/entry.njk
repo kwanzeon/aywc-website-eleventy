@@ -1,0 +1,139 @@
+---
+pagination:
+  data: collections.communityPages
+  size: 1
+  alias: entry
+  addAllPagesToCollections: true
+permalink: "community/{{ entry.page.fileSlug }}/index.html"
+layout: base.njk
+navPage: "community"
+eleventyComputed:
+  title: "{{ entry.data.title }}"
+  metaDescription: "{{ entry.data.short_description if entry.data.short_description else site.description }}"
+---
+
+<header>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/" class="on-dark">Home</a></li>
+          <li aria-hidden="true"><span>/</span></li>
+          <li><a href="/community/" class="on-dark">Community</a></li>
+          <li aria-hidden="true"><span>/</span></li>
+          <li aria-current="page"><span>{{ entry.data.title }}</span></li>
+        </ol>
+      </nav>
+      <div class="type-badges type-badges-hero">
+        {% for type in entry.data.types %}
+        <span class="type-badge type-badge-on-dark">{{ type }}</span>
+        {% endfor %}
+      </div>
+      <h1 class="page-hero-title">{{ entry.data.title }}</h1>
+      {% if entry.data.location or entry.data.established %}
+      <p class="page-hero-subtitle">{% if entry.data.location %}{{ entry.data.location }}{% endif %}{% if entry.data.established %} &mdash; Est. {{ entry.data.established }}{% endif %}</p>
+      {% endif %}
+      <div class="page-hero-line"></div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="group-page-body">
+  <div class="group-page-grid">
+
+    <div class="group-content">
+      {{ entry.content | safe }}
+    </div>
+
+    <aside class="group-sidebar">
+
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">Contact &amp; Visit</div>
+        {% if entry.data.address %}
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Address</span>
+          <span class="sidebar-row-value">{{ entry.data.address }}</span>
+        </div>
+        {% endif %}
+        {% if entry.data.phone %}
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Phone</span>
+          <span class="sidebar-row-value">{{ entry.data.phone }}</span>
+        </div>
+        {% endif %}
+        {% if entry.data.email %}
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Email</span>
+          <span class="sidebar-row-value"><a href="mailto:{{ entry.data.email }}">{{ entry.data.email }}</a></span>
+        </div>
+        {% endif %}
+        {% if entry.data.website %}
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Website</span>
+          <span class="sidebar-row-value"><a href="{{ entry.data.website }}" target="_blank" rel="noopener">{{ entry.data.website | replace("https://", "") | replace("http://", "") }}</a></span>
+        </div>
+        {% endif %}
+        {% if entry.data.website %}
+        <a class="sidebar-visit on-dark" href="{{ entry.data.website }}" target="_blank" rel="noopener">Visit Official Website &rarr;</a>
+        {% endif %}
+      </div>
+
+      {% if entry.data.visiting_hours %}
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">Visiting Hours</div>
+        {% for row in entry.data.visiting_hours %}
+        <div class="hours-row">
+          <span class="days">{{ row.days }}</span>
+          <span class="time">{{ row.hours }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if entry.data.extra_title %}
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">{{ entry.data.extra_title }}</div>
+        {% if entry.data.extra_body %}<p style="color:var(--text-muted);font-size:1rem;font-weight:400;line-height:1.6;margin-bottom:0.5rem;">{{ entry.data.extra_body }}</p>{% endif %}
+        {% if entry.data.extra_link %}
+        <a class="sidebar-visit on-dark" href="{{ entry.data.extra_link }}" target="_blank" rel="noopener">{{ entry.data.extra_link_text if entry.data.extra_link_text else "Visit →" }}</a>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">Organization Details</div>
+        {% if entry.data.established %}
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Founded</span>
+          <span class="sidebar-row-value">{{ entry.data.established }}{% if entry.data.location %}, {{ entry.data.location }}{% endif %}</span>
+        </div>
+        {% endif %}
+        {% if entry.data.founder %}
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Founder</span>
+          <span class="sidebar-row-value">{{ entry.data.founder }}</span>
+        </div>
+        {% endif %}
+        {% if entry.data.tax_status %}
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Tax status</span>
+          <span class="sidebar-row-value">{{ entry.data.tax_status }}</span>
+        </div>
+        {% endif %}
+        {% if entry.data.membership %}
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Membership</span>
+          <span class="sidebar-row-value">{{ entry.data.membership }}</span>
+        </div>
+        {% endif %}
+        {% if entry.data.fees %}
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Fees</span>
+          <span class="sidebar-row-value">{{ entry.data.fees }}</span>
+        </div>
+        {% endif %}
+      </div>
+
+    </aside>
+  </div>
+</main>

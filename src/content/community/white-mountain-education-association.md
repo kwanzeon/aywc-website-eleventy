@@ -1,5 +1,9 @@
 ---
 title: White Mountain Education Association
+types:
+  - Organization
+  - Study Group
+has_page: true
 region: Americas
 format: In-person & Online
 location: Prescott, Arizona, USA
@@ -18,7 +22,7 @@ extra_link_text: Visit Bookstore →
 short_description: Founded 1982. Weekly classes, an annual Living Ethics
   Conference, and the Agni Yoga Quarterly. In-person and remote programs
   available.
-order: 1
+order: 2
 ---
 ## About WMEA
 

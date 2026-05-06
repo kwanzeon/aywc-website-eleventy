@@ -397,7 +397,7 @@ window.AYWC_SEED_THOUGHTS = {
     var content = root.querySelector('[data-seed-thought-content]');
 
     if (title) {
-      title.textContent = 'Seed Thought for ' + parts.label;
+      title.textContent = 'Agni Yoga Seed Thought for ' + parts.label;
     }
 
     if (content) {

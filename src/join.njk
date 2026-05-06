@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: "Join & Connect"
+title: "Connect"
 navPage: "join"
 permalink: "/join/index.html"
 metaDescription: "Get in touch with the Agni Yoga World Community. Register your study group, submit news, contribute resources, or volunteer."
@@ -10,7 +10,7 @@ metaDescription: "Get in touch with the Agni Yoga World Community. Register your
   <div class="page-hero">
     <div class="page-hero-inner">
       <div class="section-label on-dark">Open to All</div>
-      <h1 class="page-hero-title">Join &amp; Connect</h1>
+      <h1 class="page-hero-title">Connect</h1>
       <p class="page-hero-subtitle">The Agni Yoga World Community is volunteer-run with no formal membership or hierarchy. Whether you are new to the teachings or an experienced student, you are welcome here.</p>
       <div class="page-hero-line"></div>
     </div>
@@ -22,9 +22,8 @@ metaDescription: "Get in touch with the Agni Yoga World Community. Register your
     <div class="form-grid">
 
       <div>
-        <div class="section-label">Get Involved</div>
-        <h2 class="section-heading" style="margin-bottom:1.5rem;">How to participate</h2>
-        {% for item in ["Contribute resources, translations, or articles", "Submit news, events, and announcements", "Register a study group or organization"] %}
+        <h2 class="section-heading" style="margin-bottom:1.5rem;">Ways to get involved</h2>
+        {% for item in ["Connect with an existing local study group", "Register your own group or organization in the directory", "Contribute resources, translations, or articles", "Submit news, events, and announcements"] %}
         <div class="join-item" style="margin-bottom:0.9rem;">
           <span style="color:var(--accent);margin-top:3px;flex-shrink:0;font-size:0.7rem;">✦</span>
           <span style="color:var(--text-muted);font-size:1rem;font-weight:400;line-height:1.6;">{{ item }}</span>
@@ -34,7 +33,7 @@ metaDescription: "Get in touch with the Agni Yoga World Community. Register your
 
       <div>
         <div class="section-label">Contact Us</div>
-        <h2 class="section-heading" style="margin-bottom:1.5rem;">Send a Message</h2>
+        <h2 class="section-heading" style="margin-bottom:1.5rem;">Get in Touch</h2>
         <form name="contact" method="POST" action="/thank-you/" data-netlify="true" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
@@ -54,7 +53,7 @@ metaDescription: "Get in touch with the Agni Yoga World Community. Register your
               <option>Register a study group or organization</option>
               <option>Submit news or event</option>
               <option>Contribute resources</option>
-              <option>Volunteer offer</option>
+              <option>Volunteering</option>
             </select>
           </div>
           <div class="field">

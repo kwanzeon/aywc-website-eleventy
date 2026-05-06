@@ -1,0 +1,132 @@
+---
+layout: base.njk
+title: "Community"
+pageTitle: "Community — Agni Yoga World Community"
+navPage: "community"
+permalink: "/community/index.html"
+metaDescription: "Agni Yoga study groups from around the world, plus online talks and study sessions — find a group or join the global community."
+---
+
+<header>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-label on-dark">Global Network</div>
+      <h1 class="page-hero-title">Community</h1>
+      <p class="page-hero-subtitle">Study groups, organizations, and online study opportunities from around the world — find a place to connect with the Living Ethics teachings.</p>
+      <div class="page-hero-line"></div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" style="background:var(--bg);padding:4rem 3rem;">
+  <div style="max-width:1200px;margin:0 auto;">
+
+    <div class="community-filters">
+      <div class="region-filter" role="group" aria-label="Filter by type">
+        <button class="region-btn active" data-type="all" aria-pressed="true">All</button>
+        <button class="region-btn" data-type="organization" aria-pressed="false">Organizations</button>
+        <button class="region-btn" data-type="study-group" aria-pressed="false">Study Groups</button>
+        <button class="region-btn" data-type="online-study" aria-pressed="false">Online Study</button>
+      </div>
+      <div class="region-filter" role="group" aria-label="Filter by region">
+        <button class="region-btn active" data-region="all" aria-pressed="true">All Regions</button>
+        <button class="region-btn" data-region="Americas" aria-pressed="false">Americas</button>
+        <button class="region-btn" data-region="Europe" aria-pressed="false">Europe</button>
+        <button class="region-btn" data-region="Asia-Pacific" aria-pressed="false">Asia-Pacific</button>
+      </div>
+    </div>
+
+    <p class="sr-only" aria-live="polite" aria-atomic="true" id="community-filter-status"></p>
+
+    <div class="card-grid card-grid-2" id="community-list">
+      {% for entry in collections.community %}
+      <div class="card"
+           data-types="{% for type in entry.data.types %}{{ type | lower | replace(' ', '-') }}{% if not loop.last %} {% endif %}{% endfor %}"
+           data-region="{{ entry.data.region if entry.data.region else 'Other' }}">
+        <div class="type-badges">
+          {% for type in entry.data.types %}
+          <span class="type-badge">{{ type }}</span>
+          {% endfor %}
+        </div>
+        <h3>{{ entry.data.title }}</h3>
+        <div class="group-card-meta">
+          {% if entry.data.location %}<span class="group-card-location">{{ entry.data.location }}</span>{% endif %}
+          {% if entry.data.established %}<span class="group-card-founded">Est. {{ entry.data.established }}</span>{% endif %}
+        </div>
+        <p>{{ entry.data.short_description }}</p>
+        {% if entry.data.has_page %}
+          <a class="group-card-link" href="/community/{{ entry.page.fileSlug }}/">View page &rarr;</a>
+        {% elif entry.data.secondary_link %}
+          <div class="card-links">
+            <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
+            <a class="group-card-link" href="{{ entry.data.secondary_link }}" target="_blank" rel="noopener">{{ entry.data.secondary_link_text if entry.data.secondary_link_text else "More" }} &rarr;</a>
+          </div>
+        {% elif entry.data.website %}
+          <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="register-cta">
+      <div>
+        <div class="register-cta-label">Not listed?</div>
+        <div class="register-cta-title">Add your group or organization</div>
+        <div class="register-cta-body">Register your study group or organization so others can find you.</div>
+      </div>
+      <a class="btn btn-primary" href="/join/">Get in touch &rarr;</a>
+    </div>
+
+  </div>
+</main>
+
+<script>
+(function() {
+  var activeType = 'all';
+  var activeRegion = 'all';
+  var cards = document.querySelectorAll('#community-list .card');
+
+  function applyFilters() {
+    var visible = 0;
+    cards.forEach(function(card) {
+      var types = card.dataset.types || '';
+      var typeMatch = activeType === 'all' || types.indexOf(activeType) > -1;
+      var regionMatch = activeRegion === 'all' || card.dataset.region === activeRegion;
+      var show = typeMatch && regionMatch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    var status = document.getElementById('community-filter-status');
+    if (status) {
+      if (activeType === 'all' && activeRegion === 'all') {
+        status.textContent = 'Showing all entries.';
+      } else {
+        status.textContent = 'Showing ' + visible + ' entr' + (visible !== 1 ? 'ies' : 'y') + '.';
+      }
+    }
+  }
+
+  var typeBtns = document.querySelectorAll('.community-filters [data-type]');
+  var regionBtns = document.querySelectorAll('.community-filters [data-region]');
+
+  typeBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      typeBtns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+      activeType = this.dataset.type;
+      applyFilters();
+    });
+  });
+
+  regionBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      regionBtns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+      activeRegion = this.dataset.region;
+      applyFilters();
+    });
+  });
+})();
+</script>

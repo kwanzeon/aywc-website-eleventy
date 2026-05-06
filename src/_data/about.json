@@ -8,10 +8,10 @@
     "label": "Overview",
     "heading": "What is Agni Yoga?",
     "body": [
-      "Agni Yoga, the yoga of Living Ethics (Russian: <em>Zhivaya Etika</em>), is a spiritual Teaching first transmitted through Helena Roerich in 1924. It is not a system of physical postures or withdrawal from life. Its field of practice is daily life: thought, action, relationship, service, beauty, and striving.",
-      "Living Ethics means that spiritual development is tested and expressed through ordinary responsibilities. The Teaching asks each student to refine consciousness, direct thought responsibly, and bring the heart into active cooperation with the common good.",
-      "Agni Yoga gives special attention to the fire of consciousness, the discipline of concentrated thought, the Hierarchy of Light, and the heart as the living link between the human and the higher worlds.",
-      "The Agni Yoga series comprises fourteen books composed between 1924 and 1938 by Helena Roerich, with guidance from the Masters of Wisdom. The volumes are available freely through the Agni Yoga Society and are supported here by <a href=\"/resources/\">study resources</a>, <a href=\"/groups/\">study groups</a>, and community connections."
+      "Agni Yoga, the yoga of Living Ethics, is a spiritual path—not of physical disciplines, meditation, or asceticism, as in the past—but of practice in daily life. It is a yoga of fiery energy, of consciousness, of responsible, directed thought.",
+      "It is a Teaching that offers practical guidance for the conscious development of the human spirit—not as a retreat from the world but through the transformation of a person’s inner and outer being through their increasing beauty, service, and striving. Particular attention is paid to the development of concentrated thinking and complete concentration of thought upon a chosen object. Such concentration and meditation constitute the most important part of spiritual upbringing.",
+      "Agni Yoga teaches that the evolution of the planetary consciousness is a pressing necessity and that, through individual striving, it is an attainable aspiration for humankind. It affirms the existence of the Hierarchy of Light and the center of the Heart as the link with the Hierarchy and with the far-off worlds.",
+      "Helena Roerich, the Mother of Agni Yoga, gave humanity the Teaching of Agni Yoga, which can be understood as the Teaching of Life."
     ]
   },
   "principles": {
@@ -77,7 +77,7 @@
     "buttons": [
       {
         "label": "Find a Study Group",
-        "url": "/groups/",
+        "url": "/community/",
         "style": "primary"
       },
       {

@@ -10,18 +10,25 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
-  eleventyConfig.addCollection("groups", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/content/groups/*.md")
+  eleventyConfig.addCollection("community", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/content/community/*.md")
+      .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+  });
+
+  eleventyConfig.addCollection("communityPages", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/content/community/*.md")
+      .filter(item => item.data.has_page === true)
+      .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+  });
+
+  eleventyConfig.addCollection("studyGroups", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/content/community/*.md")
+      .filter(item => item.data.types && item.data.types.includes("Study Group"))
       .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
   });
 
   eleventyConfig.addCollection("resources", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/content/resources/*.md")
-      .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
-  });
-
-  eleventyConfig.addCollection("organizations", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/content/organizations/*.md")
       .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
   });
 

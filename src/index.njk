@@ -17,7 +17,7 @@ navPage: "home"
       </div>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="/what-is-agni-yoga/">Start Learning Agni Yoga</a>
-        <a class="btn btn-outline-dark" href="/groups/">Find a Study Group</a>
+        <a class="btn btn-outline-dark" href="/community/">Find a Study Group</a>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@ navPage: "home"
     <div class="section-inner">
       <div class="seed-thought-card">
         <span class="seed-thought-label">Daily Planting</span>
-        <h2 id="seed-thought-title" data-seed-thought-date>Seed Thought for Today</h2>
+        <h2 id="seed-thought-title" data-seed-thought-date>Agni Yoga Seed Thought for Today</h2>
         <div class="seed-thought-content" data-seed-thought-content aria-live="polite">
           <p>Loading today&rsquo;s seed thought...</p>
         </div>
@@ -88,7 +88,7 @@ navPage: "home"
           <h3>Explore study resources</h3>
           <p>Use curated resources to support independent reading, reflection, and group discussion.</p>
         </a>
-        <a class="start-card" href="/groups/">
+        <a class="start-card" href="/community/">
           <span class="start-step">04</span>
           <h3>Find or join a study group</h3>
           <p>Connect with existing groups or learn how to add your own group to the directory.</p>
@@ -97,32 +97,6 @@ navPage: "home"
     </div>
   </section>
 
-  <section id="groups" aria-labelledby="groups-heading" class="groups-section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div>
-          <div class="section-label">Directory</div>
-          <h2 id="groups-heading" class="section-heading">Study Groups</h2>
-        </div>
-        <a href="/groups/" class="section-all-link">Full directory &rarr;</a>
-      </div>
-      <div class="card-grid card-grid-2">
-        {% for group in collections.groups | limit(4) %}
-        <a class="card card-on-alt" href="/groups/{{ group.page.fileSlug }}/">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;gap:1rem;">
-            <h3>{{ group.data.title }}</h3>
-            {% if group.data.format %}<span class="group-card-format">{{ group.data.format }}</span>{% endif %}
-          </div>
-          <div class="group-card-meta">
-            <span class="group-card-location">{{ group.data.location }}</span>
-            {% if group.data.established %}<span class="group-card-founded">Est. {{ group.data.established }}</span>{% endif %}
-          </div>
-          <p>{{ group.data.short_description }}</p>
-        </a>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
 
   <section id="resources" aria-labelledby="resources-heading" class="resources-section">
     <div class="section-inner">
@@ -167,27 +141,6 @@ navPage: "home"
           </div>
         </article>
         {% endfor %}
-      </div>
-    </div>
-  </section>
-
-  <section id="join" aria-labelledby="join-heading" class="join-section">
-    <div class="section-inner">
-      <div class="join-grid">
-        <div>
-          <div class="section-label on-dark">Open to All</div>
-          <h2 id="join-heading" class="join-heading">Join &amp; Connect</h2>
-          <p class="join-body">The Agni Yoga World Community is volunteer-run with no formal membership or hierarchy. Whether you are new to the teachings or an experienced student, you are welcome here.</p>
-          <a class="btn btn-primary" href="/join/">Connect with the Community</a>
-        </div>
-        <div class="join-divider">
-          {% for item in ["Connect with an existing local study group", "Register your own group in the directory", "Contribute resources, translations, or articles", "Share news of events in your region", "Volunteer to help maintain this site"] %}
-          <div class="join-item">
-            <span class="join-item-bullet">✦</span>
-            <span class="join-item-text">{{ item }}</span>
-          </div>
-          {% endfor %}
-        </div>
       </div>
     </div>
   </section>

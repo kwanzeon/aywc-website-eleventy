@@ -1,5 +1,9 @@
 ---
 title: "Agni Yoga Society"
+types:
+  - Organization
+  - Study Group
+has_page: true
 region: "Americas"
 format: "In-person & Online"
 location: "New York, USA"
@@ -23,7 +27,7 @@ extra_body: "All fourteen volumes of the Agni Yoga series are freely available t
 extra_link: "https://www.agniyoga.org"
 extra_link_text: "Read the Texts →"
 short_description: "Founded 1920, publisher of English translations of the Agni Yoga series. All fourteen volumes freely available online."
-order: 2
+order: 1
 ---
 
 ## About the Society
