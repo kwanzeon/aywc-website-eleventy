@@ -755,7 +755,7 @@ nav {
 .group-card-link:hover { color: var(--accent-hover); }
 
 /* ── Resources section ───────────────────────────────────────────────────── */
-.resources-section { background: var(--bg); padding: 5rem 3rem; border-top: 1px solid var(--border); }
+.resources-section { background: var(--bg-alt); padding: 5rem 3rem; border-top: 1px solid var(--border); }
 
 /* ── Join section (dark) ─────────────────────────────────────────────────── */
 .join-section { background: var(--dark-section); padding: 5rem 3rem; }

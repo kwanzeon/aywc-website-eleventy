@@ -52,8 +52,8 @@
     "heading": "Helena & Nicholas Roerich",
     "image": {
       "src": "/assets/images/roerichs-portrait.jpg",
-      "alt": "Portraits of Nicholas Roerich and Helena Roerich",
-      "caption": "Nicholas and Helena Roerich."
+      "alt": "Portraits of Helena Roerich and Nicholas Roerich",
+      "caption": "Helena and Nicholas Roerich."
     },
     "columns": [
       {
@@ -82,7 +82,7 @@
       },
       {
         "label": "Connect with the Community",
-        "url": "/join/",
+        "url": "/connect/",
         "style": "outline"
       }
     ]

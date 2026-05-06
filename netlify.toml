@@ -5,6 +5,11 @@
 [build.environment]
   NODE_VERSION = "22"
 
+[[redirects]]
+  from = "/join/"
+  to = "/connect/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
