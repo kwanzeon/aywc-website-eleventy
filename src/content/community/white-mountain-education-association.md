@@ -1,5 +1,5 @@
 ---
-title: White Mountain Education Association
+title: White Mountain Education Association, Inc.
 types:
   - Organization
   - Study Group
@@ -26,7 +26,7 @@ order: 2
 ---
 ## About WMEA
 
-The White Mountain Education Association (WMEA) was founded in 1982 by **Rev. Joleen D. DuBois** in Prescott, Arizona. It is one of the most active Agni Yoga study and teaching organizations in the United States, offering a broad program of classes, conferences, and publications rooted in the Living Ethics teachings transmitted through Helena and Nicholas Roerich.
+The White Mountain Education Association, Inc. (WMEA) was founded in 1982 by **Rev. Joleen D. DuBois** in Prescott, Arizona. It is one of the most active Agni Yoga study and teaching organizations in the United States, offering a broad program of classes, conferences, and publications rooted in the Living Ethics teachings transmitted through Helena and Nicholas Roerich.
 
 WMEA carries forward the lineage of the Agni Yoga teachings, which Helena and Nicholas Roerich brought to the West in the early 1920s. Alongside the core Roerich texts, WMEA draws on the works of **Torkom Saraydarian** and the writings of its founder. The organization is incorporated as a 501(c)(3) nonprofit and is sustained by its community of students and supporters.
 
