@@ -26,7 +26,7 @@ metaDescription: "Upcoming gatherings, recent announcements, and community updat
         <h2>{{ item.data.title }}</h2>
         <p>{{ item.data.summary }}</p>
         <div class="card-date">
-          {{ item.data.date_label if item.data.date_label }}
+          {% if item.data.date_label %}<time datetime="{{ item.data.date | htmlDateString }}">{{ item.data.date_label }}</time>{% endif %}
           {% if item.data.link %} &middot; <a href="{{ item.data.link }}" target="_blank" rel="noopener" style="color:var(--accent);">{{ item.data.link_text if item.data.link_text else "Details →" }}</a>{% endif %}
         </div>
       </div>

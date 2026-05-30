@@ -138,6 +138,7 @@ nav {
   background: var(--nav-text);
   transition: transform 0.2s, opacity 0.2s;
 }
+.nav-toggle:focus-visible { outline: 3px solid var(--dark-text); outline-offset: 3px; }
 
 @media (max-width: 700px) {
   .nav-inner { justify-content: flex-end; }
@@ -216,6 +217,7 @@ nav {
 
 .btn-primary { background: var(--accent); color: var(--accent-text); border: none; }
 .btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:focus-visible { outline: 3px solid var(--dark-text); outline-offset: 3px; }
 
 .btn-outline-dark {
   background: transparent;
@@ -223,6 +225,7 @@ nav {
   border: 1px solid rgba(232,221,208,0.25);
 }
 .btn-outline-dark:hover { color: #fff; border-color: rgba(232,221,208,0.6); }
+.btn-outline-dark:focus-visible { outline: 3px solid var(--dark-text); outline-offset: 3px; }
 
 .btn-outline {
   background: transparent;
@@ -1015,6 +1018,7 @@ footer {
 }
 
 .sidebar-visit:hover { background: #1e3a5a; }
+.sidebar-visit:focus-visible { outline: 3px solid var(--dark-text); outline-offset: 3px; }
 
 .hours-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
 .hours-row:last-child { border-bottom: none; }
@@ -1052,6 +1056,7 @@ footer {
 
 .region-btn:hover { border-color: var(--accent); color: var(--accent); }
 .region-btn.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+.region-btn.active:focus-visible { outline: 3px solid var(--dark-text); outline-offset: 3px; }
 
 /* ── Type badges ─────────────────────────────────────────────────────────── */
 .type-badges {

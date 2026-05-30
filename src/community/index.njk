@@ -63,7 +63,11 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
             <a class="group-card-link" href="{{ entry.data.secondary_link }}" target="_blank" rel="noopener" aria-label="{{ entry.data.secondary_link_text if entry.data.secondary_link_text else 'More' }} — {{ entry.data.title }} (opens in new tab)">{{ entry.data.secondary_link_text if entry.data.secondary_link_text else "More" }} &rarr;</a>
           </div>
         {% elif entry.data.website %}
-          <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Visit website' }} — {{ entry.data.title }} (opens in new tab)">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
+          {% if entry.data.link_type == "email" %}
+            <a class="group-card-link" href="{{ entry.data.website }}" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Send email' }} — {{ entry.data.title }}">{{ entry.data.link_text if entry.data.link_text else "Send email" }} &rarr;</a>
+          {% else %}
+            <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Visit website' }} — {{ entry.data.title }} (opens in new tab)">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
+          {% endif %}
         {% endif %}
       </div>
       {% endfor %}
