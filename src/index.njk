@@ -47,7 +47,6 @@ navPage: "home"
           {% for paragraph in home.agni_yoga_section.body %}
           <p class="about-body">{{ paragraph }}</p>
           {% endfor %}
-          <a class="btn btn-primary" href="{{ home.agni_yoga_section.cta_url }}">{{ home.agni_yoga_section.cta_label }}</a>
         </div>
         <div>
           {% if home.agni_yoga_section.attributes_heading %}
@@ -58,6 +57,7 @@ navPage: "home"
             <div class="about-attr-title">◆ {{ item.title }}</div>
           </div>
           {% endfor %}
+          <a class="btn btn-primary" href="{{ home.agni_yoga_section.cta_url }}" style="margin-top:1.5rem;">{{ home.agni_yoga_section.cta_label }}</a>
         </div>
       </div>
     </div>

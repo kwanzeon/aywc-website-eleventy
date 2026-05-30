@@ -48,28 +48,27 @@ collections:
               - {label: "Small Label", name: "label", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Subtitle", name: "subtitle", widget: "text"}
-          - label: "Overview"
+          - label: "Seven Pillars Article"
             name: "overview"
             widget: "object"
             fields:
               - {label: "Small Label", name: "label", widget: "string"}
               - {label: "Heading", name: "heading", widget: "string"}
-              - label: "Body Paragraphs"
-                name: "body"
+              - {label: "Author", name: "author", widget: "string"}
+              - {label: "Author Title", name: "author_title", widget: "string"}
+              - label: "Intro Paragraphs"
+                name: "intro"
                 widget: "list"
                 field: {label: "Paragraph", name: "paragraph", widget: "text"}
-          - label: "Core Principles"
-            name: "principles"
-            widget: "object"
-            fields:
-              - {label: "Small Label", name: "label", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - label: "Principles"
-                name: "items"
+              - label: "Pillars"
+                name: "pillars"
                 widget: "list"
                 fields:
                   - {label: "Title", name: "title", widget: "string"}
-                  - {label: "Description", name: "description", widget: "text"}
+                  - label: "Body Paragraphs"
+                    name: "body"
+                    widget: "list"
+                    field: {label: "Paragraph", name: "paragraph", widget: "text"}
           - label: "Roerich Section"
             name: "roerich"
             widget: "object"
