@@ -332,8 +332,7 @@ nav {
 /* ── Card grid ───────────────────────────────────────────────────────────── */
 .card-grid {
   display: grid;
-  gap: 1.5px;
-  background: var(--border);
+  gap: 1.5rem;
 }
 
 .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
@@ -366,6 +365,7 @@ nav {
 
 .card {
   background: var(--bg-card);
+  border: 1px solid var(--border);
   padding: 2rem;
   transition: background 0.2s;
   display: block;
@@ -475,8 +475,7 @@ nav {
 .updates-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 1fr);
-  gap: 1.5px;
-  background: rgba(232,221,208,0.12);
+  gap: 1.5rem;
 }
 
 .update-card {
@@ -665,12 +664,12 @@ nav {
 .start-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5px;
-  background: var(--border);
+  gap: 1.5rem;
 }
 
 .start-card {
   background: var(--bg-card);
+  border: 1px solid var(--border);
   color: inherit;
   display: block;
   min-height: 100%;
@@ -981,7 +980,7 @@ footer {
 .group-content ul li { color: var(--text-muted); font-size: 1rem; font-weight: 400; padding: 0.35rem 0 0.35rem 1.2rem; position: relative; line-height: 1.6; }
 .group-content ul li::before { content: '—'; color: var(--accent); position: absolute; left: 0; opacity: 0.6; }
 
-.group-sidebar { display: flex; flex-direction: column; gap: 1.5px; background: var(--border); }
+.group-sidebar { display: flex; flex-direction: column; gap: 0.75rem; }
 
 .sidebar-block { background: var(--bg-card); padding: 1.5rem; }
 
