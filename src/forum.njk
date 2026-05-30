@@ -24,6 +24,16 @@ metaDescription: "Join the Agni Yoga World Community forum — a place for stude
       <a class="btn btn-primary" href="https://community.solarfuturenow.com/" target="_blank" rel="noopener" style="font-size:1.05rem;padding:0.9rem 2.5rem;">Go to the Forum &rarr;<span class="sr-only"> (opens in new tab)</span></a>
     </div>
 
+    <section aria-labelledby="recent-discussions-heading" style="margin-bottom:3.5rem;">
+      <div class="section-label" style="margin-bottom:0.5rem;">Live from the Forum</div>
+      <h2 id="recent-discussions-heading" class="section-heading" style="margin-bottom:1.5rem;">Recent Discussions</h2>
+      <div id="forum-topics">
+        <p style="color:var(--text-muted);font-size:0.95rem;">Loading recent discussions&hellip;</p>
+      </div>
+    </section>
+
+    <div style="border-top:1px solid var(--border);padding-top:3rem;">
+
     <div style="border-top:1px solid var(--border);padding-top:3rem;">
       <div class="section-label" style="margin-bottom:0.5rem;">New Here?</div>
       <h2 class="section-heading" style="margin-bottom:2rem;">How to create your account</h2>
@@ -53,3 +63,35 @@ metaDescription: "Join the Agni Yoga World Community forum — a place for stude
 
   </div>
 </main>
+
+<script>
+(function() {
+  var container = document.getElementById('forum-topics');
+  if (!container) return;
+  fetch('https://community.solarfuturenow.com/latest.json?per_page=8')
+    .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function(data) {
+      var topics = (data.topic_list && data.topic_list.topics) || [];
+      if (!topics.length) { renderFallback(); return; }
+      var html = '<ul style="list-style:none;padding:0;margin:0;">';
+      topics.forEach(function(t) {
+        var url = 'https://community.solarfuturenow.com/t/' + t.slug + '/' + t.id;
+        var replies = t.reply_count || 0;
+        var replyText = replies === 1 ? '1 reply' : replies + ' replies';
+        var date = t.last_posted_at ? new Date(t.last_posted_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+        html += '<li style="border-bottom:1px solid var(--border);padding:0.9rem 0;">'
+          + '<a href="' + url + '" target="_blank" rel="noopener" style="color:var(--text);font-family:\'Jost\',sans-serif;font-weight:500;font-size:1rem;display:block;margin-bottom:0.25rem;">' + t.title + '<span class="sr-only"> (opens in new tab)</span></a>'
+          + '<span style="color:var(--text-muted);font-size:0.8rem;">' + replyText + (date ? ' &middot; ' + date : '') + '</span>'
+          + '</li>';
+      });
+      html += '</ul>';
+      html += '<p style="margin-top:1.2rem;"><a href="https://community.solarfuturenow.com/" target="_blank" rel="noopener" style="color:var(--accent);font-size:0.9rem;font-weight:500;">See all discussions &rarr;<span class="sr-only"> (opens in new tab)</span></a></p>';
+      container.innerHTML = html;
+    })
+    .catch(renderFallback);
+
+  function renderFallback() {
+    container.innerHTML = '<p style="color:var(--text-muted);font-size:0.95rem;">Visit the forum to see the latest discussions.</p>';
+  }
+})();
+</script>
