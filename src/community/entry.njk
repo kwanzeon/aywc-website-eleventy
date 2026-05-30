@@ -12,7 +12,7 @@ eleventyComputed:
   metaDescription: "{{ entry.data.short_description if entry.data.short_description else site.description }}"
 ---
 
-<header>
+<header aria-label="Page header">
   <div class="page-hero">
     <div class="page-hero-inner">
       <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
@@ -45,7 +45,7 @@ eleventyComputed:
       {{ entry.content | safe }}
     </div>
 
-    <aside class="group-sidebar">
+    <aside class="group-sidebar" aria-label="Organization details">
 
       <div class="sidebar-block">
         <div class="sidebar-block-title">Contact &amp; Visit</div>

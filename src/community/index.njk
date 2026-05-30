@@ -7,7 +7,7 @@ permalink: "/community/index.html"
 metaDescription: "Agni Yoga study groups from around the world, plus online talks and study sessions — find a group or join the global community."
 ---
 
-<header>
+<header aria-label="Page header">
   <div class="page-hero">
     <div class="page-hero-inner">
       <div class="section-label on-dark">Global Network</div>
@@ -38,6 +38,7 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
 
     <p class="sr-only" aria-live="polite" aria-atomic="true" id="community-filter-status"></p>
 
+    <h2 class="sr-only">Groups and Organizations Directory</h2>
     <div class="card-grid card-grid-2" id="community-list">
       {% for entry in collections.community %}
       <div class="card"
@@ -58,11 +59,11 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
           <a class="group-card-link" href="/community/{{ entry.page.fileSlug }}/">View page &rarr;</a>
         {% elif entry.data.secondary_link %}
           <div class="card-links">
-            <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
-            <a class="group-card-link" href="{{ entry.data.secondary_link }}" target="_blank" rel="noopener">{{ entry.data.secondary_link_text if entry.data.secondary_link_text else "More" }} &rarr;</a>
+            <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Visit website' }} — {{ entry.data.title }} (opens in new tab)">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
+            <a class="group-card-link" href="{{ entry.data.secondary_link }}" target="_blank" rel="noopener" aria-label="{{ entry.data.secondary_link_text if entry.data.secondary_link_text else 'More' }} — {{ entry.data.title }} (opens in new tab)">{{ entry.data.secondary_link_text if entry.data.secondary_link_text else "More" }} &rarr;</a>
           </div>
         {% elif entry.data.website %}
-          <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
+          <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Visit website' }} — {{ entry.data.title }} (opens in new tab)">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
         {% endif %}
       </div>
       {% endfor %}

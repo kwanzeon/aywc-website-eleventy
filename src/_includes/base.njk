@@ -40,13 +40,13 @@
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links" id="nav-links">
-        <a href="/" class="on-dark{% if navPage == 'home' %} active{% endif %}">Home</a>
-        <a href="/about/" class="on-dark{% if navPage == 'about' %} active{% endif %}">About</a>
-        <a href="/news/" class="on-dark{% if navPage == 'news' %} active{% endif %}">News &amp; Events</a>
-        <a href="/community/" class="on-dark{% if navPage == 'community' %} active{% endif %}">Community</a>
-        <a href="/resources/" class="on-dark{% if navPage == 'resources' %} active{% endif %}">Resources</a>
-        <a href="/connect/" class="on-dark{% if navPage == 'connect' %} active{% endif %}">Connect</a>
-        <a href="/forum/" class="on-dark{% if navPage == 'forum' %} active{% endif %}">Forum</a>
+        <a href="/" class="on-dark{% if navPage == 'home' %} active{% endif %}"{% if navPage == 'home' %} aria-current="page"{% endif %}>Home</a>
+        <a href="/about/" class="on-dark{% if navPage == 'about' %} active{% endif %}"{% if navPage == 'about' %} aria-current="page"{% endif %}>About</a>
+        <a href="/news/" class="on-dark{% if navPage == 'news' %} active{% endif %}"{% if navPage == 'news' %} aria-current="page"{% endif %}>News &amp; Events</a>
+        <a href="/community/" class="on-dark{% if navPage == 'community' %} active{% endif %}"{% if navPage == 'community' %} aria-current="page"{% endif %}>Community</a>
+        <a href="/resources/" class="on-dark{% if navPage == 'resources' %} active{% endif %}"{% if navPage == 'resources' %} aria-current="page"{% endif %}>Resources</a>
+        <a href="/connect/" class="on-dark{% if navPage == 'connect' %} active{% endif %}"{% if navPage == 'connect' %} aria-current="page"{% endif %}>Connect</a>
+        <a href="/forum/" class="on-dark{% if navPage == 'forum' %} active{% endif %}"{% if navPage == 'forum' %} aria-current="page"{% endif %}>Forum</a>
       </div>
     </div>
   </nav>
@@ -77,8 +77,8 @@
         <div class="footer-col">
           <div class="footer-col-heading">Resources</div>
           <a href="/resources/" class="on-dark">All Resources</a>
-          <a href="https://www.agniyoga.org/" class="on-dark" target="_blank" rel="noopener">Agni Yoga Series</a>
-          <a href="https://www.roerich.org/index.php" class="on-dark" target="_blank" rel="noopener">Roerich Paintings</a>
+          <a href="https://www.agniyoga.org/" class="on-dark" target="_blank" rel="noopener">Agni Yoga Series<span class="sr-only"> (opens in new tab)</span></a>
+          <a href="https://www.roerich.org/index.php" class="on-dark" target="_blank" rel="noopener">Roerich Paintings<span class="sr-only"> (opens in new tab)</span></a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -96,9 +96,22 @@
     var toggle = document.querySelector('.nav-toggle');
     var navLinks = document.getElementById('nav-links');
     if (toggle && navLinks) {
+      function openNav() {
+        navLinks.classList.add('nav-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        var first = navLinks.querySelector('a');
+        if (first) first.focus();
+      }
+      function closeNav() {
+        navLinks.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
       toggle.addEventListener('click', function() {
-        var open = navLinks.classList.toggle('nav-open');
-        toggle.setAttribute('aria-expanded', open);
+        navLinks.classList.contains('nav-open') ? closeNav() : openNav();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('nav-open')) closeNav();
       });
     }
   </script>

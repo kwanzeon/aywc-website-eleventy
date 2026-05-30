@@ -6,7 +6,7 @@ permalink: "/connect/index.html"
 metaDescription: "Get in touch with the Agni Yoga World Community. Register your study group, submit news, contribute resources, or volunteer."
 ---
 
-<header>
+<header aria-label="Page header">
   <div class="page-hero">
     <div class="page-hero-inner">
       <div class="section-label on-dark">Open to All</div>
@@ -39,15 +39,17 @@ metaDescription: "Get in touch with the Agni Yoga World Community. Register your
           <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
           <div class="field">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true" />
+            <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true" aria-describedby="name-hint" />
+            <span id="name-hint" class="sr-only">Enter your full name</span>
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true" />
+            <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true" aria-describedby="email-hint" />
+            <span id="email-hint" class="sr-only">Enter a valid email address — we will reply here</span>
           </div>
           <div class="field">
             <label for="reason">Reason for contact</label>
-            <select id="reason" name="reason">
+            <select id="reason" name="reason" aria-describedby="reason-hint">
               <option value="">Select one&hellip;</option>
               <option>General inquiry</option>
               <option>Register a study group or organization</option>
@@ -55,10 +57,12 @@ metaDescription: "Get in touch with the Agni Yoga World Community. Register your
               <option>Contribute resources</option>
               <option>Volunteering</option>
             </select>
+            <span id="reason-hint" class="sr-only">Optional — select the topic that best describes your message</span>
           </div>
           <div class="field">
             <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Your message&hellip;" required aria-required="true"></textarea>
+            <textarea id="message" name="message" placeholder="Your message&hellip;" required aria-required="true" aria-describedby="message-hint"></textarea>
+            <span id="message-hint" class="sr-only">Describe your question or request in as much detail as you like</span>
           </div>
           <button class="btn btn-primary" type="submit">Send Message</button>
         </form>
