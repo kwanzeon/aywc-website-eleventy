@@ -21,7 +21,7 @@ metaDescription: "Join the Agni Yoga World Community forum — a place for stude
   <div style="max-width:760px;margin:0 auto;">
 
     <div style="text-align:center;margin-bottom:3.5rem;">
-      <a class="btn btn-primary" href="https://community.solarfuturenow.com/" target="_blank" rel="noopener" style="font-size:1.05rem;padding:0.9rem 2.5rem;">Go to the Forum &rarr;<span class="sr-only"> (opens in new tab)</span></a>
+      <a class="btn btn-primary" href="https://forum.agniyogaworld.org/" target="_blank" rel="noopener" style="font-size:1.05rem;padding:0.9rem 2.5rem;">Go to the Forum &rarr;<span class="sr-only"> (opens in new tab)</span></a>
     </div>
 
     <section aria-labelledby="recent-discussions-heading" style="margin-bottom:3.5rem;">
@@ -39,7 +39,7 @@ metaDescription: "Join the Agni Yoga World Community forum — a place for stude
       <h2 class="section-heading" style="margin-bottom:2rem;">How to create your account</h2>
 
       {% set steps = [
-        { n: "1", heading: "Go to the forum", body: "Click the button above, or go directly to <a href=\"https://community.solarfuturenow.com/\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--accent);\">community.solarfuturenow.com</a>." },
+        { n: "1", heading: "Go to the forum", body: "Click the button above, or go directly to <a href=\"https://forum.agniyogaworld.org/\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--accent);\">forum.agniyogaworld.org</a>." },
         { n: "2", heading: "Click &ldquo;Sign Up&rdquo;", body: "Click the <strong>Sign Up</strong> button in the upper right corner of the forum page." },
         { n: "3", heading: "Enter your details", body: "Fill in your email address, a username (your public display name), and a password of at least 10 characters." },
         { n: "4", heading: "Confirm your email", body: "Check your inbox for a confirmation email and click the link inside to activate your account. If it doesn&rsquo;t arrive within a few minutes, check your spam folder." },
@@ -69,14 +69,14 @@ metaDescription: "Join the Agni Yoga World Community forum — a place for stude
 (function() {
   var container = document.getElementById('forum-topics');
   if (!container) return;
-  fetch('https://community.solarfuturenow.com/latest.json?per_page=8')
+  fetch('https://forum.agniyogaworld.org/latest.json?per_page=8')
     .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
     .then(function(data) {
       var topics = (data.topic_list && data.topic_list.topics) || [];
       if (!topics.length) { renderFallback(); return; }
       var html = '<ul style="list-style:none;padding:0;margin:0;">';
       topics.forEach(function(t) {
-        var url = 'https://community.solarfuturenow.com/t/' + t.slug + '/' + t.id;
+        var url = 'https://forum.agniyogaworld.org/t/' + t.slug + '/' + t.id;
         var replies = t.reply_count || 0;
         var replyText = replies === 1 ? '1 reply' : replies + ' replies';
         var date = t.last_posted_at ? new Date(t.last_posted_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
@@ -86,7 +86,7 @@ metaDescription: "Join the Agni Yoga World Community forum — a place for stude
           + '</li>';
       });
       html += '</ul>';
-      html += '<p style="margin-top:1.2rem;"><a href="https://community.solarfuturenow.com/" target="_blank" rel="noopener" style="color:var(--accent);font-size:0.9rem;font-weight:500;">See all discussions &rarr;<span class="sr-only"> (opens in new tab)</span></a></p>';
+      html += '<p style="margin-top:1.2rem;"><a href="https://forum.agniyogaworld.org/" target="_blank" rel="noopener" style="color:var(--accent);font-size:0.9rem;font-weight:500;">See all discussions &rarr;<span class="sr-only"> (opens in new tab)</span></a></p>';
       container.innerHTML = html;
     })
     .catch(renderFallback);
