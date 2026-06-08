@@ -24,6 +24,47 @@ metaDescription: "Join the Agni Yoga World Community forum — a place for stude
       <a class="btn btn-primary" href="https://forum.agniyogaworld.org/" target="_blank" rel="noopener" style="font-size:1.05rem;padding:0.9rem 2.5rem;">Go to the Forum &rarr;<span class="sr-only"> (opens in new tab)</span></a>
     </div>
 
+    <div style="border-bottom:1px solid var(--border);margin-bottom:3.5rem;">
+      <button
+        id="join-accordion-btn"
+        aria-expanded="false"
+        aria-controls="join-accordion-body"
+        onclick="toggleAccordion()"
+        style="width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:none;border-top:1px solid var(--border);padding:1.25rem 0;cursor:pointer;text-align:left;">
+        <div>
+          <div class="section-label" style="margin-bottom:0.25rem;">New Here?</div>
+          <span style="font-family:'Jost',sans-serif;font-size:1.2rem;font-weight:600;color:var(--text);">How to Join the Discussion</span>
+        </div>
+        <span id="join-accordion-icon" style="font-size:1.25rem;color:var(--accent);flex-shrink:0;margin-left:1rem;transition:transform 0.2s;">&#43;</span>
+      </button>
+
+      <div id="join-accordion-body" hidden style="padding-bottom:2rem;">
+
+        {% set steps = [
+          { n: "1", heading: "Go to the forum", body: "Click the button above, or go directly to <a href=\"https://forum.agniyogaworld.org/\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--accent);\">forum.agniyogaworld.org</a>." },
+          { n: "2", heading: "Click &ldquo;Sign Up&rdquo;", body: "Click the <strong>Sign Up</strong> button in the upper right corner of the forum page." },
+          { n: "3", heading: "Enter your details", body: "Fill in your email address, a username (your public display name), and a password of at least 10 characters." },
+          { n: "4", heading: "Confirm your email", body: "Check your inbox for a confirmation email and click the link inside to activate your account. If it doesn&rsquo;t arrive within a few minutes, check your spam folder." },
+          { n: "5", heading: "Await approval", body: "New accounts are reviewed before they can post. You will receive an email once your account has been approved, usually within a day or two." },
+          { n: "6", heading: "You&rsquo;re in", body: "Once approved, you can read and post in any open topic. You may also add a short bio and profile photo under your account preferences." }
+        ] %}
+
+        {% for step in steps %}
+        <div style="display:flex;gap:1.5rem;margin-bottom:2rem;align-items:flex-start;">
+          <div style="flex-shrink:0;width:2rem;height:2rem;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:600;font-family:'Jost',sans-serif;margin-top:0.1rem;">{{ step.n }}</div>
+          <div>
+            <div style="font-family:'Jost',sans-serif;font-weight:600;color:var(--text);margin-bottom:0.3rem;">{{ step.heading | safe }}</div>
+            <p style="color:var(--text-muted);font-size:1rem;font-weight:400;line-height:1.75;margin:0;">{{ step.body | safe }}</p>
+          </div>
+        </div>
+        {% endfor %}
+
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.75;margin-top:0.5rem;border-top:1px solid var(--border);padding-top:1.5rem;">
+          Having trouble? Contact us at <a href="mailto:staff@wmea-world.org" style="color:var(--accent);">staff@wmea-world.org</a> and we will help you get set up.
+        </p>
+      </div>
+    </div>
+
     <section aria-labelledby="recent-discussions-heading" style="margin-bottom:3.5rem;">
       <div class="section-label" style="margin-bottom:0.5rem;">Live from the Forum</div>
       <h2 id="recent-discussions-heading" class="section-heading" style="margin-bottom:1.5rem;">Recent Discussions</h2>
@@ -32,40 +73,27 @@ metaDescription: "Join the Agni Yoga World Community forum — a place for stude
       </div>
     </section>
 
-    <div style="border-top:1px solid var(--border);padding-top:3rem;">
-
-    <div style="border-top:1px solid var(--border);padding-top:3rem;">
-      <div class="section-label" style="margin-bottom:0.5rem;">New Here?</div>
-      <h2 class="section-heading" style="margin-bottom:2rem;">How to create your account</h2>
-
-      {% set steps = [
-        { n: "1", heading: "Go to the forum", body: "Click the button above, or go directly to <a href=\"https://forum.agniyogaworld.org/\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--accent);\">forum.agniyogaworld.org</a>." },
-        { n: "2", heading: "Click &ldquo;Sign Up&rdquo;", body: "Click the <strong>Sign Up</strong> button in the upper right corner of the forum page." },
-        { n: "3", heading: "Enter your details", body: "Fill in your email address, a username (your public display name), and a password of at least 10 characters." },
-        { n: "4", heading: "Confirm your email", body: "Check your inbox for a confirmation email and click the link inside to activate your account. If it doesn&rsquo;t arrive within a few minutes, check your spam folder." },
-        { n: "5", heading: "Await approval", body: "New accounts are reviewed before they can post. You will receive an email once your account has been approved, usually within a day or two." },
-        { n: "6", heading: "You&rsquo;re in", body: "Once approved, you can read and post in any open topic. You may also add a short bio and profile photo under your account preferences." }
-      ] %}
-
-      {% for step in steps %}
-      <div style="display:flex;gap:1.5rem;margin-bottom:2rem;align-items:flex-start;">
-        <div style="flex-shrink:0;width:2rem;height:2rem;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:600;font-family:'Jost',sans-serif;margin-top:0.1rem;">{{ step.n }}</div>
-        <div>
-          <div style="font-family:'Jost',sans-serif;font-weight:600;color:var(--text);margin-bottom:0.3rem;">{{ step.heading | safe }}</div>
-          <p style="color:var(--text-muted);font-size:1rem;font-weight:400;line-height:1.75;margin:0;">{{ step.body | safe }}</p>
-        </div>
-      </div>
-      {% endfor %}
-
-      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.75;margin-top:2.5rem;border-top:1px solid var(--border);padding-top:1.5rem;">
-        Having trouble? Contact us at <a href="mailto:staff@wmea-world.org" style="color:var(--accent);">staff@wmea-world.org</a> and we will help you get set up.
-      </p>
-    </div>
-
   </div>
 </main>
 
 <script>
+function toggleAccordion() {
+  var btn = document.getElementById('join-accordion-btn');
+  var body = document.getElementById('join-accordion-body');
+  var icon = document.getElementById('join-accordion-icon');
+  var expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !expanded);
+  if (expanded) {
+    body.hidden = true;
+    icon.innerHTML = '&#43;';
+    icon.style.transform = 'rotate(0deg)';
+  } else {
+    body.hidden = false;
+    icon.innerHTML = '&#8722;';
+    icon.style.transform = 'rotate(0deg)';
+  }
+}
+
 (function() {
   var container = document.getElementById('forum-topics');
   if (!container) return;
