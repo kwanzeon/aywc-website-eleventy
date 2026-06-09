@@ -73,13 +73,67 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
       {% endfor %}
     </div>
 
-    <div class="register-cta">
-      <div>
-        <div class="register-cta-label">Not listed?</div>
-        <div class="register-cta-title">Add your group or organization</div>
-        <div class="register-cta-body">Register your study group or organization so others can find you.</div>
+    <div style="border-top:1px solid var(--border);margin-top:3rem;border-bottom:1px solid var(--border);">
+      <button
+        id="register-accordion-btn"
+        aria-expanded="false"
+        aria-controls="register-accordion-body"
+        onclick="toggleRegister()"
+        style="width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:none;padding:1.25rem 0;cursor:pointer;text-align:left;">
+        <div>
+          <div class="section-label" style="margin-bottom:0.25rem;">Not listed?</div>
+          <span style="font-family:'Jost',sans-serif;font-size:1.2rem;font-weight:600;color:var(--text);">Add your group or organization</span>
+        </div>
+        <span id="register-accordion-icon" style="font-size:1.25rem;color:var(--accent);flex-shrink:0;margin-left:1rem;">&#43;</span>
+      </button>
+
+      <div id="register-accordion-body" hidden style="padding-bottom:2rem;max-width:600px;">
+        <p style="color:var(--text-muted);font-size:1rem;line-height:1.75;margin-bottom:1.5rem;">Register your study group or organization so others can find you. We will review your submission and add it to the directory.</p>
+        <form name="register-group" method="POST" action="/thank-you/" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="register-group" />
+          <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <div class="field">
+            <label for="reg-name">Your name</label>
+            <input type="text" id="reg-name" name="name" placeholder="Your name" required aria-required="true" />
+          </div>
+          <div class="field">
+            <label for="reg-email">Your email</label>
+            <input type="email" id="reg-email" name="email" placeholder="your@email.com" required aria-required="true" />
+          </div>
+          <div class="field">
+            <label for="reg-group-name">Group or organization name</label>
+            <input type="text" id="reg-group-name" name="group_name" placeholder="Name of your group or organization" required aria-required="true" />
+          </div>
+          <div class="field">
+            <label for="reg-type">Type</label>
+            <select id="reg-type" name="type">
+              <option value="">Select one&hellip;</option>
+              <option>Study Group</option>
+              <option>Organization</option>
+              <option>Online Study</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="reg-region">Region</label>
+            <select id="reg-region" name="region">
+              <option value="">Select one&hellip;</option>
+              <option>Americas</option>
+              <option>Europe</option>
+              <option>Asia-Pacific</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="reg-website">Website (optional)</label>
+            <input type="url" id="reg-website" name="website" placeholder="https://..." />
+          </div>
+          <div class="field">
+            <label for="reg-message">Brief description</label>
+            <textarea id="reg-message" name="message" placeholder="A short description of your group or organization&hellip;" required aria-required="true"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Registration</button>
+        </form>
       </div>
-      <a class="btn btn-primary" href="/connect/">Get in touch &rarr;</a>
     </div>
 
   </div>
@@ -134,4 +188,14 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
     });
   });
 })();
+
+function toggleRegister() {
+  var btn = document.getElementById('register-accordion-btn');
+  var body = document.getElementById('register-accordion-body');
+  var icon = document.getElementById('register-accordion-icon');
+  var expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !expanded);
+  body.hidden = expanded;
+  icon.innerHTML = expanded ? '&#43;' : '&#8722;';
+}
 </script>
