@@ -10,6 +10,18 @@
   to = "/connect/"
   status = 301
 
+[[redirects]]
+  from = "https://agniyogaworldcommunity.org/*"
+  to = "https://agniyogaworld.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.agniyogaworldcommunity.org/*"
+  to = "https://agniyogaworld.org/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
