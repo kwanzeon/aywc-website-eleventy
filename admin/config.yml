@@ -112,19 +112,31 @@ collections:
       - {label: "Link URL", name: "link", widget: "string", required: false}
       - {label: "Link Text", name: "link_text", widget: "string", required: false, default: "Details →"}
 
-  - name: "groups"
-    label: "Study Groups"
-    folder: "src/content/groups"
+  - name: "community"
+    label: "Community"
+    folder: "src/content/community"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Name", name: "title", widget: "string"}
-      - {label: "Location", name: "location", widget: "string", hint: "City, Country"}
+      - label: "Types"
+        name: "types"
+        widget: "select"
+        multiple: true
+        options: ["Organization", "Study Group", "Online Study"]
+      - {label: "Region", name: "region", widget: "select", options: ["Americas", "Europe", "Asia-Pacific", "Other"], required: false}
+      - {label: "Location", name: "location", widget: "string", required: false, hint: "City, Country"}
+      - {label: "Format", name: "format", widget: "string", required: false, hint: "e.g. In-person & Online"}
+      - {label: "Has Dedicated Page", name: "has_page", widget: "boolean", default: false, required: false}
       - {label: "Address", name: "address", widget: "string", required: false}
       - {label: "Phone", name: "phone", widget: "string", required: false}
       - {label: "Email", name: "email", widget: "string", required: false}
       - {label: "Website", name: "website", widget: "string", required: false}
-      - {label: "Established", name: "established", widget: "string", required: false, hint: "e.g. 1982"}
+      - {label: "Link Text", name: "link_text", widget: "string", required: false, hint: "Custom label for the website button"}
+      - {label: "Link Type", name: "link_type", widget: "select", options: ["email"], required: false, hint: "Set to 'email' if the website field contains a mailto: link"}
+      - {label: "Secondary Link", name: "secondary_link", widget: "string", required: false}
+      - {label: "Secondary Link Text", name: "secondary_link_text", widget: "string", required: false}
+      - {label: "Established", name: "established", widget: "string", required: false, hint: "e.g. 1920"}
       - {label: "Tax Status", name: "tax_status", widget: "string", required: false}
       - {label: "Founder", name: "founder", widget: "string", required: false}
       - {label: "Membership", name: "membership", widget: "string", required: false}
@@ -140,23 +152,9 @@ collections:
       - {label: "Extra Sidebar Card Body", name: "extra_body", widget: "text", required: false}
       - {label: "Extra Sidebar Card Link", name: "extra_link", widget: "string", required: false}
       - {label: "Extra Sidebar Card Link Text", name: "extra_link_text", widget: "string", required: false}
-      - {label: "Short Description", name: "short_description", widget: "text", hint: "2–3 sentences shown on the home page group card"}
-      - {label: "Full Content", name: "body", widget: "markdown"}
+      - {label: "Short Description", name: "short_description", widget: "text", hint: "2–3 sentences shown on the community card"}
+      - {label: "Full Content", name: "body", widget: "markdown", required: false, hint: "Full content for entries with a dedicated page"}
       - {label: "Display Order", name: "order", widget: "number", default: 99, hint: "Lower numbers appear first"}
-
-  - name: "organizations"
-    label: "Organizations"
-    folder: "src/content/organizations"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Location", name: "location", widget: "string", hint: "City, Country"}
-      - {label: "Website", name: "website", widget: "string", required: false}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Region", name: "region", widget: "select", options: ["Americas", "Europe", "Asia-Pacific", "Other"], required: false}
-      - {label: "Established", name: "established", widget: "string", required: false, hint: "e.g. 1920"}
-      - {label: "Display Order", name: "order", widget: "number", default: 99}
 
   - name: "resources"
     label: "Resources"
