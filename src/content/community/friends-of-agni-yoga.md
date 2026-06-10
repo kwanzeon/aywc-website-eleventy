@@ -7,7 +7,7 @@ location: Flanders, Belgium
 format: Online
 has_page: false
 email: ""
-website: mailto:eric.du.meunier@telenet.be
+website: mailto:eric.du.meunier@telenet.be?subject=Enquiry%20about%20the%20Study%20Group
 link_text: Email for more information
 link_type: email
 short_description: >-
