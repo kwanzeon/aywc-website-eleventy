@@ -7,7 +7,8 @@ location: Flanders, Belgium
 format: Online
 has_page: false
 email: ""
-link_text: eric.du.meunier@telenet.be
+website: mailto:eric.du.meunier@telenet.be
+link_text: Email for more information
 link_type: email
 short_description: >-
   Our Agni Yoga group is based in Flanders, and meetings are held in Dutch,
