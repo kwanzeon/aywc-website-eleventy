@@ -14,26 +14,10 @@ short_description: >-
 order: 99
 ---
 
-## About the Center
+This is a center that our spiritual community calls the Jewels of Light, where ancient wisdom and the teachings of the path are shared.
 
-The Aquarian Age Wisdom Center — known within its spiritual community as the **Jewels of Light** — is a center in Turkey where ancient wisdom and the Teachings of the path are shared. At the heart of the center's work is Agni Yoga, a living Teaching that calls not for abstract knowledge, but for knowledge woven into life itself.
+At the heart of our work is Agni Yoga, a living teaching that calls not for abstract knowledge, but for knowledge woven into life itself. Nothing should remain abstract. Everything must be built with one's own hands and feet, through the full tension of one's forces. Without that tension, transformation is not possible. And so this path demands perseverance. Yet no one walks this road alone. Through individual practice and the bonds of the group heart, we walk together aligned with the vision of the Masters, sustaining one another on the way. This is what we call community: not a gathering, but a bond.
 
-Nothing should remain abstract. Everything must be built with one's own hands and feet, through the full tension of one's forces. Without that tension, transformation is not possible. And so this path demands perseverance.
+We bring this understanding to life through classes, meditations, retreat work, seminars, and workshops weaving the teachings of Agni Yoga and Alice A. Bailey with the living consciousness of walking the path together.
 
-## Community and Group Work
-
-No one walks this road alone. Through individual practice and the bonds of the group heart, the community walks together aligned with the vision of the Masters, sustaining one another on the way. This is what the center understands as community: not a gathering, but a bond.
-
-## Programs and Activities
-
-The center brings this understanding to life through a range of activities, weaving the Teachings of Agni Yoga and Alice A. Bailey with the living consciousness of walking the path together:
-
-- Classes
-- Meditations
-- Retreat work
-- Seminars
-- Workshops
-
-## An Open Invitation
-
-The center welcomes everyone who wishes to embark on this journey, guided by the approaching influences of the Age of Aquarius.
+We welcome everyone who wishes to embark on this journey with us, guided by the approaching influences of the Age of Aquarius.
