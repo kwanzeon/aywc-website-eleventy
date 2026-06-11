@@ -4,13 +4,14 @@ types:
   - Organization
   - Study Group
 region: Europe
-format: "In-person"
 location: Turkey
+format: In-person
 has_page: true
-website: http://www.isiginmucevherleri.com/
+website: /community/aquarian-age-wisdom-center/
 link_text: Aquarian Age Wisdom Center
-short_description: >-
-  A center in Turkey — known as the Jewels of Light — where Agni Yoga and the Alice A. Bailey teachings are brought to life through classes, meditations, retreats, seminars, and workshops.
+short_description: A center in Turkey — known as the Jewels of Light — where
+  Agni Yoga and the Alice A. Bailey teachings are brought to life through
+  classes, meditations, retreats, seminars, and workshops.
 order: 99
 ---
 
