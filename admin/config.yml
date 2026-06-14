@@ -27,6 +27,7 @@ collections:
                 field: {label: "Paragraph", name: "paragraph", widget: "text"}
               - {label: "Button Label", name: "cta_label", widget: "string"}
               - {label: "Button URL", name: "cta_url", widget: "string"}
+              - {label: "Attributes Heading", name: "attributes_heading", widget: "string", required: false}
               - label: "Attribute Cards"
                 name: "attributes"
                 widget: "list"
@@ -75,6 +76,13 @@ collections:
             fields:
               - {label: "Small Label", name: "label", widget: "string"}
               - {label: "Heading", name: "heading", widget: "string"}
+              - label: "Feature Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "Image", name: "src", widget: "image"}
+                  - {label: "Alt Text", name: "alt", widget: "string", hint: "Describes the image for screen readers"}
+                  - {label: "Caption", name: "caption", widget: "string"}
               - label: "Columns"
                 name: "columns"
                 widget: "list"

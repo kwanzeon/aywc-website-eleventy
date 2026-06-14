@@ -19,20 +19,21 @@ Static site built with **Eleventy 3.x** and **Nunjucks** templates, hosted on **
 ### Data flow
 
 - `src/_data/*.json` — global site data available in all templates as top-level variables (`site`, `home`, `about`)
-- `src/content/{news,groups,resources,organizations}/*.md` — CMS-managed Markdown collections with YAML front matter
-- `.eleventy.js` — registers four collections (sorted by `date` for news, by `order` field for others), two filters (`limit`, `htmlDateString`), and passthrough copies for `src/assets/` and `admin/`
+- `src/content/{news,community,resources}/*.md` — CMS-managed Markdown collections with YAML front matter
+- `.eleventy.js` — registers five collections (`news` sorted by `date` descending; `community`, `communityPages`, `studyGroups`, and `resources` sorted by `order`), two filters (`limit`, `htmlDateString`), and passthrough copies for `src/assets/` and `admin/`
 - `src/_includes/base.njk` — single shared layout; all pages set `layout: base.njk` and `navPage` for active nav highlighting
-- `src/groups/group.njk` — pagination template that generates one page per group entry using Eleventy's `pagination` feature
-- `src/assets/js/seed-thoughts.js` — large inline JS object (`window.AYWC_SEED_THOUGHTS`) keyed by `"Month DD"` date strings; the homepage picks today's entry client-side
+- `src/community/entry.njk` — pagination template that generates one page per community entry with `has_page: true` (the `communityPages` collection)
+- `src/assets/js/` — all client-side JS lives here as external files (`site.js` nav toggle, `identity-redirect.js` Netlify Identity token forwarder, `community.js` filters + accordion, `forum.js` Discourse topics + accordion, `seed-thoughts.js`). The CSP in `netlify.toml` has no `'unsafe-inline'` for scripts, so do NOT add inline `<script>` blocks or `onclick=` attributes to templates — they will be blocked in production.
+- `src/assets/js/seed-thoughts.js` — large JS object (`window.AYWC_SEED_THOUGHTS`) keyed by `"Month DD"` date strings; the homepage picks today's entry client-side
 - `_site/` — generated output, not committed
 
 ### Content collections
 
-Each collection lives in `src/content/<type>/` and is configured in both `.eleventy.js` (for build) and `admin/config.yml` (for CMS editing). Groups and organizations have a `region` field (`Americas`, `Europe`, `Asia-Pacific`) used for client-side JS filtering on the groups index page. The `order` number field controls display order (lower = first, default 99). Groups also have a `groups.11tydata.json` that sets `permalink: false` to prevent Eleventy from generating direct collection item pages (they are generated instead by `src/groups/group.njk`).
+Each collection lives in `src/content/<type>/` and is configured in both `.eleventy.js` (for build) and `admin/config.yml` (for CMS editing). **Keep `admin/config.yml` in sync with the data files: Decap rewrites whole files on save, so any JSON field missing from the CMS schema is silently deleted when an editor saves.** Community entries have `types` (Organization / Study Group / Online Study) and a `region` field (`Americas`, `Europe`, `Asia-Pacific`, `Other`) used for client-side filtering on the community index. The `order` number field controls display order (lower = first, default 99). `community.11tydata.json` sets `permalink: false` so direct collection pages aren't generated; entries with `has_page: true` get pages via `src/community/entry.njk`.
 
 ### CMS
 
-Decap CMS config at `admin/config.yml` maps CMS fields to the same `src/_data/` JSON and `src/content/` Markdown files. Media uploads go to `src/assets/images/uploads/`.
+Decap CMS config at `admin/config.yml` maps CMS fields to the same `src/_data/` JSON and `src/content/` Markdown files. Media uploads go to `src/assets/images/uploads/`. The Decap bundle in `admin/index.html` is pinned to an exact version (no floating semver) — upgrade deliberately and re-test the CMS after bumping.
 
 ## Deployment
 

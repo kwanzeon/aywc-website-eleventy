@@ -386,7 +386,10 @@ window.AYWC_SEED_THOUGHTS = {
     var next = new Date(now.getTime() + 24 * 60 * 60 * 1000);
     next.setHours(0, 0, 3, 0);
     window.setTimeout(function() {
-      window.location.reload();
+      // Re-render in place rather than reloading the page, so a reader who
+      // happens to have the page open at midnight doesn't lose their place.
+      document.querySelectorAll('[data-seed-thought]').forEach(renderSeedThought);
+      refreshAtMidnight();
     }, next.getTime() - now.getTime());
   }
 

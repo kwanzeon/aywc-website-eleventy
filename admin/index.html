@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,13 +7,10 @@
 </head>
 <body>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function(user) {
-        if (!user) window.netlifyIdentity.open();
-      });
-    }
-  </script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="/admin/identity-init.js"></script>
+  <!-- Pinned exact version (no floating semver) to reduce supply-chain risk.
+       When upgrading: bump deliberately, review the release notes, and re-test the CMS. -->
+  <script src="https://unpkg.com/decap-cms@3.14.0/dist/decap-cms.js"></script>
+  <noscript><p>The content manager requires JavaScript.</p></noscript>
 </body>
 </html>
