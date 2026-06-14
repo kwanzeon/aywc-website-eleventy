@@ -6,7 +6,7 @@ types:
 region: Europe
 location: Turkey
 format: In-person
-has_page: true
+has_page: false
 website: https://www.isiginmucevherleri.com
 link_text: Aquarian Age Wisdom Center
 short_description: >
