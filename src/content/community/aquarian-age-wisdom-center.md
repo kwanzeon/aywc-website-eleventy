@@ -8,7 +8,7 @@ location: Turkey
 format: In-person
 has_page: false
 website: https://www.isiginmucevherleri.com
-link_text: Aquarian Age Wisdom Center
+link_text: Visit website
 short_description: >
   This is a center that our spiritual community calls the Jewels of Light, where
   ancient wisdom and the teachings of the path are shared.
