@@ -32,6 +32,7 @@ navPage: "home"
         <h2 id="seed-thought-title" data-seed-thought-date>Agni Yoga Seed Thought for Today</h2>
         <div class="seed-thought-content" data-seed-thought-content aria-live="polite">
           <p>Loading today&rsquo;s seed thought...</p>
+          <noscript><p>Seed thoughts require JavaScript. You can read the Agni Yoga books directly at <a href="https://agniyoga.org/" target="_blank" rel="noopener">agniyoga.org<span class="sr-only"> (opens in new tab)</span></a>.</p></noscript>
         </div>
       </div>
     </div>
@@ -54,7 +55,8 @@ navPage: "home"
           {% endif %}
           {% for item in home.agni_yoga_section.attributes %}
           <div class="about-attr">
-            <div class="about-attr-title">◆ {{ item.title }}</div>
+            <h4 class="about-attr-title"><span aria-hidden="true">◆ </span>{{ item.title }}</h4>
+            {% if item.description %}<div class="about-attr-sub">{{ item.description }}</div>{% endif %}
           </div>
           {% endfor %}
           <a class="btn btn-primary" href="{{ home.agni_yoga_section.cta_url }}" style="margin-top:1.5rem;">{{ home.agni_yoga_section.cta_label }}</a>
@@ -77,10 +79,10 @@ navPage: "home"
           <h3>Learn what Agni Yoga is</h3>
           <p>Begin with a clear introduction to the Living Ethics Teaching and its place in daily life.</p>
         </a>
-        <a class="start-card" href="/resources/">
+        <a class="start-card" href="/about/">
           <span class="start-step">02</span>
-          <h3>Read the foundational teachings</h3>
-          <p>Find books, study guides, translations, and research resources for deeper study.</p>
+          <h3>Read about the foundational teachings</h3>
+          <p>Explore the Seven Pillars of Agni Yoga and the lives of Helena and Nicholas Roerich.</p>
         </a>
         <a class="start-card" href="/resources/">
           <span class="start-step">03</span>
@@ -146,4 +148,4 @@ navPage: "home"
 
 </main>
 
-<script src="/assets/js/seed-thoughts.js?v=20260503"></script>
+<script src="/assets/js/seed-thoughts.js?v=20260612" defer></script>

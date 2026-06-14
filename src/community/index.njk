@@ -33,10 +33,11 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
         <button class="region-btn" data-region="Americas" aria-pressed="false">Americas</button>
         <button class="region-btn" data-region="Europe" aria-pressed="false">Europe</button>
         <button class="region-btn" data-region="Asia-Pacific" aria-pressed="false">Asia-Pacific</button>
+        <button class="region-btn" data-region="Other" aria-pressed="false">Other</button>
       </div>
     </div>
 
-    <p class="sr-only" aria-live="polite" aria-atomic="true" id="community-filter-status"></p>
+    <p class="filter-status" aria-live="polite" aria-atomic="true" id="community-filter-status"></p>
 
     <h2 class="sr-only">Groups and Organizations Directory</h2>
     <div class="card-grid card-grid-2" id="community-list">
@@ -78,7 +79,6 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
         id="register-accordion-btn"
         aria-expanded="false"
         aria-controls="register-accordion-body"
-        onclick="toggleRegister()"
         style="width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:none;padding:1.25rem 0;cursor:pointer;text-align:left;">
         <div>
           <div class="section-label" style="margin-bottom:0.25rem;">Not listed?</div>
@@ -139,63 +139,4 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
   </div>
 </main>
 
-<script>
-(function() {
-  var activeType = 'all';
-  var activeRegion = 'all';
-  var cards = document.querySelectorAll('#community-list .card');
-
-  function applyFilters() {
-    var visible = 0;
-    cards.forEach(function(card) {
-      var types = card.dataset.types || '';
-      var typeMatch = activeType === 'all' || types.indexOf(activeType) > -1;
-      var regionMatch = activeRegion === 'all' || card.dataset.region === activeRegion;
-      var show = typeMatch && regionMatch;
-      card.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
-    var status = document.getElementById('community-filter-status');
-    if (status) {
-      if (activeType === 'all' && activeRegion === 'all') {
-        status.textContent = 'Showing all entries.';
-      } else {
-        status.textContent = 'Showing ' + visible + ' entr' + (visible !== 1 ? 'ies' : 'y') + '.';
-      }
-    }
-  }
-
-  var typeBtns = document.querySelectorAll('.community-filters [data-type]');
-  var regionBtns = document.querySelectorAll('.community-filters [data-region]');
-
-  typeBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      typeBtns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
-      this.classList.add('active');
-      this.setAttribute('aria-pressed', 'true');
-      activeType = this.dataset.type;
-      applyFilters();
-    });
-  });
-
-  regionBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      regionBtns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
-      this.classList.add('active');
-      this.setAttribute('aria-pressed', 'true');
-      activeRegion = this.dataset.region;
-      applyFilters();
-    });
-  });
-})();
-
-function toggleRegister() {
-  var btn = document.getElementById('register-accordion-btn');
-  var body = document.getElementById('register-accordion-body');
-  var icon = document.getElementById('register-accordion-icon');
-  var expanded = btn.getAttribute('aria-expanded') === 'true';
-  btn.setAttribute('aria-expanded', !expanded);
-  body.hidden = expanded;
-  icon.innerHTML = expanded ? '&#43;' : '&#8722;';
-}
-</script>
+<script src="/assets/js/community.js" defer></script>

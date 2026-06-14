@@ -51,39 +51,6 @@
       }
     ]
   },
-  "principles": {
-    "heading": "The Seven Pillars of Agni Yoga",
-    "items": [
-      {
-        "title": "Beauty",
-        "description": "Consciously created in daily life"
-      },
-      {
-        "title": "Joy",
-        "description": "Arising from harmony of consciousness"
-      },
-      {
-        "title": "Freedom",
-        "description": "Achieved through self-mastery of the lower nature"
-      },
-      {
-        "title": "Creativity",
-        "description": "Manifested as the expression of the inner fire"
-      },
-      {
-        "title": "Self-Perfectment",
-        "description": "Through conscious refinement of the centers"
-      },
-      {
-        "title": "Striving",
-        "description": "Toward the Higher World, unceasingly"
-      },
-      {
-        "title": "Service",
-        "description": "Rendered in devotion to the Common Good"
-      }
-    ]
-  },
   "roerich": {
     "label": "The Founders",
     "heading": "Helena & Nicholas Roerich",
