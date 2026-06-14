@@ -7,7 +7,7 @@ location: Flanders, Belgium
 format: Online
 has_page: false
 email: ""
-website: mailto:hilde15356@gmail.com%2Cmayooms@hotmail.com%2Clut.mercelis@skynet.be%2CPetervandenbroeck   838@gmail.com?subject=Enquiry%20about%20the%20Study%20Group
+website: mailto:hilde15356@gmail.com%2Cmayooms@hotmail.com%2Clut.mercelis@skynet.be%2CPetervandenbroeck838@gmail.com?subject=Enquiry%20about%20the%20Study%20Group
 link_text: Email for more information
 link_type: email
 short_description: >-
