@@ -54,6 +54,28 @@
 
   if (cards.length) applyFilters();
 
+  /* ── Card description accordions ────────────────────────────────────── */
+  var TRUNCATE_AT = 220;
+  document.querySelectorAll('.card-desc').forEach(function (p) {
+    var full = p.textContent;
+    if (full.length <= TRUNCATE_AT) return;
+    var cut = full.lastIndexOf(' ', TRUNCATE_AT);
+    if (cut < 0) cut = TRUNCATE_AT;
+    var preview = full.slice(0, cut);
+    p.textContent = preview + '…';
+    var btn = document.createElement('button');
+    btn.className = 'card-desc-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.textContent = 'Show more';
+    p.insertAdjacentElement('afterend', btn);
+    btn.addEventListener('click', function () {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      p.textContent = expanded ? preview + '…' : full;
+      btn.textContent = expanded ? 'Show more' : 'Show less';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    });
+  });
+
   /* ── Register accordion ──────────────────────────────────────────────── */
   var btn = document.getElementById('register-accordion-btn');
   var body = document.getElementById('register-accordion-body');

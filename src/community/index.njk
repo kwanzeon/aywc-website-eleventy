@@ -55,7 +55,7 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
           {% if entry.data.location %}<span class="group-card-location">{{ entry.data.location }}</span>{% endif %}
           {% if entry.data.established %}<span class="group-card-founded">Est. {{ entry.data.established }}</span>{% endif %}
         </div>
-        <p>{{ entry.data.short_description }}</p>
+        <p class="card-desc">{{ entry.data.short_description }}</p>
         {% if entry.data.has_page %}
           <a class="group-card-link" href="/community/{{ entry.page.fileSlug }}/">View page &rarr;</a>
         {% elif entry.data.secondary_link %}
