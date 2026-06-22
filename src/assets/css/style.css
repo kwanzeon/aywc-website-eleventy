@@ -558,9 +558,25 @@ nav {
 
 /* ── About section (dark) ────────────────────────────────────────────────── */
 .about-section {
-  background:
-    linear-gradient(135deg, rgba(22,40,64,0.80) 0%, rgba(32,58,84,0.76) 62%, rgba(43,28,40,0.80) 100%),
-    url('/assets/images/uploads/Guru-Guri Dhar.jpg') center top / cover no-repeat;
+  /* Solid base so the section stays navy below the painting band and where
+     the translucent gradient doesn't fully cover. */
+  background-color: #162840;
+  /* Fallback for browsers without image-set(): optimized JPEG. */
+  background-image:
+    linear-gradient(135deg, rgba(22,40,64,0.74) 0%, rgba(32,58,84,0.66) 58%, rgba(43,28,40,0.74) 100%),
+    url('/assets/images/guru-guri-dhar.jpg');
+  /* Progressive enhancement: WebP first, JPEG fallback. */
+  background-image:
+    linear-gradient(135deg, rgba(22,40,64,0.74) 0%, rgba(32,58,84,0.66) 58%, rgba(43,28,40,0.74) 100%),
+    image-set(
+      url('/assets/images/guru-guri-dhar.webp') type('image/webp'),
+      url('/assets/images/guru-guri-dhar.jpg') type('image/jpeg'));
+  background-repeat: no-repeat;
+  /* Gradient covers the whole section; the painting sits as a full-width
+     band anchored to the top so the peaks are always in frame — including
+     on tall/narrow mobile layouts, where `cover` would zoom into haze. */
+  background-position: center, center top;
+  background-size: cover, 100% auto;
   padding: 5rem 3rem;
 }
 
