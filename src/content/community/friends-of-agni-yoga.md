@@ -5,22 +5,20 @@ types:
 region: Europe
 location: Flanders, Belgium
 format: Online
-has_page: false
-email: ""
-website: mailto:hilde15356@gmail.com%2Cmayooms@hotmail.com%2Clut.mercelis@skynet.be%2CPetervandenbroeck838@gmail.com?subject=Enquiry%20about%20the%20Study%20Group
-link_text: Email for more information
-link_type: email
-short_description: >-
-  Our Agni Yoga group is based in Flanders, and meetings are held in Dutch,
-  including for members from the Netherlands.
-
-
-  We meet online every two weeks on Fridays from 6:30 to 8:00 p.m. Participation is free of charge.
-
-
-  Each meeting begins with a short meditation, during which the group sends light and love throughout the world and to wherever the need is greatest. The group is guided by three members who rotate in leading the meetings.
-
-
-  During each gathering, passages from the Agni Yoga series are selected spontaneously and read twice. This is followed by a guided group discussion focused on the passage, with an emphasis, as much as possible, on the development of higher intuition.
+has_page: true
+has_contact_form: true
+short_description: Online Agni Yoga study group meeting in Dutch every two weeks — open to members from Flanders and the Netherlands.
 order: 99
 ---
+
+Our Agni Yoga group is based in Flanders, and meetings are held in Dutch, including for members from the Netherlands.
+
+## Meetings
+
+We meet online every two weeks on Fridays from 6:30 to 8:00 p.m. Participation is free of charge.
+
+## Format
+
+Each meeting begins with a short meditation, during which the group sends light and love throughout the world and to wherever the need is greatest. The group is guided by three members who rotate in leading the meetings.
+
+During each gathering, passages from the Agni Yoga series are selected spontaneously and read twice. This is followed by a guided group discussion focused on the passage, with an emphasis, as much as possible, on the development of higher intuition.

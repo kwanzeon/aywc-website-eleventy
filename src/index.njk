@@ -25,6 +25,15 @@ navPage: "home"
   </div>
 </section>
 
+  <div class="bop-divider" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="28" height="28" fill="currentColor">
+      <circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="1.25"/>
+      <circle cx="20" cy="10.5" r="4"/>
+      <circle cx="12" cy="26" r="4"/>
+      <circle cx="28" cy="26" r="4"/>
+    </svg>
+  </div>
+
   <section class="seed-thought-section" data-seed-thought aria-labelledby="seed-thought-title">
     <div class="section-inner">
       <div class="seed-thought-card">
@@ -65,6 +74,25 @@ navPage: "home"
     </div>
   </section>
 
+  <section id="forum-cta" aria-labelledby="forum-cta-heading" class="forum-cta-section">
+    <div class="section-inner">
+      <div class="forum-cta-grid">
+        <div class="forum-cta-text">
+          <div class="section-label on-dark">Open Discussion</div>
+          <h2 id="forum-cta-heading" class="forum-cta-heading">The conversation is ongoing . . .</h2>
+          <p class="forum-cta-body">Students from across the world gather to study, question, and support one another. The forum is open to all sincere seekers.</p>
+          <a class="btn btn-outline-dark" href="/forum/">Join the conversation &rarr;</a>
+        </div>
+        <div class="forum-cta-topics" aria-label="Recent forum discussions">
+          <div class="section-label on-dark" style="margin-bottom:1rem;">Recent Discussions</div>
+          <div id="forum-topics">
+            <p style="color:var(--dark-muted);font-size:0.95rem;">Visit <a href="/forum/" style="color:var(--accent-on-dark);text-decoration:underline;text-underline-offset:2px;">the forum</a> to see the latest discussions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="start-here" aria-labelledby="start-here-heading" class="start-section">
     <div class="section-inner">
       <div class="section-header">
@@ -97,7 +125,6 @@ navPage: "home"
       </div>
     </div>
   </section>
-
 
   <section id="resources" aria-labelledby="resources-heading" class="resources-section">
     <div class="section-inner">
@@ -149,3 +176,4 @@ navPage: "home"
 </main>
 
 <script src="/assets/js/seed-thoughts.js?v=20260612" defer></script>
+<script src="/assets/js/forum.js" defer></script>

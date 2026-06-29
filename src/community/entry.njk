@@ -47,6 +47,7 @@ eleventyComputed:
 
     <aside class="group-sidebar" aria-label="Organization details">
 
+      {% if entry.data.address or entry.data.phone or entry.data.email or entry.data.website %}
       <div class="sidebar-block">
         <div class="sidebar-block-title">Contact &amp; Visit</div>
         {% if entry.data.address %}
@@ -77,6 +78,7 @@ eleventyComputed:
         <a class="sidebar-visit on-dark" href="{{ entry.data.website }}" target="_blank" rel="noopener">Visit Official Website &rarr;</a>
         {% endif %}
       </div>
+      {% endif %}
 
       {% if entry.data.visiting_hours %}
       <div class="sidebar-block">
@@ -100,6 +102,7 @@ eleventyComputed:
       </div>
       {% endif %}
 
+      {% if entry.data.established or entry.data.founder or entry.data.tax_status or entry.data.membership or entry.data.fees %}
       <div class="sidebar-block">
         <div class="sidebar-block-title">Organization Details</div>
         {% if entry.data.established %}
@@ -133,6 +136,32 @@ eleventyComputed:
         </div>
         {% endif %}
       </div>
+      {% endif %}
+
+      {% if entry.data.has_contact_form %}
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">Get in Touch</div>
+        <p style="color:var(--text-muted);font-size:0.92rem;line-height:1.6;margin-bottom:1rem;">Send a message to the group and we will pass it along.</p>
+        <form name="contact-group" method="POST" action="/thank-you/" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact-group" />
+          <input type="hidden" name="group_name" value="{{ entry.data.title }}" />
+          <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <div class="field">
+            <label for="contact-name">Your name</label>
+            <input type="text" id="contact-name" name="name" required aria-required="true" />
+          </div>
+          <div class="field">
+            <label for="contact-email">Your email</label>
+            <input type="email" id="contact-email" name="email" required aria-required="true" />
+          </div>
+          <div class="field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" required aria-required="true"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+      </div>
+      {% endif %}
 
     </aside>
   </div>

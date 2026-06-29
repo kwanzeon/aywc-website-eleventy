@@ -6,7 +6,7 @@ types:
 region: Europe
 location: Turkey
 format: In-person
-has_page: false
+has_page: true
 website: https://www.isiginmucevherleri.com
 link_text: Visit website
 short_description: >

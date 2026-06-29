@@ -1,18 +1,23 @@
 (function () {
   'use strict';
 
-  /* ── Join accordion ──────────────────────────────────────────────────── */
-  var btn = document.getElementById('join-accordion-btn');
-  var body = document.getElementById('join-accordion-body');
-  var icon = document.getElementById('join-accordion-icon');
-  if (btn && body && icon) {
-    btn.addEventListener('click', function () {
-      var expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      body.hidden = expanded;
-      icon.textContent = expanded ? '+' : '−';
-    });
-  }
+  /* ── Accordions ──────────────────────────────────────────────────────── */
+  [
+    ['join-accordion-btn', 'join-accordion-body', 'join-accordion-icon'],
+    ['lang-accordion-btn', 'lang-accordion-body', 'lang-accordion-icon']
+  ].forEach(function (ids) {
+    var btn = document.getElementById(ids[0]);
+    var body = document.getElementById(ids[1]);
+    var icon = document.getElementById(ids[2]);
+    if (btn && body && icon) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        body.hidden = expanded;
+        icon.textContent = expanded ? '+' : '−';
+      });
+    }
+  });
 
   /* ── Recent discussions (Discourse) ──────────────────────────────────── */
   var container = document.getElementById('forum-topics');
@@ -21,10 +26,7 @@
   var FORUM_URL = 'https://forum.agniyogaworld.org';
 
   function renderFallback() {
-    var p = document.createElement('p');
-    p.className = 'forum-topics-fallback';
-    p.textContent = 'Visit the forum to see the latest discussions.';
-    container.replaceChildren(p);
+    /* Leave the template's static fallback content in place. */
   }
 
   fetch(FORUM_URL + '/latest.json?per_page=8')
