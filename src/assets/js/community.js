@@ -57,6 +57,7 @@
   /* ── Card description accordions ────────────────────────────────────── */
   var TRUNCATE_AT = 220;
   document.querySelectorAll('.card-desc').forEach(function (p) {
+    if (p.closest('[data-has-page]')) return;
     var full = p.textContent;
     if (full.length <= TRUNCATE_AT) return;
     var cut = full.lastIndexOf(' ', TRUNCATE_AT);

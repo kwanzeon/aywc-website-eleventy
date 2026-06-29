@@ -44,7 +44,8 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
       {% for entry in collections.community %}
       <div class="card"
            data-types="{% for type in entry.data.types %}{{ type | lower | replace(' ', '-') }}{% if not loop.last %} {% endif %}{% endfor %}"
-           data-region="{{ entry.data.region if entry.data.region else 'Other' }}">
+           data-region="{{ entry.data.region if entry.data.region else 'Other' }}"
+           {% if entry.data.has_page %}data-has-page="true"{% endif %}>
         <div class="type-badges">
           {% for type in entry.data.types %}
           <span class="type-badge">{{ type }}</span>

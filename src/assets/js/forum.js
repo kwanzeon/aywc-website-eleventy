@@ -26,10 +26,7 @@
   var FORUM_URL = 'https://forum.agniyogaworld.org';
 
   function renderFallback() {
-    var p = document.createElement('p');
-    p.className = 'forum-topics-fallback';
-    p.textContent = 'Visit the forum to see the latest discussions.';
-    container.replaceChildren(p);
+    /* Leave the template's static fallback content in place. */
   }
 
   fetch(FORUM_URL + '/latest.json?per_page=8')
