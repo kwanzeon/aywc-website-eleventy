@@ -27,7 +27,7 @@ metaDescription: "Learn about Agni Yoga (Living Ethics), the spiritual Teaching 
       <p style="font-family:'Jost',sans-serif;font-size:0.85rem;color:var(--text-muted);margin-bottom:2rem;">{{ about.overview.author_title }}</p>
       {% endif %}
       {% for paragraph in about.overview.intro %}
-      <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;font-weight:400;margin-bottom:1.2rem;">{{ paragraph }}</p>
+      <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;font-weight:400;margin-bottom:1.2rem;">{{ paragraph | safe }}</p>
       {% endfor %}
       {% for pillar in about.overview.pillars %}
       <div style="margin-top:2.5rem;">
