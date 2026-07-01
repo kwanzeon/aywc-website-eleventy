@@ -563,20 +563,21 @@ nav {
   background-color: #162840;
   /* Fallback for browsers without image-set(): optimized JPEG. */
   background-image:
+    linear-gradient(to bottom, transparent 55%, rgba(22,40,64,0.96) 88%, #162840 100%),
     linear-gradient(135deg, rgba(22,40,64,0.74) 0%, rgba(32,58,84,0.66) 58%, rgba(43,28,40,0.74) 100%),
     url('/assets/images/guru-guri-dhar.jpg');
   /* Progressive enhancement: WebP first, JPEG fallback. */
   background-image:
+    linear-gradient(to bottom, transparent 55%, rgba(22,40,64,0.96) 88%, #162840 100%),
     linear-gradient(135deg, rgba(22,40,64,0.74) 0%, rgba(32,58,84,0.66) 58%, rgba(43,28,40,0.74) 100%),
     image-set(
       url('/assets/images/guru-guri-dhar.webp') type('image/webp'),
       url('/assets/images/guru-guri-dhar.jpg') type('image/jpeg'));
   background-repeat: no-repeat;
-  /* Gradient covers the whole section; the painting sits as a full-width
-     band anchored to the top so the peaks are always in frame — including
-     on tall/narrow mobile layouts, where `cover` would zoom into haze. */
-  background-position: center, center top;
-  background-size: cover, 100% auto;
+  /* Three layers: bottom fade | atmosphere tint | painting anchored top.
+     100% auto on the painting keeps peaks in frame on tall/narrow layouts. */
+  background-position: center, center, center top;
+  background-size: cover, cover, 100% auto;
   padding: 5rem 3rem;
 }
 
