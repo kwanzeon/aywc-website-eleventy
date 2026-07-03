@@ -947,8 +947,9 @@ footer {
   gap: 1rem;
 }
 
+.footer-copy-group { display: flex; flex-direction: column; gap: 0.35rem; }
 .footer-copy { color: rgba(232,221,208,0.65); font-size: 0.75rem; }
-.footer-image-credit { color: rgba(232,221,208,0.5); font-size: 0.72rem; margin-top: 0.35rem; }
+.footer-image-credit { color: rgba(232,221,208,0.65); font-size: 0.75rem; }
 
 .footer-bottom-links { display: flex; gap: 2rem; }
 
