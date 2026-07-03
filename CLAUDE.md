@@ -39,6 +39,10 @@ Decap CMS config at `admin/config.yml` maps CMS fields to the same `src/_data/` 
 
 Netlify builds on every push to `main` (Node 22, `npm run build`, publishes `_site/`). CMS edits commit directly to `main` — pull before starting local work to avoid conflicts.
 
+## Link styling
+
+The site has no global link-color fallback (by design — nav/footer/card links all set their own color via class-based rules, and a global rule would conflict with them, e.g. overriding underline/no-underline behavior that varies by context). Any new in-copy link must land inside a wrapper that already sets link color (`.simple-page`, `.update-meta`, `.card`, `.footer-col`, `.nav-links`, `.btn`) or you must give it an explicit color — otherwise it silently falls back to the browser's default blue. This has happened before (the footer image-credit link, fixed under AYWC-153).
+
 ## Key external links
 
 - Live site: https://agniyogaworld.org/
