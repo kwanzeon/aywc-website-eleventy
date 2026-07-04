@@ -34,14 +34,13 @@ navPage: "home"
     </svg>
   </div>
 
-  <section class="seed-thought-section" data-seed-thought aria-labelledby="seed-thought-title">
+  <section class="seed-thought-section" data-seed-thought data-seed-thought-built="{{ seedThought.dateKey }}" aria-labelledby="seed-thought-title">
     <div class="section-inner">
       <div class="seed-thought-card">
         <span class="seed-thought-label">Daily Planting</span>
-        <h2 id="seed-thought-title" data-seed-thought-date>Agni Yoga Seed Thought for Today</h2>
+        <h2 id="seed-thought-title" data-seed-thought-date>Agni Yoga Seed Thought for {{ seedThought.label }}</h2>
         <div class="seed-thought-content" data-seed-thought-content aria-live="polite">
-          <p>Loading today&rsquo;s seed thought...</p>
-          <noscript><p>Seed thoughts require JavaScript. You can read the Agni Yoga books directly at <a href="https://agniyoga.org/" target="_blank" rel="noopener">agniyoga.org<span class="sr-only"> (opens in new tab)</span></a>.</p></noscript>
+          {{ seedThought.html | safe }}
         </div>
       </div>
     </div>
@@ -174,5 +173,5 @@ navPage: "home"
 
 </main>
 
-<script src="/assets/js/seed-thoughts.js?v=20260612" defer></script>
+<script src="/assets/js/seed-thoughts.js?v=20260704" defer></script>
 <script src="/assets/js/forum.js" defer></script>

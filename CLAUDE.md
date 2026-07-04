@@ -24,7 +24,7 @@ Static site built with **Eleventy 3.x** and **Nunjucks** templates, hosted on **
 - `src/_includes/base.njk` — single shared layout; all pages set `layout: base.njk` and `navPage` for active nav highlighting
 - `src/community/entry.njk` — pagination template that generates one page per community entry with `has_page: true` (the `communityPages` collection)
 - `src/assets/js/` — all client-side JS lives here as external files (`site.js` nav toggle, `identity-redirect.js` Netlify Identity token forwarder, `community.js` filters + accordion, `forum.js` Discourse topics + accordion, `seed-thoughts.js`). The CSP in `netlify.toml` has no `'unsafe-inline'` for scripts, so do NOT add inline `<script>` blocks or `onclick=` attributes to templates — they will be blocked in production.
-- `src/assets/js/seed-thoughts.js` — large JS object (`window.AYWC_SEED_THOUGHTS`) keyed by `"Month DD"` date strings; the homepage picks today's entry client-side
+- Daily "Seed Thought" content lives in `src/assets/data/seed-thoughts/MM.json` (one file per month, keyed by zero-padded day); `src/_data/seedThought.js` picks the build day's entry for server-side render into the homepage, and `src/assets/js/seed-thoughts.js` is a small progressive-enhancement loader that fetches the visitor's local month JSON only when their local date differs from the build date (initial load and at local midnight)
 - `_site/` — generated output, not committed
 
 ### Content collections
