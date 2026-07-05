@@ -1,10 +1,10 @@
 ---
 layout: base.njk
 title: "Community"
-pageTitle: "Community — Agni Yoga World Community"
+pageTitle: "Community—Agni Yoga World Community"
 navPage: "community"
 permalink: "/community/index.html"
-metaDescription: "Agni Yoga study groups from around the world, plus online talks and study sessions — find a group or join the global community."
+metaDescription: "Agni Yoga study groups from around the world, plus online talks and study sessions—find a group or join the global community."
 ---
 
 <header aria-label="Page header">
@@ -12,7 +12,7 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
     <div class="page-hero-inner">
       <div class="section-label on-dark">Global Network</div>
       <h1 class="page-hero-title">Community</h1>
-      <p class="page-hero-subtitle">Study groups, organizations, and online study opportunities from around the world — find a place to connect with the Living Ethics teachings.</p>
+      <p class="page-hero-subtitle">Study groups, organizations, and online study opportunities from around the world—find a place to connect with the Living Ethics teachings.</p>
       <div class="page-hero-line"></div>
     </div>
   </div>
@@ -61,14 +61,14 @@ metaDescription: "Agni Yoga study groups from around the world, plus online talk
           <a class="group-card-link" href="/community/{{ entry.page.fileSlug }}/">View page &rarr;</a>
         {% elif entry.data.secondary_link %}
           <div class="card-links">
-            <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Visit website' }} — {{ entry.data.title }} (opens in new tab)">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
-            <a class="group-card-link" href="{{ entry.data.secondary_link }}" target="_blank" rel="noopener" aria-label="{{ entry.data.secondary_link_text if entry.data.secondary_link_text else 'More' }} — {{ entry.data.title }} (opens in new tab)">{{ entry.data.secondary_link_text if entry.data.secondary_link_text else "More" }} &rarr;</a>
+            <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Visit website' }}—{{ entry.data.title }} (opens in new tab)">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
+            <a class="group-card-link" href="{{ entry.data.secondary_link }}" target="_blank" rel="noopener" aria-label="{{ entry.data.secondary_link_text if entry.data.secondary_link_text else 'More' }}—{{ entry.data.title }} (opens in new tab)">{{ entry.data.secondary_link_text if entry.data.secondary_link_text else "More" }} &rarr;</a>
           </div>
         {% elif entry.data.website %}
           {% if entry.data.link_type == "email" %}
-            <a class="group-card-link" href="{{ entry.data.website }}" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Send email' }} — {{ entry.data.title }}">{{ entry.data.link_text if entry.data.link_text else "Send email" }} &rarr;</a>
+            <a class="group-card-link" href="{{ entry.data.website }}" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Send email' }}—{{ entry.data.title }}">{{ entry.data.link_text if entry.data.link_text else "Send email" }} &rarr;</a>
           {% else %}
-            <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Visit website' }} — {{ entry.data.title }} (opens in new tab)">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
+            <a class="group-card-link" href="{{ entry.data.website }}" target="_blank" rel="noopener" aria-label="{{ entry.data.link_text if entry.data.link_text else 'Visit website' }}—{{ entry.data.title }} (opens in new tab)">{{ entry.data.link_text if entry.data.link_text else "Visit website" }} &rarr;</a>
           {% endif %}
         {% endif %}
       </div>

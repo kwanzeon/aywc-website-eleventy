@@ -1,5 +1,5 @@
 ---
-title: "New World — New Worldview, Spirituality, and Culture"
+title: "New World—New Worldview, Spirituality, and Culture"
 types:
   - Organization
 region: Europe

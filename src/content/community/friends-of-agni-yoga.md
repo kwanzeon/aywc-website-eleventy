@@ -7,7 +7,7 @@ location: Flanders, Belgium
 format: Online
 has_page: true
 has_contact_form: true
-short_description: Online Agni Yoga study group meeting in Dutch every two weeks — open to members from Flanders and the Netherlands.
+short_description: Online Agni Yoga study group meeting in Dutch every two weeks—open to members from Flanders and the Netherlands.
 order: 99
 ---
 

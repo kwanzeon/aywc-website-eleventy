@@ -32,7 +32,7 @@ WMEA carries forward the lineage of the Agni Yoga teachings, which Helena and Ni
 
 ## Mission
 
-WMEA's mission is to teach and disseminate the Agni Yoga teachings — also called the Teaching of Living Ethics — and the broader Ageless Wisdom tradition. It seeks to make these teachings practically accessible through structured education, community gathering, and outreach programs, serving both local students in Arizona and remote students worldwide.
+WMEA's mission is to teach and disseminate the Agni Yoga teachings—also called the Teaching of Living Ethics—and the broader Ageless Wisdom tradition. It seeks to make these teachings practically accessible through structured education, community gathering, and outreach programs, serving both local students in Arizona and remote students worldwide.
 
 ## Programs & Activities
 
@@ -53,4 +53,4 @@ WMEA publishes the *Agni Yoga Quarterly* (formerly *Meditation Monthly Internati
 
 ## Leadership
 
-* **Rev. Joleen D. DuBois** — Founder and President
+* **Rev. Joleen D. DuBois**—Founder and President
