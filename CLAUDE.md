@@ -47,6 +47,10 @@ The site has no global link-color fallback (by design — nav/footer/card links 
 
 Every `<script src="...">` and `<link rel="stylesheet" href="...">` in `base.njk`/templates should carry a `?v=YYYYMMDD` query param (bump it whenever the file's content changes). Netlify/the dev server don't set cache-busting headers on `src/assets/` files, so an unversioned asset can silently keep serving a stale cached copy after a deploy — this caused real debugging confusion more than once (mistaking a stale `community.js` and a stale `style.css` for live bugs). If a JS/CSS file has no `?v=` param, add one before editing it.
 
+## Content style
+
+Site copy follows **The Chicago Manual of Style** (AYWC-168). The concrete rule that's come up in practice: em dashes have no surrounding spaces (`word—word`, not `word — word`). When adding or editing visitor-facing text — page titles, meta descriptions, body copy, alt text, aria-labels — use an unspaced em dash. Don't apply this to code comments (not site content) or to en-dash ranges (`Tuesday–Friday`), which CMOS treats under a different, more context-dependent rule.
+
 ## Key external links
 
 - Live site: https://agniyogaworld.org/
