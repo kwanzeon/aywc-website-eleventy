@@ -616,6 +616,14 @@ nav {
   margin-bottom: 1.5rem;
 }
 
+/* Visual anchor so each of the seven pillars scans as a distinct unit
+   rather than one continuous block of text (AYWC-62). */
+.pillar-block {
+  margin-top: 3rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--gold);
+}
+
 .about-attr-heading {
   color: var(--dark-text);
   font-family: 'Jost', sans-serif;
