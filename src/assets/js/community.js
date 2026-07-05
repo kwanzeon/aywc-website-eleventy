@@ -18,6 +18,8 @@
       // A filter change reflows which cards share a row, so any row-mate
       // stretch override left over from an expanded card no longer applies.
       card.style.alignSelf = '';
+      card.style.height = '';
+      card.style.transition = '';
       if (show) visible++;
     });
     var status = document.getElementById('community-filter-status');
@@ -97,15 +99,36 @@
   // shouldn't look shorter than its neighbor just because it has less
   // text). Stretch is exactly what caused AYWC-155's original bug though:
   // expanding a card grows the whole row, and stretch then force-grows the
-  // shorter sibling's own box into that space. So instead of disabling
-  // stretch globally, only the current row-mates of an actively expanded
-  // card get pinned to their natural height, and only for as long as it's
-  // expanded.
+  // shorter sibling's own box into that space.
+  //
+  // align-self itself can't be transitioned, and toggling it mid-animation
+  // doesn't reliably re-track a sibling's height smoothly either way (it
+  // snapped on both directions, worse on collapse) — so instead we measure
+  // the row-mate's two real states (its current stretched height, and its
+  // own natural unstretched height) and animate its explicit height
+  // between them directly, in sync with the expanding card's own
+  // max-height transition.
   function getRowMates(card) {
     var top = card.offsetTop;
     return Array.prototype.filter.call(document.querySelectorAll('#community-list .card'), function (c) {
       return c !== card && c.offsetParent !== null && Math.abs(c.offsetTop - top) < 2;
     });
+  }
+
+  var TRANSITION_MS = 300;
+
+  function animateMateHeight(mate, toHeight, onDone) {
+    var fromHeight = mate.getBoundingClientRect().height;
+    mate.style.transition = 'none';
+    mate.style.alignSelf = 'start';
+    mate.style.height = fromHeight + 'px';
+    mate.offsetHeight; // force reflow so the transition below animates from fromHeight
+    mate.style.transition = 'height ' + TRANSITION_MS + 'ms ease';
+    mate.style.height = toHeight + 'px';
+    window.setTimeout(function () {
+      mate.style.transition = '';
+      if (onDone) onDone();
+    }, TRANSITION_MS);
   }
 
   document.querySelectorAll('.card-desc').forEach(function (p) {
@@ -118,7 +141,7 @@
     p.style.maxHeight = p.scrollHeight + 'px';
 
     var card = p.closest('.card');
-    var lockedMates = [];
+    var restHeight = null; // row-mate height at rest (both cards stretched, collapsed state)
 
     var btn = document.createElement('button');
     btn.className = 'card-desc-toggle';
@@ -127,11 +150,24 @@
     p.insertAdjacentElement('afterend', btn);
     btn.addEventListener('click', function () {
       var expanded = btn.getAttribute('aria-expanded') === 'true';
+      var mates = getRowMates(card);
 
       if (!expanded) {
-        // About to expand: measure row-mates before this card grows.
-        lockedMates = getRowMates(card);
-        lockedMates.forEach(function (m) { m.style.alignSelf = 'start'; });
+        // About to expand: record the shared rest height, then animate
+        // each mate down to its own natural (unstretched) height.
+        restHeight = card.getBoundingClientRect().height;
+        mates.forEach(function (m) {
+          var natural = (function () {
+            var prevAlign = m.style.alignSelf, prevHeight = m.style.height;
+            m.style.alignSelf = 'start';
+            m.style.height = 'auto';
+            var h = m.getBoundingClientRect().height;
+            m.style.alignSelf = prevAlign;
+            m.style.height = prevHeight;
+            return h;
+          })();
+          animateMateHeight(m, natural);
+        });
       }
 
       // Swap the text first so scrollHeight reflects the new content's
@@ -142,10 +178,15 @@
       btn.textContent = expanded ? 'Show more' : 'Show less';
       btn.setAttribute('aria-expanded', String(!expanded));
 
-      if (expanded) {
-        // Collapsing again: release the row-mates back to stretch.
-        lockedMates.forEach(function (m) { m.style.alignSelf = ''; });
-        lockedMates = [];
+      if (expanded && restHeight !== null) {
+        // Collapsing again: animate mates back up to the shared rest
+        // height, then release them back to normal stretch.
+        mates.forEach(function (m) {
+          animateMateHeight(m, restHeight, function () {
+            m.style.alignSelf = '';
+            m.style.height = '';
+          });
+        });
       }
     });
   });
