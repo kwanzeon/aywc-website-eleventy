@@ -27,6 +27,8 @@ metaDescription: "Learn about Agni Yoga (Living Ethics), the spiritual Teaching 
       <p style="font-family:'Jost',sans-serif;font-size:0.85rem;color:var(--text-muted);margin-bottom:2rem;">{{ about.overview.author_title }}</p>
       {% endif %}
       {% for paragraph in about.overview.intro %}
+      {# | safe is intentional: intro paragraphs use <em> for book-title italics (AYWC-165).
+         CMS hint in admin/config.yml documents this to editors. #}
       <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;font-weight:400;margin-bottom:1.2rem;">{{ paragraph | safe }}</p>
       {% endfor %}
       {% for pillar in about.overview.pillars %}

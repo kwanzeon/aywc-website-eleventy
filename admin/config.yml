@@ -60,7 +60,7 @@ collections:
               - label: "Intro Paragraphs"
                 name: "intro"
                 widget: "list"
-                field: {label: "Paragraph", name: "paragraph", widget: "text"}
+                field: {label: "Paragraph", name: "paragraph", widget: "text", hint: "Rendered as HTML, not plain text — you may use <em>text</em> for italics (e.g. book titles), but avoid pasting other markup or content from another site."}
               - label: "Pillars"
                 name: "pillars"
                 widget: "list"
