@@ -352,7 +352,7 @@ nav {
 }
 
 .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
-.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); align-items: start; }
 
 @media (max-width: 900px) {
   .card-grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -419,6 +419,11 @@ nav {
   font-size: 0.95rem;
   line-height: 1.7;
   font-weight: 400;
+}
+
+.card-desc {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 .card-date { color: var(--accent); font-size: 0.78rem; font-weight: 500; margin-top: 1.2rem; }

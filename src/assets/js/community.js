@@ -56,14 +56,28 @@
 
   /* ── Card description accordions ────────────────────────────────────── */
   var TRUNCATE_AT = 220;
+  var MIN_SENTENCE_CUT = TRUNCATE_AT * 0.5;
+
+  function truncateDescription(full) {
+    var head = full.slice(0, TRUNCATE_AT);
+    var sentenceEnd = Math.max(head.lastIndexOf('. '), head.lastIndexOf('! '), head.lastIndexOf('? '));
+    if (sentenceEnd >= MIN_SENTENCE_CUT) {
+      return full.slice(0, sentenceEnd + 1);
+    }
+    var cut = full.lastIndexOf(' ', TRUNCATE_AT);
+    if (cut < 0) cut = TRUNCATE_AT;
+    return full.slice(0, cut) + '…';
+  }
+
   document.querySelectorAll('.card-desc').forEach(function (p) {
     if (p.closest('[data-has-page]')) return;
     var full = p.textContent;
     if (full.length <= TRUNCATE_AT) return;
-    var cut = full.lastIndexOf(' ', TRUNCATE_AT);
-    if (cut < 0) cut = TRUNCATE_AT;
-    var preview = full.slice(0, cut);
-    p.textContent = preview + '…';
+
+    var preview = truncateDescription(full);
+    p.textContent = preview;
+    p.style.maxHeight = p.scrollHeight + 'px';
+
     var btn = document.createElement('button');
     btn.className = 'card-desc-toggle';
     btn.setAttribute('aria-expanded', 'false');
@@ -71,7 +85,12 @@
     p.insertAdjacentElement('afterend', btn);
     btn.addEventListener('click', function () {
       var expanded = btn.getAttribute('aria-expanded') === 'true';
-      p.textContent = expanded ? preview + '…' : full;
+      // Swap the text first so scrollHeight reflects the new content's
+      // natural height, then apply it as max-height so the row transitions
+      // smoothly instead of jumping (AYWC-155) — the sibling card no longer
+      // stretches to match since .card-grid-2 uses align-items: start.
+      p.textContent = expanded ? preview : full;
+      p.style.maxHeight = p.scrollHeight + 'px';
       btn.textContent = expanded ? 'Show more' : 'Show less';
       btn.setAttribute('aria-expanded', String(!expanded));
     });
