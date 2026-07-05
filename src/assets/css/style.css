@@ -45,7 +45,10 @@ h1, h2, h3, h4 {
 }
 
 a { text-decoration: none; }
-img { max-width: 100%; display: block; }
+/* height: auto pairs with width/height HTML attributes (added for CLS in
+   AYWC-128) — without it, height stays pinned to the literal attribute
+   value instead of scaling with a resized width, squashing the image. */
+img { max-width: 100%; height: auto; display: block; }
 
 /* ── Accessibility ───────────────────────────────────────────────────────── */
 .skip-link {
