@@ -344,9 +344,10 @@ nav {
   padding-bottom: 2px;
   display: inline-flex;
   align-items: center;
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
 }
 
-.section-all-link:hover { color: var(--accent-hover); border-bottom-color: var(--accent-hover); }
+.section-all-link:hover { color: var(--accent-hover); border-bottom-color: var(--accent-hover); transform: translateX(3px); }
 
 /* ── Card grid ───────────────────────────────────────────────────────────── */
 .card-grid {
