@@ -108,6 +108,8 @@
   // own natural unstretched height) and animate its explicit height
   // between them directly, in sync with the expanding card's own
   // max-height transition.
+  var DEBUG_155 = true; // TEMPORARY — remove once AYWC-155 row-mate animation is confirmed working
+
   function getRowMates(card) {
     var grid = document.getElementById('community-list');
     var visible = Array.prototype.filter.call(grid.querySelectorAll('.card'), function (c) {
@@ -115,6 +117,7 @@
     });
     var columnCount = window.getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
     var index = visible.indexOf(card);
+    if (DEBUG_155) console.log('[155] getRowMates: columnCount=', columnCount, 'index=', index, 'totalVisible=', visible.length);
     if (columnCount < 2 || index === -1) return [];
     var rowStart = Math.floor(index / columnCount) * columnCount;
     var rowEnd = Math.min(rowStart + columnCount, visible.length);
@@ -122,6 +125,7 @@
     for (var i = rowStart; i < rowEnd; i++) {
       if (visible[i] !== card) mates.push(visible[i]);
     }
+    if (DEBUG_155) console.log('[155] getRowMates found', mates.length, 'mate(s):', mates.map(function (m) { return m.querySelector('h3').textContent; }));
     return mates;
   }
 
@@ -129,6 +133,7 @@
 
   function animateMateHeight(mate, toHeight, onDone) {
     var fromHeight = mate.getBoundingClientRect().height;
+    if (DEBUG_155) console.log('[155] animateMateHeight:', mate.querySelector('h3').textContent, 'from', fromHeight, 'to', toHeight);
     mate.style.transition = 'none';
     mate.style.alignSelf = 'start';
     mate.style.height = fromHeight + 'px';
@@ -161,6 +166,7 @@
     btn.addEventListener('click', function () {
       var expanded = btn.getAttribute('aria-expanded') === 'true';
       var mates = getRowMates(card);
+      if (DEBUG_155) console.log('[155] click: card=', card.querySelector('h3').textContent, 'expanded(before)=', expanded, 'mates=', mates.length);
 
       if (!expanded) {
         // About to expand: record the shared rest height, then animate
