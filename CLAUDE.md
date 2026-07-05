@@ -43,6 +43,10 @@ Netlify builds on every push to `main` (Node 22, `npm run build`, publishes `_si
 
 The site has no global link-color fallback (by design — nav/footer/card links all set their own color via class-based rules, and a global rule would conflict with them, e.g. overriding underline/no-underline behavior that varies by context). Any new in-copy link must land inside a wrapper that already sets link color (`.simple-page`, `.update-meta`, `.card`, `.footer-col`, `.nav-links`, `.btn`) or you must give it an explicit color — otherwise it silently falls back to the browser's default blue. This has happened before (the footer image-credit link, fixed under AYWC-153).
 
+## Cache-busting static assets
+
+Every `<script src="...">` and `<link rel="stylesheet" href="...">` in `base.njk`/templates should carry a `?v=YYYYMMDD` query param (bump it whenever the file's content changes). Netlify/the dev server don't set cache-busting headers on `src/assets/` files, so an unversioned asset can silently keep serving a stale cached copy after a deploy — this caused real debugging confusion more than once (mistaking a stale `community.js` and a stale `style.css` for live bugs). If a JS/CSS file has no `?v=` param, add one before editing it.
+
 ## Key external links
 
 - Live site: https://agniyogaworld.org/
