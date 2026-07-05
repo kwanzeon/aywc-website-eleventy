@@ -15,6 +15,9 @@
       var regionMatch = activeRegion === 'all' || card.dataset.region === activeRegion;
       var show = typeMatch && regionMatch;
       card.style.display = show ? '' : 'none';
+      // A filter change reflows which cards share a row, so any row-mate
+      // stretch override left over from an expanded card no longer applies.
+      card.style.alignSelf = '';
       if (show) visible++;
     });
     var status = document.getElementById('community-filter-status');
@@ -89,6 +92,22 @@
     return trimTrailingStopwords(full.slice(0, cut)) + '…';
   }
 
+  // .card-grid-2 relies on the default align-items: stretch so same-row
+  // cards match height at rest (a card with no "Show more" button
+  // shouldn't look shorter than its neighbor just because it has less
+  // text). Stretch is exactly what caused AYWC-155's original bug though:
+  // expanding a card grows the whole row, and stretch then force-grows the
+  // shorter sibling's own box into that space. So instead of disabling
+  // stretch globally, only the current row-mates of an actively expanded
+  // card get pinned to their natural height, and only for as long as it's
+  // expanded.
+  function getRowMates(card) {
+    var top = card.offsetTop;
+    return Array.prototype.filter.call(document.querySelectorAll('#community-list .card'), function (c) {
+      return c !== card && c.offsetParent !== null && Math.abs(c.offsetTop - top) < 2;
+    });
+  }
+
   document.querySelectorAll('.card-desc').forEach(function (p) {
     if (p.closest('[data-has-page]')) return;
     var full = p.textContent;
@@ -98,6 +117,9 @@
     p.textContent = preview;
     p.style.maxHeight = p.scrollHeight + 'px';
 
+    var card = p.closest('.card');
+    var lockedMates = [];
+
     var btn = document.createElement('button');
     btn.className = 'card-desc-toggle';
     btn.setAttribute('aria-expanded', 'false');
@@ -105,14 +127,26 @@
     p.insertAdjacentElement('afterend', btn);
     btn.addEventListener('click', function () {
       var expanded = btn.getAttribute('aria-expanded') === 'true';
+
+      if (!expanded) {
+        // About to expand: measure row-mates before this card grows.
+        lockedMates = getRowMates(card);
+        lockedMates.forEach(function (m) { m.style.alignSelf = 'start'; });
+      }
+
       // Swap the text first so scrollHeight reflects the new content's
       // natural height, then apply it as max-height so the row transitions
-      // smoothly instead of jumping (AYWC-155) — the sibling card no longer
-      // stretches to match since .card-grid-2 uses align-items: start.
+      // smoothly instead of jumping (AYWC-155).
       p.textContent = expanded ? preview : full;
       p.style.maxHeight = p.scrollHeight + 'px';
       btn.textContent = expanded ? 'Show more' : 'Show less';
       btn.setAttribute('aria-expanded', String(!expanded));
+
+      if (expanded) {
+        // Collapsing again: release the row-mates back to stretch.
+        lockedMates.forEach(function (m) { m.style.alignSelf = ''; });
+        lockedMates = [];
+      }
     });
   });
 

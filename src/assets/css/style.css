@@ -352,7 +352,7 @@ nav {
 }
 
 .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
-.card-grid-2 { grid-template-columns: repeat(2, 1fr); align-items: start; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
 
 @media (max-width: 900px) {
   .card-grid-3 { grid-template-columns: repeat(2, 1fr); }
