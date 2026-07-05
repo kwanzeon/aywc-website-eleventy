@@ -9,7 +9,11 @@ navPage: "home"
 <section id="hero" aria-label="Hero">
   <div class="hero-banner">
     <h1 class="sr-only">Agni Yoga World Community</h1>
-    <img src="/assets/banner.png" alt="Agni Yoga World Community — banner showing the Maitreya seal against Himalayan mountains and starlit sky" />
+    <picture>
+      <source type="image/avif" srcset="/assets/images/banner/banner-400.avif 400w, /assets/images/banner/banner-750.avif 750w, /assets/images/banner/banner-1123.avif 1123w" sizes="100vw">
+      <source type="image/webp" srcset="/assets/images/banner/banner-400.webp 400w, /assets/images/banner/banner-750.webp 750w, /assets/images/banner/banner-1123.webp 1123w" sizes="100vw">
+      <img src="/assets/images/banner/banner-1123.jpg" srcset="/assets/images/banner/banner-400.jpg 400w, /assets/images/banner/banner-750.jpg 750w, /assets/images/banner/banner-1123.jpg 1123w" sizes="100vw" width="1123" height="239" alt="Agni Yoga World Community — banner showing the Maitreya seal against Himalayan mountains and starlit sky" />
+    </picture>
   </div>
   <div class="hero-intro">
     <div class="hero-intro-inner">
