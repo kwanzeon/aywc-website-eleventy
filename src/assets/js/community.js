@@ -109,10 +109,20 @@
   // between them directly, in sync with the expanding card's own
   // max-height transition.
   function getRowMates(card) {
-    var top = card.offsetTop;
-    return Array.prototype.filter.call(document.querySelectorAll('#community-list .card'), function (c) {
-      return c !== card && c.offsetParent !== null && Math.abs(c.offsetTop - top) < 2;
+    var grid = document.getElementById('community-list');
+    var visible = Array.prototype.filter.call(grid.querySelectorAll('.card'), function (c) {
+      return c.offsetParent !== null;
     });
+    var columnCount = window.getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
+    var index = visible.indexOf(card);
+    if (columnCount < 2 || index === -1) return [];
+    var rowStart = Math.floor(index / columnCount) * columnCount;
+    var rowEnd = Math.min(rowStart + columnCount, visible.length);
+    var mates = [];
+    for (var i = rowStart; i < rowEnd; i++) {
+      if (visible[i] !== card) mates.push(visible[i]);
+    }
+    return mates;
   }
 
   var TRANSITION_MS = 300;
