@@ -58,6 +58,26 @@
   var TRUNCATE_AT = 220;
   var MIN_SENTENCE_CUT = TRUNCATE_AT * 0.5;
 
+  // Descriptions with no sentence break before the limit (e.g. one long
+  // clause strung together with em-dashes) fall back to a word-boundary
+  // cut, which can still land right after a weak trailing word like "and"
+  // or "their" and read as an abrupt cutoff. Trim those off too.
+  var TRAILING_STOPWORDS = new Set([
+    'a', 'an', 'the', 'and', 'or', 'but', 'nor', 'of', 'to', 'in', 'on',
+    'at', 'with', 'their', 'his', 'her', 'its', 'our', 'your', 'my',
+    'that', 'which', 'who', 'for', 'as', 'by', 'from', 'is', 'are', 'was', 'were'
+  ]);
+
+  function trimTrailingStopwords(text) {
+    var words = text.split(' ');
+    var trims = 0;
+    while (words.length > 1 && trims < 5 && TRAILING_STOPWORDS.has(words[words.length - 1].toLowerCase().replace(/[^a-z]/gi, ''))) {
+      words.pop();
+      trims++;
+    }
+    return words.join(' ');
+  }
+
   function truncateDescription(full) {
     var head = full.slice(0, TRUNCATE_AT);
     var sentenceEnd = Math.max(head.lastIndexOf('. '), head.lastIndexOf('! '), head.lastIndexOf('? '));
@@ -66,7 +86,7 @@
     }
     var cut = full.lastIndexOf(' ', TRUNCATE_AT);
     if (cut < 0) cut = TRUNCATE_AT;
-    return full.slice(0, cut) + '…';
+    return trimTrailingStopwords(full.slice(0, cut)) + '…';
   }
 
   document.querySelectorAll('.card-desc').forEach(function (p) {
