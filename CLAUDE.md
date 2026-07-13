@@ -24,7 +24,7 @@ Static site built with **Eleventy 3.x** and **Nunjucks** templates, hosted on **
 - `src/_includes/base.njk` — single shared layout; all pages set `layout: base.njk` and `navPage` for active nav highlighting
 - `src/community/entry.njk` — pagination template that generates one page per community entry with `has_page: true` (the `communityPages` collection)
 - `src/assets/js/` — all client-side JS lives here as external files (`site.js` nav toggle, `identity-redirect.js` Netlify Identity token forwarder, `community.js` filters + accordion, `forum.js` Discourse topics + accordion, `seed-thoughts.js`). The CSP in `netlify.toml` has no `'unsafe-inline'` for scripts, so do NOT add inline `<script>` blocks or `onclick=` attributes to templates — they will be blocked in production.
-- `src/assets/js/seed-thoughts.js` — large JS object (`window.AYWC_SEED_THOUGHTS`) keyed by `"Month DD"` date strings; the homepage picks today's entry client-side
+- Daily "Seed Thought" content lives in `src/assets/data/seed-thoughts/MM.json` (one file per month, keyed by zero-padded day); `src/_data/seedThought.js` picks the build day's entry for server-side render into the homepage, and `src/assets/js/seed-thoughts.js` is a small progressive-enhancement loader that fetches the visitor's local month JSON only when their local date differs from the build date (initial load and at local midnight)
 - `_site/` — generated output, not committed
 
 ### Content collections
@@ -38,6 +38,18 @@ Decap CMS config at `admin/config.yml` maps CMS fields to the same `src/_data/` 
 ## Deployment
 
 Netlify builds on every push to `main` (Node 22, `npm run build`, publishes `_site/`). CMS edits commit directly to `main` — pull before starting local work to avoid conflicts.
+
+## Link styling
+
+The site has no global link-color fallback (by design — nav/footer/card links all set their own color via class-based rules, and a global rule would conflict with them, e.g. overriding underline/no-underline behavior that varies by context). Any new in-copy link must land inside a wrapper that already sets link color (`.simple-page`, `.update-meta`, `.card`, `.footer-col`, `.nav-links`, `.btn`) or you must give it an explicit color — otherwise it silently falls back to the browser's default blue. This has happened before (the footer image-credit link, fixed under AYWC-153).
+
+## Cache-busting static assets
+
+Every `<script src="...">` and `<link rel="stylesheet" href="...">` in `base.njk`/templates should carry a `?v=YYYYMMDD` query param (bump it whenever the file's content changes). Netlify/the dev server don't set cache-busting headers on `src/assets/` files, so an unversioned asset can silently keep serving a stale cached copy after a deploy — this caused real debugging confusion more than once (mistaking a stale `community.js` and a stale `style.css` for live bugs). If a JS/CSS file has no `?v=` param, add one before editing it.
+
+## Content style
+
+Site copy follows **The Chicago Manual of Style** (AYWC-168). The concrete rule that's come up in practice: em dashes have no surrounding spaces (`word—word`, not `word — word`). When adding or editing visitor-facing text — page titles, meta descriptions, body copy, alt text, aria-labels — use an unspaced em dash. Don't apply this to code comments (not site content) or to en-dash ranges (`Tuesday–Friday`), which CMOS treats under a different, more context-dependent rule.
 
 ## Key external links
 

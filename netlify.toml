@@ -5,6 +5,9 @@
 [build.environment]
   NODE_VERSION = "22"
 
+[functions]
+  directory = "netlify/functions"
+
 [[redirects]]
   from = "/join/"
   to = "/connect/"
@@ -32,7 +35,7 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     # script-src has no 'unsafe-inline': all site JS lives in /assets/js/.
     # style-src keeps 'unsafe-inline' because templates use style="" attributes.
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://forum.agniyogaworld.org; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://forum.agniyogaworld.org; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
 
 [[headers]]
   for = "/admin/*"

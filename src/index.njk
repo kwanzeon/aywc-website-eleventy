@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-pageTitle: "Agni Yoga World Community — Living Ethics Teaching & Study Groups Worldwide"
+pageTitle: "Agni Yoga World Community—Living Ethics Teaching & Study Groups Worldwide"
 navPage: "home"
 ---
 
@@ -9,13 +9,17 @@ navPage: "home"
 <section id="hero" aria-label="Hero">
   <div class="hero-banner">
     <h1 class="sr-only">Agni Yoga World Community</h1>
-    <img src="/assets/banner.png" alt="Agni Yoga World Community — banner showing the Maitreya seal against Himalayan mountains and starlit sky" />
+    <picture>
+      <source type="image/avif" srcset="/assets/images/banner/banner-400.avif 400w, /assets/images/banner/banner-750.avif 750w, /assets/images/banner/banner-1123.avif 1123w" sizes="100vw">
+      <source type="image/webp" srcset="/assets/images/banner/banner-400.webp 400w, /assets/images/banner/banner-750.webp 750w, /assets/images/banner/banner-1123.webp 1123w" sizes="100vw">
+      <img src="/assets/images/banner/banner-1123.jpg" srcset="/assets/images/banner/banner-400.jpg 400w, /assets/images/banner/banner-750.jpg 750w, /assets/images/banner/banner-1123.jpg 1123w" sizes="100vw" width="1123" height="239" alt="Agni Yoga World Community—banner showing the Maitreya seal against Himalayan mountains and starlit sky" />
+    </picture>
   </div>
   <div class="hero-intro">
     <div class="hero-intro-inner">
       <div>
         <div class="hero-operator">Agni Yoga World Community</div>
-        <p class="hero-tagline">A global gathering place for students and groups working with the Living Ethics teachings — sharing knowledge, community, and the path of conscious evolution.</p>
+        <p class="hero-tagline">A global gathering place for students and groups working with the Living Ethics teachings—sharing knowledge, community, and the path of conscious evolution.</p>
       </div>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="/what-is-agni-yoga/">Start Learning Agni Yoga</a>
@@ -34,14 +38,13 @@ navPage: "home"
     </svg>
   </div>
 
-  <section class="seed-thought-section" data-seed-thought aria-labelledby="seed-thought-title">
+  <section class="seed-thought-section" data-seed-thought data-seed-thought-built="{{ seedThought.dateKey }}" aria-labelledby="seed-thought-title">
     <div class="section-inner">
       <div class="seed-thought-card">
         <span class="seed-thought-label">Daily Planting</span>
-        <h2 id="seed-thought-title" data-seed-thought-date>Agni Yoga Seed Thought for Today</h2>
+        <h2 id="seed-thought-title" data-seed-thought-date>Agni Yoga Seed Thought for {{ seedThought.label }}</h2>
         <div class="seed-thought-content" data-seed-thought-content aria-live="polite">
-          <p>Loading today&rsquo;s seed thought...</p>
-          <noscript><p>Seed thoughts require JavaScript. You can read the Agni Yoga books directly at <a href="https://agniyoga.org/" target="_blank" rel="noopener">agniyoga.org<span class="sr-only"> (opens in new tab)</span></a>.</p></noscript>
+          {{ seedThought.html | safe }}
         </div>
       </div>
     </div>
@@ -78,7 +81,7 @@ navPage: "home"
       <div class="forum-cta-grid">
         <div class="forum-cta-text">
           <div class="section-label on-dark">Open Discussion</div>
-          <h2 id="forum-cta-heading" class="forum-cta-heading">The conversation is ongoing . . .</h2>
+          <h2 id="forum-cta-heading" class="forum-cta-heading">The conversation is ongoing&nbsp;.&nbsp;.&nbsp;.</h2>
           <p class="forum-cta-body">Students from across the world gather to study, question, and support one another. The forum is open to all sincere seekers.</p>
           <a class="btn btn-outline-dark" href="/forum/">Join the conversation &rarr;</a>
         </div>
@@ -94,33 +97,14 @@ navPage: "home"
 
   <section id="start-here" aria-labelledby="start-here-heading" class="start-section">
     <div class="section-inner">
-      <div class="section-header">
-        <div>
-          <div class="section-label">New to Agni Yoga?</div>
-          <h2 id="start-here-heading" class="section-heading">Start Here</h2>
+      <div class="start-callout">
+        <div class="section-label">New to Agni Yoga?</div>
+        <h2 id="start-here-heading" class="section-heading">You Don&rsquo;t Have to Begin Alone</h2>
+        <p class="start-callout-body">However you found your way here, others have walked this path before you and are walking it now. Find a study group to learn alongside them, or read the introduction first if you&rsquo;d like an overview.</p>
+        <div class="start-callout-ctas">
+          <a class="btn btn-primary" href="/community/">Find a Study Group</a>
+          <a class="start-callout-link" href="/what-is-agni-yoga/">Read the introduction first &rarr;</a>
         </div>
-      </div>
-      <div class="start-grid">
-        <a class="start-card" href="/what-is-agni-yoga/">
-          <span class="start-step">01</span>
-          <h3>Learn what Agni Yoga is</h3>
-          <p>Begin with a clear introduction to the Living Ethics Teaching and its place in daily life.</p>
-        </a>
-        <a class="start-card" href="/about/">
-          <span class="start-step">02</span>
-          <h3>Read about the foundational teachings</h3>
-          <p>Explore the Seven Pillars of Agni Yoga and the lives of Helena and Nicholas Roerich.</p>
-        </a>
-        <a class="start-card" href="/resources/">
-          <span class="start-step">03</span>
-          <h3>Explore study resources</h3>
-          <p>Use curated resources to support independent reading, reflection, and group discussion.</p>
-        </a>
-        <a class="start-card" href="/community/">
-          <span class="start-step">04</span>
-          <h3>Find or join a study group</h3>
-          <p>Connect with existing groups or learn how to add your own group to the directory.</p>
-        </a>
       </div>
     </div>
   </section>
@@ -174,5 +158,5 @@ navPage: "home"
 
 </main>
 
-<script src="/assets/js/seed-thoughts.js?v=20260612" defer></script>
-<script src="/assets/js/forum.js" defer></script>
+<script src="/assets/js/seed-thoughts.js?v=20260704" defer></script>
+<script src="/assets/js/forum.js?v=20260705" defer></script>

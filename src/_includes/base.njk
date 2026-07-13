@@ -3,27 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% if pageTitle %}{{ pageTitle }}{% elif title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+  <title>{% if pageTitle %}{{ pageTitle }}{% elif title %}{{ title }}—{{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
   <meta name="description" content="{{ metaDescription if metaDescription else site.description }}" />
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="{{ site.name }}" />
-  <meta property="og:title" content="{% if pageTitle %}{{ pageTitle }}{% elif title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}" />
+  <meta property="og:title" content="{% if pageTitle %}{{ pageTitle }}{% elif title %}{{ title }}—{{ site.name }}{% else %}{{ site.name }}{% endif %}" />
   <meta property="og:description" content="{{ metaDescription if metaDescription else site.description }}" />
   <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
   <meta property="og:image" content="{{ site.url }}/assets/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{% if pageTitle %}{{ pageTitle }}{% elif title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}" />
+  <meta name="twitter:title" content="{% if pageTitle %}{{ pageTitle }}{% elif title %}{{ title }}—{{ site.name }}{% else %}{{ site.name }}{% endif %}" />
   <meta name="twitter:description" content="{{ metaDescription if metaDescription else site.description }}" />
   <meta name="twitter:image" content="{{ site.url }}/assets/og-image.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/fonts.css?v=20260705" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260705" />
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png" />
-  <script src="/assets/js/identity-redirect.js"></script>
+  <script src="/assets/js/identity-redirect.js?v=20260705"></script>
   <noscript>
     <style>
       /* Without JS the nav toggle can't work — show the links instead. */
@@ -93,8 +91,10 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-copy">&copy; 2026 White Mountain Education Association, Inc. All rights reserved.</div>
-        <div class="footer-image-credit">Paintings by Nicholas Roerich used with permission of the <a href="https://www.roerichmuseum.org/" target="_blank" rel="noopener" class="on-dark">Nicholas Roerich Museum<span class="sr-only"> (opens in new tab)</span></a>, New York.</div>
+        <div class="footer-copy-group">
+          <div class="footer-copy">&copy; 2026 White Mountain Education Association, Inc. All rights reserved.</div>
+          <div class="footer-image-credit">Paintings by Nicholas Roerich used with permission of the <a href="https://www.roerichmuseum.org/" target="_blank" rel="noopener" class="on-dark">Nicholas Roerich Museum<span class="sr-only"> (opens in new tab)</span></a>, New York.</div>
+        </div>
         <div class="footer-bottom-links">
           <a href="/privacy-policy/" class="on-dark">Privacy Policy</a>
           <a href="/terms-of-use/" class="on-dark">Terms of Use</a>
@@ -104,7 +104,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/site.js?v=20260705" defer></script>
 
 
 </body>

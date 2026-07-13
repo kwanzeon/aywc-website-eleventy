@@ -27,10 +27,12 @@ metaDescription: "Learn about Agni Yoga (Living Ethics), the spiritual Teaching 
       <p style="font-family:'Jost',sans-serif;font-size:0.85rem;color:var(--text-muted);margin-bottom:2rem;">{{ about.overview.author_title }}</p>
       {% endif %}
       {% for paragraph in about.overview.intro %}
+      {# | safe is intentional: intro paragraphs use <em> for book-title italics (AYWC-165).
+         CMS hint in admin/config.yml documents this to editors. #}
       <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;font-weight:400;margin-bottom:1.2rem;">{{ paragraph | safe }}</p>
       {% endfor %}
       {% for pillar in about.overview.pillars %}
-      <div style="margin-top:2.5rem;">
+      <div class="pillar-block">
         <h3 style="font-family:'Cinzel',serif;font-weight:400;font-size:1.15rem;color:var(--accent);margin-bottom:0.75rem;">{{ pillar.title }}</h3>
         {% for paragraph in pillar.body %}
         <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;font-weight:400;{% if not loop.last %}margin-bottom:1rem;{% endif %}">{{ paragraph }}</p>
@@ -45,7 +47,7 @@ metaDescription: "Learn about Agni Yoga (Living Ethics), the spiritual Teaching 
       <div class="section-label on-dark">{{ about.roerich.label }}</div>
       <h2 class="section-heading on-dark" style="margin-bottom:3rem;">{{ about.roerich.heading }}</h2>
       <figure class="roerich-feature">
-        <img src="{{ about.roerich.image.src }}" alt="{{ about.roerich.image.alt }}" loading="lazy" decoding="async" />
+        <img src="{{ about.roerich.image.src }}" alt="{{ about.roerich.image.alt }}" width="{{ about.roerich.image.width }}" height="{{ about.roerich.image.height }}" loading="lazy" decoding="async" />
         <figcaption>{{ about.roerich.image.caption }}</figcaption>
       </figure>
       <div class="two-col-grid" style="gap:4rem;">
