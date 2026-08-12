@@ -12,9 +12,9 @@ email: kennethagarcher@mac.com
 established: "1972"
 membership: No formal membership; no dues payable
 short_description: >
-  Founded in 1972, this London study group meets in person on the first Wednesday of each month
-  to read and discuss the Agni Yoga teachings together, working through the books in sequence
-  over a two-year cycle.
+  Founded in 1972, this London study group meets in person, on the first Wednesday of each
+  month, to read and discuss in sequence the Agni Yoga Series as well as the writings of
+  Helena Roerich.
 order: 99
 ---
 The group meets regularly from 7:00 to 9:00 pm on the first Wednesday of each calendar month at the Hampstead Community Centre, 78 Hampstead High Street, London NW3 1RE. The nearest Tube station is Hampstead on the Northern line, a five-minute walk away.
