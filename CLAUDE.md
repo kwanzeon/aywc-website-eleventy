@@ -29,7 +29,7 @@ Static site built with **Eleventy 3.x** and **Nunjucks** templates, hosted on **
 
 ### Content collections
 
-Each collection lives in `src/content/<type>/` and is configured in both `.eleventy.js` (for build) and `admin/config.yml` (for CMS editing). **Keep `admin/config.yml` in sync with the data files: Decap rewrites whole files on save, so any JSON field missing from the CMS schema is silently deleted when an editor saves.** Community entries have `types` (Organization / Study Group / Online Study) and a `region` field (`Americas`, `Europe`, `Asia-Pacific`, `Other`) used for client-side filtering on the community index. The `order` number field controls display order (lower = first, default 99). `community.11tydata.json` sets `permalink: false` so direct collection pages aren't generated; entries with `has_page: true` get pages via `src/community/entry.njk`.
+Each collection lives in `src/content/<type>/` and is configured in both `.eleventy.js` (for build) and `admin/config.yml` (for CMS editing). **Keep `admin/config.yml` in sync with the data files: Decap rewrites whole files on save, so any JSON field missing from the CMS schema is silently deleted when an editor saves.** Community entries have `types` (Organization / Study Group) and a `region` field (`Americas`, `Europe`, `Asia-Pacific`, `Other`) used for client-side filtering on the community index. The `order` number field controls display order (lower = first, default 99). `community.11tydata.json` sets `permalink: false` so direct collection pages aren't generated; entries with `has_page: true` get pages via `src/community/entry.njk`.
 
 ### CMS
 

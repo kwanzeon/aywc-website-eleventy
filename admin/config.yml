@@ -133,7 +133,7 @@ collections:
         name: "types"
         widget: "select"
         multiple: true
-        options: ["Organization", "Study Group", "Online Study"]
+        options: ["Organization", "Study Group"]
       - {label: "Region", name: "region", widget: "select", options: ["Americas", "Europe", "Asia-Pacific", "Other"], required: false}
       - {label: "Location", name: "location", widget: "string", required: false, hint: "City, Country"}
       - {label: "Format", name: "format", widget: "string", required: false, hint: "e.g. In-person & Online"}

@@ -1179,7 +1179,7 @@ footer {
   min-height: 1.5em; /* reserve the line so updates don't shift the grid */
 }
 
-/* ── Online Study card links ─────────────────────────────────────────────── */
+/* ── Card dual-link row (e.g. website + secondary link) ─────────────────── */
 .card-links {
   display: flex;
   gap: 1.5rem;
