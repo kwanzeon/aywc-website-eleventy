@@ -1,11 +1,11 @@
 {
-  "_comment": "MOCK DATA (AYWC-183 preview). Maps MM-DD to its forum topic. Nothing in Discourse has been changed — these ids are invented so both link states can be reviewed. Days absent from this file render the 'Be the first to reflect' state.",
-  "08-31": { "id": 118, "slug": "seed-thought-31-august", "replies": 14 },
-  "09-02": { "id": 121, "slug": "seed-thought-2-september", "replies": 3 },
-  "09-07": { "id": 126, "slug": "seed-thought-7-september", "replies": 9 },
-  "01-10": { "id": 42,  "slug": "seed-thought-10-january", "replies": 14 },
-  "01-17": { "id": 47,  "slug": "seed-thought-17-january", "replies": 6 },
-  "03-03": { "id": 58,  "slug": "seed-thought-3-march", "replies": 21 },
-  "06-21": { "id": 93,  "slug": "seed-thought-21-june", "replies": 1 },
-  "12-25": { "id": 12,  "slug": "seed-thought-25-december", "replies": 33 }
+  "_comment": "MOCK DATA (AYWC-183 preview). Nothing in Discourse has been created yet, so these entries carry only a reply count and deliberately NO topic id. Without an id the link falls back to the forum home. Do not invent ids: Discourse resolves /t/slug/ID by the number and ignores the slug, so a made-up id silently lands on whatever real topic holds it. When the real Seed Thought topics exist, add \"id\" and \"slug\" per day and the links resolve properly.",
+  "08-31": { "replies": 14 },
+  "09-02": { "replies": 3 },
+  "09-07": { "replies": 9 },
+  "01-10": { "replies": 14 },
+  "01-17": { "replies": 6 },
+  "03-03": { "replies": 21 },
+  "06-21": { "replies": 1 },
+  "12-25": { "replies": 33 }
 }

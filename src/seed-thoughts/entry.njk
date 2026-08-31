@@ -35,7 +35,7 @@ eleventyComputed:
 
       <div class="seed-actions">
         {% if thought.thread %}
-        <a class="seed-discuss" href="https://forum.agniyogaworld.org/t/{{ thought.thread.slug }}/{{ thought.thread.id }}" target="_blank" rel="noopener">
+        <a class="seed-discuss" href="{{ thought.threadUrl }}" target="_blank" rel="noopener">
           Discuss this passage&mdash;{{ thought.thread.replies }} {{ "reply" if thought.thread.replies == 1 else "replies" }} &rarr;<span class="sr-only"> (opens in new tab)</span>
         </a>
         {% else %}

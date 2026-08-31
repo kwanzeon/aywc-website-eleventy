@@ -31,9 +31,12 @@
     return threadsPromise;
   }
 
-  function plainText(html) {
+  /* Plain text of one paragraph. Tags are removed without inserting spaces so a
+     citation like "(<i>FW II</i>, 8)" stays "(FW II, 8)". Mirrors
+     paragraphText() in _data/seedThoughts.js. */
+  function paragraphText(chunk) {
     var tmp = document.createElement('div');
-    tmp.innerHTML = html;
+    tmp.innerHTML = chunk.replace(/<span class="sr-only">[\s\S]*?<\/span>/gi, '');
     return (tmp.textContent || '').replace(/\s+/g, ' ').trim();
   }
 
@@ -43,16 +46,22 @@
     return m[1].trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
   }
 
+  /* Keep in sync with buildComposerBody() in _data/seedThoughts.js: the whole
+     passage (no excerpt — this is the post that opens the discussion), quoted,
+     and linked with markdown so Discourse does not onebox a bare URL. */
   function composerUrl(key, label, html) {
-    var text = plainText(html);
-    // Trailing blank lines put the caret below the link rather than on the end
-    // of it. Keep in sync with _data/seedThoughts.js.
-    var body = text.slice(0, 480) + (text.length > 480 ? '…' : '') +
-               '\n\n' + SITE + '/seed-thoughts/' + key + '/' +
-               '\n\n\n';
+    var body = html
+      .split(/<\/p>/i)
+      .map(paragraphText)
+      .filter(function (l) { return l.length > 0; })
+      .map(function (l) { return '> ' + l; })
+      .join('\n> \n') +
+      '\n\nFrom [Seed Thought for ' + label + '](' + SITE + '/seed-thoughts/' + key + '/)' +
+      '\n\n\u200B';
+
     var slug = bookSlug(html);
     return FORUM + '/new-topic' +
-      '?title=' + encodeURIComponent('Seed Thought — ' + label) +
+      '?title=' + encodeURIComponent('Seed Thought \u2014 ' + label) +
       '&body=' + encodeURIComponent(body) +
       '&category=seed-thought' +
       (slug ? '&tags=' + encodeURIComponent(slug) : '');
@@ -68,8 +77,12 @@
     var thread = threads && threads[key];
 
     if (thread) {
-      link.href = FORUM + '/t/' + encodeURIComponent(String(thread.slug)) + '/' +
-                  encodeURIComponent(String(thread.id));
+      // No id means no real topic yet — send them to the forum rather than
+      // guessing. Keep in sync with threadUrl in _data/seedThoughts.js.
+      link.href = thread.id
+        ? FORUM + '/t/' + encodeURIComponent(String(thread.slug || 'topic')) + '/' +
+          encodeURIComponent(String(thread.id))
+        : FORUM + '/';
       link.classList.remove('seed-discuss-empty');
       link.textContent = 'Discuss this passage—' + thread.replies +
                          (thread.replies === 1 ? ' reply' : ' replies') + ' →';

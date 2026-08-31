@@ -55,6 +55,56 @@ function externalLinks(html) {
   );
 }
 
+/**
+ * Plain text of one paragraph. Tags are removed without inserting spaces, so a
+ * citation like "(<i>FW II</i>, 8)" stays "(FW II, 8)" rather than "( FW II , 8)".
+ */
+function paragraphText(chunk) {
+  return chunk
+    .replace(/<span class="sr-only">[\s\S]*?<\/span>/gi, "")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&mdash;/g, "\u2014")
+    .replace(/&rsquo;/g, "\u2019")
+    .replace(/&ldquo;|&rdquo;/g, '"')
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * The passage as it should appear in a new forum topic.
+ *
+ * The whole passage goes in, never an excerpt: this is the post that opens the
+ * discussion, and a partial quote is a poor thing to think about. Measured
+ * across all 366, the longest resulting URL is ~3.1k characters, well inside
+ * nginx's 8k request line and every browser's limit, so there is nothing to
+ * save by trimming.
+ *
+ * Two other things this has to get right:
+ *  - quote the passage, so the writer's own words are visually theirs
+ *  - link with markdown, NOT a bare URL. A bare URL alone on a line makes
+ *    Discourse onebox it, which shows a broken-preview error while the page is
+ *    not yet in production, and a heavy preview card once it is.
+ *
+ * Takes the raw stored HTML, not the version with external-link attributes
+ * added, so the "(opens in new tab)" note never reaches the quote.
+ */
+function buildComposerBody(raw, key, label) {
+  const quoted = raw
+    .split(/<\/p>/i)
+    .map(paragraphText)
+    .filter(function (line) { return line.length > 0; })
+    .map(function (line) { return "> " + line; })
+    .join("\n> \n");
+
+  return quoted +
+    `\n\nFrom [Seed Thought for ${label}](${SITE}/seed-thoughts/${key}/)` +
+    // Discourse trims trailing whitespace, so a newline alone would not hold
+    // this line open. A zero-width space is not whitespace to trim().
+    "\n\n\u200B";
+}
+
 function stripTags(html) {
   return html
     .replace(/<[^>]+>/g, " ")
@@ -86,7 +136,8 @@ module.exports = function () {
     const data = JSON.parse(fs.readFileSync(path.join(dir, `${mm}.json`), "utf8"));
 
     Object.keys(data).sort().forEach(function (dd) {
-      const html = externalLinks(data[dd]);
+      const raw = data[dd];
+      const html = externalLinks(raw);
       const key = `${mm}-${dd}`;
       const label = `${monthNames[m - 1]} ${parseInt(dd, 10)}`;
 
@@ -95,16 +146,9 @@ module.exports = function () {
       const abbr = cite ? cite[2].trim() : "";
       const text = stripTags(html);
 
-      // Body for the "start the discussion" composer, kept short enough to sit
-      // comfortably in a URL. The trailing blank lines matter: Discourse drops
-      // the caret at the end of the prefilled body, and without them the writer
-      // starts typing on the same line as the link.
+      // Body for the "start the discussion" composer.
       // Keep in sync with composerUrl() in assets/js/seed-thoughts.js.
-      const composerBody =
-        text.slice(0, 480) +
-        (text.length > 480 ? "…" : "") +
-        `\n\n${SITE}/seed-thoughts/${key}/` +
-        "\n\n\n";
+      const composerBody = buildComposerBody(raw, key, label);
 
       entries.push({
         key: key,
@@ -123,6 +167,18 @@ module.exports = function () {
         bookUrl: cite ? cite[1] : "",
         reference: cite ? cite[3].trim() : "",
         thread: threads[key] || null,
+        // One place decides where "Discuss this passage" goes. A thread entry
+        // without an id has no real topic yet, so fall back to the forum home
+        // rather than guessing an id — Discourse resolves /t/slug/ID by the
+        // number and ignores the slug, so a wrong id lands on a real, unrelated
+        // topic instead of erroring.
+        threadUrl: (function () {
+          const t = threads[key];
+          if (t && t.id) {
+            return `${FORUM}/t/${t.slug || "topic"}/${t.id}`;
+          }
+          return `${FORUM}/`;
+        })(),
         composerUrl:
           FORUM + "/new-topic" +
           "?title=" + encodeURIComponent(`Seed Thought — ${label}`) +

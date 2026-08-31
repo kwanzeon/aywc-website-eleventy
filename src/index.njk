@@ -49,7 +49,7 @@ navPage: "home"
         <div class="seed-thought-actions">
           {% if seedThought.thread %}
           <a class="seed-discuss" data-seed-thought-link
-             href="https://forum.agniyogaworld.org/t/{{ seedThought.thread.slug }}/{{ seedThought.thread.id }}"
+             href="{{ seedThought.threadUrl }}"
              target="_blank" rel="noopener">Discuss this passage&mdash;{{ seedThought.thread.replies }} {{ "reply" if seedThought.thread.replies == 1 else "replies" }} &rarr;<span class="sr-only"> (opens in new tab)</span></a>
           {% else %}
           <a class="seed-discuss seed-discuss-empty" data-seed-thought-link
@@ -170,5 +170,5 @@ navPage: "home"
 
 </main>
 
-<script src="/assets/js/seed-thoughts.js?v=20260831c" defer></script>
+<script src="/assets/js/seed-thoughts.js?v=20260831g" defer></script>
 <script src="/assets/js/forum.js?v=20260705" defer></script>

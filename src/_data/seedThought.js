@@ -21,6 +21,7 @@ module.exports = function () {
       label: "",
       html: "<p>Seed Thoughts unavailable at this time.</p>",
       thread: null,
+      threadUrl: "https://forum.agniyogaworld.org/",
       composerUrl: "",
       total: data.total
     };
@@ -31,6 +32,7 @@ module.exports = function () {
     label: entry.label,
     html: entry.html,
     thread: entry.thread,
+    threadUrl: entry.threadUrl,
     composerUrl: entry.composerUrl,
     total: data.total
   };
