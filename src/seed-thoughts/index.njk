@@ -1,0 +1,54 @@
+---
+layout: base.njk
+title: "Seed Thoughts"
+navPage: "seed-thoughts"
+permalink: "/seed-thoughts/index.html"
+metaDescription: "A Seed Thought for every day of the year—366 passages from the Agni Yoga books, with links to the discussion of each."
+---
+
+<header aria-label="Page header">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-label on-dark">Daily Planting</div>
+      <h1 class="page-hero-title">Seed Thoughts</h1>
+      <p class="page-hero-subtitle">A passage for every day of the year, drawn from the Agni Yoga books&mdash;{{ seedThoughts.total }} in all.</p>
+      <div class="page-hero-line"></div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="seed-index">
+  <div class="seed-index-inner">
+
+    <div class="seed-filters" role="group" aria-label="Filter by book">
+      <button type="button" class="seed-chip is-active" data-book="all">All<span>{{ seedThoughts.total }}</span></button>
+      {% for book in seedThoughts.books %}
+      <button type="button" class="seed-chip" data-book="{{ book.slug }}">{{ book.title }}<span>{{ book.count }}</span></button>
+      {% endfor %}
+    </div>
+
+    <p class="seed-filter-status" aria-live="polite" aria-atomic="true" id="seed-filter-status"></p>
+
+    {% set months = ["January","February","March","April","May","June","July","August","September","October","November","December"] %}
+    {% for month in months %}
+    <section class="seed-month" data-month="{{ month }}" aria-labelledby="month-{{ loop.index }}">
+      <h2 class="seed-month-heading" id="month-{{ loop.index }}">{{ month }}</h2>
+      <ul class="seed-list">
+        {% for thought in seedThoughts.all %}{% if thought.month == month %}
+        <li class="seed-row" data-book="{{ thought.bookSlug }}">
+          <a href="/seed-thoughts/{{ thought.key }}/">
+            <span class="seed-row-day">{{ thought.day }}</span>
+            <span class="seed-row-text">{{ thought.teaser }}</span>
+            <span class="seed-row-book">{{ thought.bookAbbr }}</span>
+            {% if thought.thread %}<span class="seed-row-replies">{{ thought.thread.replies }}</span>{% endif %}
+          </a>
+        </li>
+        {% endif %}{% endfor %}
+      </ul>
+    </section>
+    {% endfor %}
+
+  </div>
+</main>
+
+<script src="/assets/js/seed-thought-index.js?v=20260831" defer></script>

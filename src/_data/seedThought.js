@@ -1,23 +1,37 @@
-const fs = require("fs");
-const path = require("path");
-
-const monthNames = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
+/**
+ * The build day's Seed Thought, server-rendered on the homepage.
+ *
+ * Reuses the parsed archive (seedThoughts.js) so the homepage and the archive
+ * pages agree on the citation, the thread link and the composer fallback.
+ */
+const allThoughts = require("./seedThoughts.js");
 
 module.exports = function () {
   const now = new Date();
   const mm = String(now.getMonth() + 1).padStart(2, "0");
   const dd = String(now.getDate()).padStart(2, "0");
+  const dateKey = `${mm}-${dd}`;
 
-  const monthFile = path.join(__dirname, "../assets/data/seed-thoughts", `${mm}.json`);
-  const monthData = JSON.parse(fs.readFileSync(monthFile, "utf8"));
-  const html = monthData[dd] || "<p>Seed Thoughts unavailable at this time.</p>";
+  const data = allThoughts();
+  const entry = data.all.find((e) => e.key === dateKey);
+
+  if (!entry) {
+    return {
+      dateKey: dateKey,
+      label: "",
+      html: "<p>Seed Thoughts unavailable at this time.</p>",
+      thread: null,
+      composerUrl: "",
+      total: data.total
+    };
+  }
 
   return {
-    dateKey: `${mm}-${dd}`,
-    label: `${monthNames[now.getMonth()]} ${now.getDate()}`,
-    html
+    dateKey: entry.key,
+    label: entry.label,
+    html: entry.html,
+    thread: entry.thread,
+    composerUrl: entry.composerUrl,
+    total: data.total
   };
 };

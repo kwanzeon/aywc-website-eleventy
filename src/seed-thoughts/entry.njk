@@ -1,0 +1,60 @@
+---
+pagination:
+  data: seedThoughts.all
+  size: 1
+  alias: thought
+  addAllPagesToCollections: true
+permalink: "seed-thoughts/{{ thought.key }}/index.html"
+layout: base.njk
+navPage: "seed-thoughts"
+eleventyComputed:
+  title: "Seed Thought for {{ thought.label }}"
+  metaDescription: "{{ thought.excerpt }}"
+---
+
+<main id="main-content" class="seed-page">
+  <div class="seed-page-inner">
+
+    <nav class="seed-crumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true"><span>/</span></li>
+        <li><a href="/seed-thoughts/">Seed Thoughts</a></li>
+        <li aria-hidden="true"><span>/</span></li>
+        <li aria-current="page"><span>{{ thought.label }}</span></li>
+      </ol>
+    </nav>
+
+    <article class="seed-article">
+      <span class="seed-thought-label">Daily Planting</span>
+      <h1 class="seed-page-title">Agni Yoga Seed Thought for {{ thought.label }}</h1>
+
+      <div class="seed-thought-content seed-page-content">
+        {{ thought.html | safe }}
+      </div>
+
+      <div class="seed-actions">
+        {% if thought.thread %}
+        <a class="seed-discuss" href="https://forum.agniyogaworld.org/t/{{ thought.thread.slug }}/{{ thought.thread.id }}" target="_blank" rel="noopener">
+          Discuss this passage&mdash;{{ thought.thread.replies }} {{ "reply" if thought.thread.replies == 1 else "replies" }} &rarr;<span class="sr-only"> (opens in new tab)</span>
+        </a>
+        {% else %}
+        <a class="seed-discuss seed-discuss-empty" href="{{ thought.composerUrl }}" target="_blank" rel="noopener">
+          Be the first to reflect on this passage &rarr;<span class="sr-only"> (opens in new tab)</span>
+        </a>
+        {% endif %}
+
+        <nav class="seed-neighbours" aria-label="Nearby days">
+          <a href="/seed-thoughts/{{ thought.prev.key }}/">&larr; {{ thought.prev.label }}</a>
+          <a href="/seed-thoughts/{{ thought.next.key }}/">{{ thought.next.label }} &rarr;</a>
+        </nav>
+
+        <p class="seed-source">
+          From <a href="/seed-thoughts/?book={{ thought.bookSlug }}"><cite>{{ thought.bookTitle }}</cite></a>
+          &middot; <a href="/seed-thoughts/">Browse all {{ seedThoughts.total }} Seed Thoughts</a>
+        </p>
+      </div>
+    </article>
+
+  </div>
+</main>

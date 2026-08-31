@@ -46,6 +46,18 @@ navPage: "home"
         <div class="seed-thought-content" data-seed-thought-content aria-live="polite">
           {{ seedThought.html | safe }}
         </div>
+        <div class="seed-thought-actions">
+          {% if seedThought.thread %}
+          <a class="seed-discuss" data-seed-thought-link
+             href="https://forum.agniyogaworld.org/t/{{ seedThought.thread.slug }}/{{ seedThought.thread.id }}"
+             target="_blank" rel="noopener">Discuss this passage&mdash;{{ seedThought.thread.replies }} {{ "reply" if seedThought.thread.replies == 1 else "replies" }} &rarr;<span class="sr-only"> (opens in new tab)</span></a>
+          {% else %}
+          <a class="seed-discuss seed-discuss-empty" data-seed-thought-link
+             href="{{ seedThought.composerUrl }}"
+             target="_blank" rel="noopener">Be the first to reflect on this passage &rarr;<span class="sr-only"> (opens in new tab)</span></a>
+          {% endif %}
+          <a class="seed-thought-browse" href="/seed-thoughts/">Browse all {{ seedThought.total }} Seed Thoughts &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
@@ -158,5 +170,5 @@ navPage: "home"
 
 </main>
 
-<script src="/assets/js/seed-thoughts.js?v=20260704" defer></script>
+<script src="/assets/js/seed-thoughts.js?v=20260831" defer></script>
 <script src="/assets/js/forum.js?v=20260705" defer></script>
