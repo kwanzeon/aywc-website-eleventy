@@ -78,7 +78,10 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ── Nav ─────────────────────────────────────────────────────────────────── */
-nav {
+/* Scoped to the site nav (a direct child of body). A bare `nav {}` selector
+   also caught in-page <nav> landmarks — breadcrumbs, prev/next — giving them a
+   navy sticky bar and a gold rule they were never meant to have. */
+body > nav {
   position: sticky;
   top: 0;
   z-index: 100;
@@ -104,9 +107,9 @@ nav {
 
 .nav-links a {
   color: var(--nav-text);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.055em;
   text-transform: uppercase;
   transition: background 0.2s, color 0.2s;
   display: inline-flex;
@@ -948,18 +951,18 @@ footer {
 }
 
 .footer-copy-group { display: flex; flex-direction: column; gap: 0.35rem; }
-.footer-copy { color: rgba(232,221,208,0.65); font-size: 0.75rem; }
-.footer-image-credit { color: rgba(232,221,208,0.65); font-size: 0.75rem; }
+.footer-copy { color: rgba(232,221,208,0.85); font-size: 0.8rem; }
+.footer-image-credit { color: rgba(232,221,208,0.85); font-size: 0.8rem; }
 .footer-image-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
 .footer-image-credit a:hover { color: var(--accent-on-dark); }
 
 .footer-bottom-links { display: flex; gap: 2rem; }
 
 .footer-bottom-links a {
-  color: rgba(232,221,208,0.65);
-  font-size: 0.75rem;
+  color: rgba(232,221,208,0.88);
+  font-size: 0.8rem;
   font-weight: 400;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: color 0.2s;
 }
 
