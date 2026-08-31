@@ -35,6 +35,26 @@ const BOOKS = {
 const FORUM = "https://forum.agniyogaworld.org";
 const SITE = "https://agniyogaworld.org";
 
+/**
+ * Source citations are stored as plain <a> tags in the JSON. Open them in a new
+ * tab so a reader following a citation doesn't lose the page they were reading,
+ * matching the convention used everywhere else on the site (target + rel, plus
+ * a screen-reader note).
+ * Keep in sync with markExternal() in assets/js/seed-thoughts.js.
+ */
+function externalLinks(html) {
+  return html.replace(
+    /<a href="(https?:\/\/[^"]+)"([^>]*)>([\s\S]*?)<\/a>/g,
+    function (match, href, attrs, inner) {
+      if (/agniyogaworld\.org/.test(href)) return match;
+      if (/target=/.test(attrs)) return match;
+      return '<a href="' + href + '"' + attrs +
+             ' target="_blank" rel="noopener">' + inner +
+             '<span class="sr-only"> (opens in new tab)</span></a>';
+    }
+  );
+}
+
 function stripTags(html) {
   return html
     .replace(/<[^>]+>/g, " ")
@@ -66,21 +86,25 @@ module.exports = function () {
     const data = JSON.parse(fs.readFileSync(path.join(dir, `${mm}.json`), "utf8"));
 
     Object.keys(data).sort().forEach(function (dd) {
-      const html = data[dd];
+      const html = externalLinks(data[dd]);
       const key = `${mm}-${dd}`;
       const label = `${monthNames[m - 1]} ${parseInt(dd, 10)}`;
 
       // Citation: <a href="…"><i>ABBR</i></a>, 229)
-      const cite = html.match(/href="([^"]+)"><i>([^<]+)<\/i><\/a>,?\s*([^)]*)\)/);
+      const cite = html.match(/href="([^"]+)"[^>]*><i>([^<]+)<\/i>(?:<span[^>]*>[^<]*<\/span>)?<\/a>,?\s*([^)]*)\)/);
       const abbr = cite ? cite[2].trim() : "";
       const text = stripTags(html);
 
       // Body for the "start the discussion" composer, kept short enough to sit
-      // comfortably in a URL.
+      // comfortably in a URL. The trailing blank lines matter: Discourse drops
+      // the caret at the end of the prefilled body, and without them the writer
+      // starts typing on the same line as the link.
+      // Keep in sync with composerUrl() in assets/js/seed-thoughts.js.
       const composerBody =
         text.slice(0, 480) +
         (text.length > 480 ? "…" : "") +
-        `\n\n${SITE}/seed-thoughts/${key}/`;
+        `\n\n${SITE}/seed-thoughts/${key}/` +
+        "\n\n\n";
 
       entries.push({
         key: key,

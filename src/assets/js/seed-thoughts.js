@@ -45,8 +45,11 @@
 
   function composerUrl(key, label, html) {
     var text = plainText(html);
+    // Trailing blank lines put the caret below the link rather than on the end
+    // of it. Keep in sync with _data/seedThoughts.js.
     var body = text.slice(0, 480) + (text.length > 480 ? '…' : '') +
-               '\n\n' + SITE + '/seed-thoughts/' + key + '/';
+               '\n\n' + SITE + '/seed-thoughts/' + key + '/' +
+               '\n\n\n';
     var slug = bookSlug(html);
     return FORUM + '/new-topic' +
       '?title=' + encodeURIComponent('Seed Thought — ' + label) +
@@ -82,6 +85,23 @@
     link.appendChild(note);
   }
 
+  /* Same treatment the build applies to citations, for content swapped in
+     after load. Done on the DOM rather than the HTML string.
+     Keep in sync with externalLinks() in _data/seedThoughts.js. */
+  function markExternal(container) {
+    if (!container) return;
+    container.querySelectorAll('a[href^="http"]').forEach(function (a) {
+      if (a.hostname === window.location.hostname) return;
+      if (a.target === '_blank') return;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      var note = document.createElement('span');
+      note.className = 'sr-only';
+      note.textContent = ' (opens in new tab)';
+      a.appendChild(note);
+    });
+  }
+
   function applyThought(root, key, label, html, threads) {
     var title = root.querySelector('[data-seed-thought-date]');
     var content = root.querySelector('[data-seed-thought-content]');
@@ -90,6 +110,7 @@
     }
     if (content) {
       content.innerHTML = html;
+      markExternal(content);
     }
     applyLink(root, key, label, html, threads);
   }
