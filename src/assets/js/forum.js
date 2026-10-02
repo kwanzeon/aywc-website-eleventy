@@ -56,8 +56,8 @@
         srNote.textContent = ' (opens in new tab)';
         a.appendChild(srNote);
 
-        var replies = Number(t.reply_count) || 0;
-        var replyText = replies === 1 ? '1 reply' : replies + ' replies';
+        // Reply counts are deliberately not shown: while the forum is young most
+        // topics have none, and "0 replies" reads worse than a bare date.
         var date = '';
         if (t.last_posted_at) {
           var d = new Date(t.last_posted_at);
@@ -65,12 +65,14 @@
             date = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
           }
         }
-        var meta = document.createElement('span');
-        meta.className = 'forum-topic-meta';
-        meta.textContent = replyText + (date ? ' · ' + date : '');
 
         li.appendChild(a);
-        li.appendChild(meta);
+        if (date) {
+          var meta = document.createElement('span');
+          meta.className = 'forum-topic-meta';
+          meta.textContent = date;
+          li.appendChild(meta);
+        }
         list.appendChild(li);
       });
 

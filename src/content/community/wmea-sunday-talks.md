@@ -1,7 +1,7 @@
 ---
 title: WMEA Sunday Talks
 types:
-  - Online Study
+  - Organization
 region: Americas
 location: "Prescott, Arizona, USA"
 website: "https://wmea-world.org/dv/sunday-lectures-registration/"

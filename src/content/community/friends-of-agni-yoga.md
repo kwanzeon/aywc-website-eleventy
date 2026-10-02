@@ -1,7 +1,7 @@
 ---
 title: Friends of Agni Yoga
 types:
-  - Online Study
+  - Study Group
 region: Europe
 location: Flanders, Belgium
 format: Online

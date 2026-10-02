@@ -1,0 +1,11 @@
+{
+  "_comment": "MOCK DATA (AYWC-183 preview). Nothing in Discourse has been created yet, so these entries carry only a reply count and deliberately NO topic id. Without an id the link falls back to the forum home. Do not invent ids: Discourse resolves /t/slug/ID by the number and ignores the slug, so a made-up id silently lands on whatever real topic holds it. When the real Seed Thought topics exist, add \"id\" and \"slug\" per day and the links resolve properly.",
+  "08-31": { "replies": 14 },
+  "09-02": { "replies": 3 },
+  "09-07": { "replies": 9 },
+  "01-10": { "replies": 14 },
+  "01-17": { "replies": 6 },
+  "03-03": { "replies": 21 },
+  "06-21": { "replies": 1 },
+  "12-25": { "replies": 33 }
+}
