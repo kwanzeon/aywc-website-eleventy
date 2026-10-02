@@ -164,7 +164,7 @@ collections:
       - {label: "Extra Sidebar Card Link Text", name: "extra_link_text", widget: "string", required: false}
       - {label: "Short Description", name: "short_description", widget: "text", hint: "2–3 sentences shown on the community card"}
       - {label: "Full Content", name: "body", widget: "markdown", required: false, hint: "Full content for entries with a dedicated page"}
-      - {label: "Display Order", name: "order", widget: "number", default: 99, hint: "Lower numbers appear first"}
+      - {label: "Display Order", name: "order", widget: "number", default: 99, hint: "Not currently used: community cards are listed alphabetically by title"}
 
   - name: "resources"
     label: "Resources"
