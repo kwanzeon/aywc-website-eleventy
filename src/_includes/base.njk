@@ -107,6 +107,17 @@
 
   <script src="/assets/js/site.js?v=20260705" defer></script>
 
+  {# GoatCounter (AYWC-180): cookieless, no personal data, no consent banner.
+     count.js is vendored into /assets/js/ rather than loaded from gc.zgo.at so
+     the CSP keeps script-src 'self'. Upstream: https://gc.zgo.at/count.js (ISC).
+     The endpoint needs connect-src (sendBeacon) AND img-src (the <img> fallback
+     count.js uses when sendBeacon is blocked) — both are set in netlify.toml.
+     Production builds only (see _data/build.js), so staging never counts. #}
+  {% if build.production %}
+  <script data-goatcounter="https://aywc.goatcounter.com/count"
+          src="/assets/js/count.js?v=20260901" defer></script>
+  <script src="/assets/js/analytics-events.js?v=20261021" defer></script>
+  {% endif %}
 
 </body>
 </html>
