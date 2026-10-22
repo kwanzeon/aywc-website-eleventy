@@ -5,6 +5,7 @@ types:
 region: Europe
 format: Online
 has_page: true
+has_contact_form: true
 website: https://agni-yoga.site
 short_description: >
   A digital platform for studying the Teaching of Living Ethics, with free access to the

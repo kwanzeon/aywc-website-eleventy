@@ -138,6 +138,7 @@ collections:
       - {label: "Location", name: "location", widget: "string", required: false, hint: "City, Country"}
       - {label: "Format", name: "format", widget: "string", required: false, hint: "e.g. In-person & Online"}
       - {label: "Has Dedicated Page", name: "has_page", widget: "boolean", default: false, required: false}
+      - {label: "Has Contact Form", name: "has_contact_form", widget: "boolean", default: false, required: false, hint: "Show a \"Get in Touch\" form on the dedicated page; messages arrive via Netlify Forms for the team to forward"}
       - {label: "Address", name: "address", widget: "string", required: false}
       - {label: "Phone", name: "phone", widget: "string", required: false}
       - {label: "Email", name: "email", widget: "string", required: false}
