@@ -12,7 +12,7 @@ short_description: >
   both on the Web and elsewhere, as formally or informally as we want.
 order: 99
 ---
-Looking for an Agni Yoga Group in New York City?
+Looking for an Agni Yoga group in New York City?
 
 I’m interested in connecting with others in the area who want to learn about Agni Yoga and the Roerichs, both on the Web and elsewhere. Our gatherings in NYC could be as frequent or infrequent, formal or informal as we want.
 
